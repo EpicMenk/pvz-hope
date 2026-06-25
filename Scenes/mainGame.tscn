@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chppiawucylpk"]
+
+[ext_resource type="Script" uid="uid://bhirt0qy0u56y" path="res://Grid/boardManager.gd" id="1_3fgs5"]
+[ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
+
+[node name="Game" type="Node2D" unique_id=323427591]
+
+[node name="BoardManager" type="Node2D" parent="." unique_id=369926797]
+unique_name_in_owner = true
+script = ExtResource("1_3fgs5")
+
+[node name="Plants" type="Node2D" parent="BoardManager" unique_id=1527356968]
+unique_name_in_owner = true
+
+[node name="Button" type="Button" parent="." unique_id=557355019]
+offset_right = 217.70833
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "spawn plants"
+script = ExtResource("2_dx5hc")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]

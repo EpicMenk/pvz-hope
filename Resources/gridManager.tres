@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="gridManager" format=3 uid="uid://dkxjhgi37wuiy"]
+
+[ext_resource type="Script" uid="uid://dsoa1pxncs46" path="res://Grid/gridManager.gd" id="1_0ygpj"]
+
+[resource]
+script = ExtResource("1_0ygpj")
+boardSize = Rect2(0, 0, 1400, 800)
+grid_Row_Column_size = Vector2(9, 5)
+metadata/_custom_type_script = "uid://dsoa1pxncs46"
