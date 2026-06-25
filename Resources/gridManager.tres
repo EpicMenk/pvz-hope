@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_0ygpj")
-boardSize = Rect2(0, 0, 1400, 800)
-grid_Row_Column_size = Vector2(9, 5)
+boardSize = Vector2(1300, 1000)
+grid_Row_Column_size = Vector2i(9, 5)
 metadata/_custom_type_script = "uid://dsoa1pxncs46"

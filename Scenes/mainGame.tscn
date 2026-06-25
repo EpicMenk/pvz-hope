@@ -11,6 +11,7 @@ script = ExtResource("1_3fgs5")
 
 [node name="Plants" type="Node2D" parent="BoardManager" unique_id=1527356968]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="Button" type="Button" parent="." unique_id=557355019]
 offset_right = 217.70833

@@ -48,19 +48,6 @@ func as_index(grid: Vector2i) -> int:
 	return int(grid.x + grid_Row_Column_size.x * grid.y)
 
 #------------------------------------------------------------------------------#
-func Add_To_GridDic(grid: Vector2i , object: Variant):
-	gridOccupant [grid] = object
+
 
 #------------------------------------------------------------------------------#
-func Is_Occupied(grid:Vector2i) -> bool:
-	return gridOccupant.has(grid)
-
-
-func getObjectAtGrid(grid : Vector2i) -> Variant:
-	return gridOccupant.get(grid)
-
-func removeFromGrid(grid : Vector2i):
-	var toRemove : Variant = gridOccupant.get(grid)
-	if toRemove:
-		gridOccupant.erase(grid)
-		toRemove.queue_free()
