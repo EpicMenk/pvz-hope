@@ -15,8 +15,15 @@ var grid_size: Vector2:
 
 var center_Of_Grid : Vector2 :
 	get:
-		return grid_size/2
+		return grid_size/ 2
 
+var laneCount: int:
+	get:
+		return grid_Row_Column_size.y
+
+var columnCount: int:
+	get:
+		return grid_Row_Column_size.x
 
 var gridOccupant : Dictionary [Vector2i , Variant] = {}
 

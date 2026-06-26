@@ -4,17 +4,20 @@ class_name boardManager
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 @onready var plantSide := %Plants
 @onready var zombieSide := %Zombies
+@onready var debug_controller: debugController = %DebugController
+
 var gridOccupants : Dictionary [Vector2i , Variant] = {}
 var zombieInLanes : Array[laneData]
 
 
 func _ready() -> void:
 	SignalBus.connect("placePlant" , placePlant)
-	initializeZombieLanes()
+	initializeLanes()
 
 
-func addToGridDic(grid: Vector2i , object: Variant):
+func registerGridOccupant(grid: Vector2i , object: Variant):
 	gridOccupants [grid] = object
+	debug_controller.refresh()
 
 
 func isOccupied(grid:Vector2i) -> bool:
@@ -25,7 +28,7 @@ func getObjectAtGrid(grid : Vector2i) -> Variant:
 	return gridOccupants.get(grid)
 
 
-func removeFromGrid(grid : Vector2i):
+func unregisterGridOccupant(grid : Vector2i):
 	var toRemove : Variant = gridOccupants.get(grid)
 	if toRemove:
 		gridOccupants.erase(grid)
@@ -34,9 +37,9 @@ func removeFromGrid(grid : Vector2i):
 
 ## Zombies
 
-func initializeZombieLanes():
-	zombieInLanes.resize(_gridManager.grid_Row_Column_size.y)
-	for lanes in _gridManager.grid_Row_Column_size.y :
+func initializeLanes():
+	zombieInLanes.resize(_gridManager.laneCount)
+	for lanes in _gridManager.laneCount :
 		zombieInLanes[lanes] = laneData.new()
 
 func registerZombie(zombie : Zombie):
@@ -52,7 +55,7 @@ func getZombiesInLane(lane : int) -> Array[Zombie]:
 	return zombieInLanes[lane].zombies.duplicate(false)
 
 func printZombies():
-	for i in _gridManager.grid_Row_Column_size.y:
+	for i in _gridManager.laneCount:
 		print(zombieInLanes[i].printLanes())
 
 
@@ -60,15 +63,26 @@ func printZombies():
 
 func placePlant(plant : Plant , _position : Vector2):
 	var grid : Vector2i = _gridManager.get_Coordinate(_position)
-	var newPos : Vector2 = _gridManager.get_Position(grid)
-	if _gridManager.is_On_Lawn(grid) == false:
+	if not canPlacePlant(grid):
 		return
-	if isOccupied(grid) == true :
-		return 
 	
+	finalizePlantPlacement(plant , grid)
+
+
+func finalizePlantPlacement(plant: Plant, grid: Vector2i):
 	plant.dragC.isDragged = false
 	plant.dragC.queue_free()
-	plant.global_position =  newPos
 	plant.grid = grid
-	addToGridDic(grid , plant)
-	print(newPos , "," , _position , " , " , _gridManager.get_Coordinate(_position))
+	plant._boardManager = self
+	plant.global_position = _gridManager.get_Position(grid)
+	registerGridOccupant(grid, plant)
+
+
+func canPlacePlant(grid: Vector2i) -> bool:
+	if not _gridManager.is_On_Lawn(grid):
+		return false
+
+	if isOccupied(grid):
+		return false
+
+	return true

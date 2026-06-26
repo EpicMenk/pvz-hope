@@ -1,4 +1,4 @@
-extends Node2D
+extends boardEntity
 class_name Plant
 
 @export var dragC : dragComponent

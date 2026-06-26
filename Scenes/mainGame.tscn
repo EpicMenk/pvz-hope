@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chppiawucylpk"]
 
 [ext_resource type="Script" uid="uid://bhirt0qy0u56y" path="res://Grid/boardManager.gd" id="1_3fgs5"]
+[ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 
@@ -16,6 +17,15 @@ y_sort_enabled = true
 
 [node name="Zombies" type="Node2D" parent="BoardManager" unique_id=1761822789]
 unique_name_in_owner = true
+
+[node name="DebugController" type="Node2D" parent="BoardManager" unique_id=230407231]
+unique_name_in_owner = true
+script = ExtResource("2_2k2ja")
+drawGrid = true
+drawCoordinates = true
+drawOccupiedGrids = true
+drawLaneNumbers = true
+drawLaneLines = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1509141968]
 offset_right = 40.0

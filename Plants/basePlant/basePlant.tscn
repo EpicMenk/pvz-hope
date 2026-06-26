@@ -14,7 +14,7 @@ dragC = NodePath("dragComponent")
 hpC = NodePath("hpComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605545839]
-position = Vector2(0, -55)
+position = Vector2(0, -3)
 scale = Vector2(0.5563383, 0.6448927)
 texture = SubResource("CompressedTexture2D_q2sqp")
 

@@ -11,6 +11,7 @@ func spawnZombie():
 	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))
 	board_manager.zombieSide.add_child(zombie)
 	board_manager.registerZombie(zombie)
+	zombie._boardManager = board_manager
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_select"):
