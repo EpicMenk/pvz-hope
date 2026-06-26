@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhirt0qy0u56y" path="res://Grid/boardManager.gd" id="1_3fgs5"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
+[ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 
 [node name="Game" type="Node2D" unique_id=323427591]
 
@@ -13,11 +14,25 @@ script = ExtResource("1_3fgs5")
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Button" type="Button" parent="." unique_id=557355019]
-offset_right = 217.70833
-offset_bottom = 50.0
+[node name="Zombies" type="Node2D" parent="BoardManager" unique_id=1761822789]
+unique_name_in_owner = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1509141968]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=557355019]
+layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "spawn plants"
 script = ExtResource("2_dx5hc")
 
-[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=46419034]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "spawn zombies"
+script = ExtResource("3_ldq11")
+
+[connection signal="button_up" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_button_up"]
+[connection signal="button_up" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_button_up"]

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c37ki858atwe5" path="res://Components/hpComponent.tscn" id="2_khxjq"]
 [ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="3_yawjj"]
 [ext_resource type="PackedScene" uid="uid://gpqcuxgvxou5" path="res://Components/dragComponent.tscn" id="4_yawjj"]
-[ext_resource type="Script" uid="uid://bw8m4fedjx75v" path="res://Components/componentScripts/dragComponent.gd" id="5_q2sqp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q2sqp"]
 load_path = "res://.godot/imported/pea_baby-removebg-preview.png-cd101b79a477016c56d4f317e9028a51.ctex"
@@ -15,6 +14,7 @@ dragC = NodePath("dragComponent")
 hpC = NodePath("hpComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605545839]
+position = Vector2(0, -55)
 scale = Vector2(0.5563383, 0.6448927)
 texture = SubResource("CompressedTexture2D_q2sqp")
 
@@ -22,4 +22,3 @@ texture = SubResource("CompressedTexture2D_q2sqp")
 script = ExtResource("3_yawjj")
 
 [node name="dragComponent" parent="." unique_id=2127445933 instance=ExtResource("4_yawjj")]
-script = ExtResource("5_q2sqp")

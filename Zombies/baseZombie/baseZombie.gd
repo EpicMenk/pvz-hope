@@ -1,6 +1,6 @@
 extends Node2D
-class_name Plant
+class_name Zombie
 
-@export var dragC : dragComponent
 @export var hpC : hpComponent
 var grid : Vector2i
+var lane : int
