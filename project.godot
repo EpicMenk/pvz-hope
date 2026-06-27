@@ -25,6 +25,12 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[layer_names]
+
+2d_physics/layer_1="Plants"
+2d_physics/layer_2="Zombies"
+2d_physics/layer_3="Projectiles"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

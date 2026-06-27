@@ -24,7 +24,6 @@ func _process(_delta):
 	tryShoot()
 
 func updateShoot():
-	print("Timer finished:", parent.name, "lane:", parent.lane)
 	readyToShoot = true
 	timeBetweenShotsTimer.stop()
 
@@ -46,9 +45,6 @@ func shoot() -> void:
 	timeBetweenShotsTimer.start()
 
 func spawnProjectile(point : Marker2D):
-	pass
-	print("s" , parent.lane)
-	#placeholder until i make a projectile scene and class
-	#var projectile = projectileScene.instantiate()
-	#projectile.global_position = point.global_position
-	#parent._boardManager.projectileSide.add_child(projectile)
+	var _projectile : projectile = projectileScene.instantiate()
+	_projectile.global_position = point.global_position
+	parent._boardManager.projectileSide.add_child(_projectile)

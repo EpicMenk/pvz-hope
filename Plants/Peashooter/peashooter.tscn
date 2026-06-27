@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://bu5x5yjvapyb4"]
 
-[ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_jxixo"]
-[ext_resource type="Texture2D" uid="uid://dgbvxk7a6w33t" path="res://PlaceholderArt/pea_baby-removebg-preview.png" id="2_27ltk"]
-[ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_27ltk"]
+[ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_mhgda"]
+[ext_resource type="Texture2D" uid="uid://dgbvxk7a6w33t" path="res://PlaceholderArt/pea_baby-removebg-preview.png" id="2_gn6hk"]
+[ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
+[ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
 
-[node name="Peashooter" unique_id=719743608 instance=ExtResource("1_jxixo")]
+[node name="Peashooter" unique_id=719743608 instance=ExtResource("1_mhgda")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=1605545839]
 scale = Vector2(0.5563383, 0.6448927)
-texture = ExtResource("2_27ltk")
+texture = ExtResource("2_gn6hk")
 
 [node name="hpComponent" parent="." index="1" unique_id=1638797325]
 maxHP = 100
 
 [node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206]
-script = ExtResource("3_27ltk")
+script = ExtResource("3_1sky7")
 timeBetweenShots = 3.0
+projectileScene = ExtResource("4_4rmwx")
 
 [node name="spawnPoints" type="Node2D" parent="straightShooterComponent" index="0" unique_id=1843943047]
 unique_name_in_owner = true

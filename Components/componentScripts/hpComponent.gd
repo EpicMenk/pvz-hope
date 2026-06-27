@@ -26,6 +26,7 @@ func takeDamage(damage: int):
 		shield -= absorbed
 		damage -= absorbed
 	currentHP -= damage
+	print(currentHP , "," , damage)
 	damaged.emit(damage)
 
 func heal(amount : int):

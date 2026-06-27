@@ -3,14 +3,15 @@ class_name gridManager
 
 #-------Variables--------#
 #first number is row second is column
-@export var boardSize : Vector2 # x value represents width and y for height
 @export var grid_Row_Column_size : Vector2i = Vector2(20,20)
+@export var grid_size := Vector2(80, 100)
 
-
-
-var grid_size: Vector2:
+var boardSize: Vector2:
 	get:
-		return Vector2(boardSize.x / grid_Row_Column_size.x,boardSize.y / grid_Row_Column_size.y)
+		return Vector2(
+			grid_size.x * grid_Row_Column_size.x,
+			grid_size.y * grid_Row_Column_size.y
+		)
 
 
 var center_Of_Grid : Vector2 :
