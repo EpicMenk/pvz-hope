@@ -27,6 +27,8 @@ drawOccupiedGrids = true
 drawLaneNumbers = true
 drawLaneLines = true
 
+[node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1509141968]
 offset_right = 40.0
 offset_bottom = 40.0

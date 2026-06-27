@@ -7,11 +7,12 @@ extends Button
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
 	var zombie : Zombie = preload("res://Zombies/baseZombie/baseZombie.tscn").instantiate()
-	zombie.lane = spawnLane
+	zombie._boardManager = board_manager
+	zombie.grid = Vector2(9 , spawnLane)
 	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))
 	board_manager.zombieSide.add_child(zombie)
 	board_manager.registerZombie(zombie)
-	zombie._boardManager = board_manager
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_select"):

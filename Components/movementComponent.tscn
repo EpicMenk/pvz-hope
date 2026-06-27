@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bo0l2erwmddx4"]
+
+[ext_resource type="Script" uid="uid://drccc8ihxypk1" path="res://Components/componentScripts/movementComponent.gd" id="1_dayei"]
+
+[node name="movementComponent" type="Node" unique_id=1109977849]
+script = ExtResource("1_dayei")
+speed = 50.0

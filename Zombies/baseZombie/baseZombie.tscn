@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nd2hikxhc76m"]
 
 [ext_resource type="Script" uid="uid://ddtctg8v11c76" path="res://Zombies/baseZombie/baseZombie.gd" id="1_g00xo"]
+[ext_resource type="PackedScene" uid="uid://bo0l2erwmddx4" path="res://Components/movementComponent.tscn" id="2_dn3ib"]
 
 [node name="baseZombie" type="Node2D" unique_id=2108398841]
 script = ExtResource("1_g00xo")
@@ -11,3 +12,5 @@ scale = Vector2(0.99100345, 1.609159)
 offset = Vector2(-10.090782, -32.31502)
 polygon = PackedVector2Array(72.00003, -72, -56, -71.99999, -56, 31.999992, 72, 31.999992)
 uv = PackedVector2Array(67.19998, -69.99999, -56, -71.99999, -56, 31.999992, 64, 31.999992)
+
+[node name="movementComponent" parent="." unique_id=1109977849 instance=ExtResource("2_dn3ib")]

@@ -3,7 +3,7 @@ extends Button
 @onready var _boardManager : boardManager = %BoardManager
 
 func spawningPlant():
-	var spawnPlant : Plant = preload("res://Plants/basePlant/basePlant.tscn").instantiate()
+	var spawnPlant : Plant = preload("res://Plants/peashooter.tscn").instantiate()
 	_boardManager.plantSide.add_child(spawnPlant)
 	spawnPlant.position = get_global_mouse_position()
 	if spawnPlant.dragC :

@@ -5,13 +5,15 @@ class_name boardManager
 @onready var plantSide := %Plants
 @onready var zombieSide := %Zombies
 @onready var debug_controller: debugController = %DebugController
+@onready var projectileSide := $Projectiles
+
 
 var gridOccupants : Dictionary [Vector2i , Variant] = {}
 var zombieInLanes : Array[laneData]
 
 
 func _ready() -> void:
-	SignalBus.connect("placePlant" , placePlant)
+	SignalBus.connect("placePlant" , tryPlacePlant)
 	initializeLanes()
 
 
@@ -34,8 +36,18 @@ func unregisterGridOccupant(grid : Vector2i):
 		gridOccupants.erase(grid)
 		toRemove.queue_free()
 
+func gridToWorld(grid: Vector2i) -> Vector2:
+	return _gridManager.get_Position(grid)
+
+func worldToGrid(_position: Vector2) -> Vector2i:
+	return _gridManager.get_Coordinate(_position)
 
 ## Zombies
+func isZombieAhead(lane: int, xPosition: float) -> bool:
+	for zombie: Zombie in zombieInLanes[lane].zombies:
+		if zombie.global_position.x > xPosition:
+			return true
+	return false
 
 func initializeLanes():
 	zombieInLanes.resize(_gridManager.laneCount)
@@ -61,28 +73,17 @@ func printZombies():
 
 ## Plants
 
-func placePlant(plant : Plant , _position : Vector2):
-	var grid : Vector2i = _gridManager.get_Coordinate(_position)
+func tryPlacePlant(plant : Plant , _position : Vector2):
+	var grid : Vector2i = worldToGrid(_position)
 	if not canPlacePlant(grid):
 		return
-	
-	finalizePlantPlacement(plant , grid)
+	plant.placePlant(grid , self)
 
-
-func finalizePlantPlacement(plant: Plant, grid: Vector2i):
-	plant.dragC.isDragged = false
-	plant.dragC.queue_free()
-	plant.grid = grid
-	plant._boardManager = self
-	plant.global_position = _gridManager.get_Position(grid)
-	registerGridOccupant(grid, plant)
 
 
 func canPlacePlant(grid: Vector2i) -> bool:
 	if not _gridManager.is_On_Lawn(grid):
 		return false
-
 	if isOccupied(grid):
 		return false
-
 	return true

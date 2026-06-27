@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dvl63fo6tlxw"]
+
+[ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="1_1uygn"]
+
+[node name="straightShooterComponent" type="Node2D" unique_id=182938206]
+script = ExtResource("1_1uygn")
+timeBetweenShots = 3.0
+
+[node name="spawnPoints" type="Node2D" parent="." unique_id=1843943047]
+unique_name_in_owner = true
+
+[node name="timeBetweenShots" type="Timer" parent="." unique_id=1416722337]
+unique_name_in_owner = true
+one_shot = true
