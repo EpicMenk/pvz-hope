@@ -1,36 +1,27 @@
 [gd_scene format=3 uid="uid://nd2hikxhc76m"]
 
 [ext_resource type="Script" uid="uid://ddtctg8v11c76" path="res://Zombies/baseZombie/baseZombie.gd" id="1_g00xo"]
-[ext_resource type="PackedScene" uid="uid://bo0l2erwmddx4" path="res://Components/movementComponent.tscn" id="2_dn3ib"]
-[ext_resource type="Script" uid="uid://bht8wbkxmohvh" path="res://Components/componentScripts/hurtboxComponent.gd" id="3_t0q7i"]
+[ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="3_x688a"]
+[ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/zombieMeleeAttackComponent.tscn" id="4_ubbys"]
 [ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="4_x688a"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sun4s"]
-size = Vector2(150, 150)
+[ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/zombieMovementComponent.tscn" id="5_4eq78"]
 
 [node name="baseZombie" type="Node2D" unique_id=2108398841]
 script = ExtResource("1_g00xo")
 team = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1519678057]
-position = Vector2(2, 29.000004)
-scale = Vector2(0.99100345, 1.609159)
-offset = Vector2(-10.090782, -32.31502)
-polygon = PackedVector2Array(72.00003, -72, -56, -71.99999, -56, 31.999992, 72, 31.999992)
-uv = PackedVector2Array(67.19998, -69.99999, -56, -71.99999, -56, 31.999992, 64, 31.999992)
-
-[node name="movementComponent" parent="." unique_id=1109977849 instance=ExtResource("2_dn3ib")]
-
-[node name="hurtboxComponent" type="Area2D" parent="." unique_id=585474810 node_paths=PackedStringArray("hpC")]
+[node name="hurtboxComponent" parent="." unique_id=1135247198 instance=ExtResource("3_x688a")]
 unique_name_in_owner = true
-script = ExtResource("3_t0q7i")
-hpC = NodePath("../hpComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtboxComponent" unique_id=1190855001]
-scale = Vector2(0.99006253, 1)
-shape = SubResource("RectangleShape2D_sun4s")
 
 [node name="hpComponent" type="Node" parent="." unique_id=1730016595]
 script = ExtResource("4_x688a")
 maxHP = 1
 metadata/_custom_type_script = "uid://crtgmpr781hw8"
+
+[node name="zombieMeleeAttackComponent" parent="." unique_id=125088792 instance=ExtResource("4_ubbys")]
+unique_name_in_owner = true
+damage = 3
+attackCooldown = 1.0
+
+[node name="zombieMovementComponent" parent="." unique_id=953325601 instance=ExtResource("5_4eq78")]
+unique_name_in_owner = true

@@ -35,6 +35,7 @@ func unregisterGridOccupant(grid : Vector2i):
 	if toRemove:
 		gridOccupants.erase(grid)
 		toRemove.queue_free()
+	debug_controller.refresh()
 
 func gridToWorld(grid: Vector2i) -> Vector2:
 	return _gridManager.get_Position(grid)
@@ -72,6 +73,17 @@ func printZombies():
 
 
 ## Plants
+
+func getClosestPlantAhead(attacker: boardEntity ,attackReach: int) -> Plant:
+	for i in attackReach + 1:
+		var grid := Vector2i(attacker.column - i, attacker.lane)
+		if not isOccupied(grid):
+			continue
+		var occupant = getObjectAtGrid(grid)
+		if occupant is Plant:
+			return occupant
+	return null
+
 
 func tryPlacePlant(plant : Plant , _position : Vector2):
 	var grid : Vector2i = worldToGrid(_position)

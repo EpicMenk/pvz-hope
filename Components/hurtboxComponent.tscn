@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bmn3oajohi1m6"]
+
+[ext_resource type="Script" uid="uid://bht8wbkxmohvh" path="res://Components/componentScripts/hurtboxComponent.gd" id="1_ud0t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sun4s"]
+size = Vector2(150, 150)
+
+[node name="hurtboxComponent" type="Area2D" unique_id=1135247198 node_paths=PackedStringArray("hpC")]
+script = ExtResource("1_ud0t8")
+hpC = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063828951]
+scale = Vector2(0.99006253, 1)
+shape = SubResource("RectangleShape2D_sun4s")

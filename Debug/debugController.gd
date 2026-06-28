@@ -12,6 +12,7 @@ class_name debugController
 @export var drawLaneNumbers := false
 @export var drawLaneLines := false
 
+
 func _draw() -> void:
 	if drawGrid:
 		_drawGrid()

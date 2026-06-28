@@ -3,11 +3,16 @@ class_name Plant
 
 @export var dragC : dragComponent
 @export var hpC : hpComponent
-#var grid : Vector2i
+@onready var hurtboxC : hurtboxComponent = %hurtboxComponent
+
 
 func die():
 	_boardManager.unregisterGridOccupant(grid)
 	queue_free()
+
+func getHurtboxComponent() -> hurtboxComponent:
+	return hurtboxC
+
 
 func placePlant (_grid : Vector2i , __boardManager : boardManager):
 	dragC.isDragged = false

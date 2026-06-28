@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coo72g5h5oq7v" path="res://Plants/basePlant/basePlant.gd" id="1_ylh16"]
 [ext_resource type="PackedScene" uid="uid://c37ki858atwe5" path="res://Components/hpComponent.tscn" id="2_khxjq"]
+[ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="2_q2sqp"]
 [ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="3_yawjj"]
 [ext_resource type="PackedScene" uid="uid://gpqcuxgvxou5" path="res://Components/dragComponent.tscn" id="4_yawjj"]
 
@@ -9,6 +10,10 @@
 script = ExtResource("1_ylh16")
 dragC = NodePath("dragComponent")
 hpC = NodePath("hpComponent")
+
+[node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("2_q2sqp")]
+unique_name_in_owner = true
+hpC = NodePath("../hpComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605545839]
 position = Vector2(0, -3)

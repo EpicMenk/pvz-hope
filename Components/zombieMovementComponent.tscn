@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://myyeecl6so74"]
+
+[ext_resource type="Script" uid="uid://birk06gsdxqle" path="res://Components/componentScripts/zombieMovementComponent.gd" id="1_owo2t"]
+
+[node name="zombieMovementComponent" type="Node" unique_id=953325601]
+script = ExtResource("1_owo2t")

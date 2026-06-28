@@ -17,5 +17,9 @@ var column:
 	get:
 		return grid.x
 
+
+func getHurtboxComponent() -> hurtboxComponent:
+	return null # let other classes override
+
 func die():
 	queue_free()

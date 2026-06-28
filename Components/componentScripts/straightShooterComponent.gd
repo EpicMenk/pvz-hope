@@ -40,7 +40,9 @@ func shoot() -> void:
 		for point in spawnPoints:
 			spawnProjectile(point)
 		if i != burstCount - 1:
+			readyToShoot = false
 			await get_tree().create_timer(burstDelay).timeout
+			readyToShoot = true
 	readyToShoot = false
 	timeBetweenShotsTimer.start()
 

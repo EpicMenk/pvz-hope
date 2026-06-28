@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cib6eho7hwnqc"]
+
+[ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_tlp3n"]
+
+[node name="brownCoatZombie" unique_id=2108398841 instance=ExtResource("1_tlp3n")]
+
+[node name="hurtboxComponent" parent="." index="0" unique_id=1135247198 node_paths=PackedStringArray("hpC")]
+hpC = NodePath("../hpComponent")
+
+[node name="hpComponent" parent="." index="1" unique_id=1730016595]
+maxHP = 1000
+
+[node name="zombieMeleeAttackComponent" parent="." index="2" unique_id=125088792]
+attackReachInTiles = 4
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="3" unique_id=1493635905]
+position = Vector2(2, 29.000004)
+scale = Vector2(0.99100345, 1.609159)
+offset = Vector2(-10.090782, -32.31502)
+polygon = PackedVector2Array(72.00003, -72, -56, -71.99999, -56, 31.999992, 72, 31.999992)
+uv = PackedVector2Array(67.19998, -69.99999, -56, -71.99999, -56, 31.999992, 64, 31.999992)

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgpek5f1yfuu0"]
+
+[ext_resource type="Script" uid="uid://bj3mto6h38bc0" path="res://Components/componentScripts/zombieMeleeAttackComponent.gd" id="1_rw2tx"]
+
+[node name="zombieMeleeAttackComponent" type="Node" unique_id=125088792 node_paths=PackedStringArray("attackCooldownTimer")]
+script = ExtResource("1_rw2tx")
+attackCooldownTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=501342576]

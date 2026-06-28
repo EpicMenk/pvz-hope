@@ -7,16 +7,18 @@
 
 [node name="Peashooter" unique_id=719743608 instance=ExtResource("1_mhgda")]
 
-[node name="Sprite2D" parent="." index="0" unique_id=1605545839]
+[node name="Sprite2D" parent="." index="1" unique_id=1605545839]
 scale = Vector2(0.5563383, 0.6448927)
 texture = ExtResource("2_gn6hk")
 
-[node name="hpComponent" parent="." index="1" unique_id=1638797325]
+[node name="hpComponent" parent="." index="2" unique_id=1638797325]
 maxHP = 100
 
 [node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206]
 script = ExtResource("3_1sky7")
 timeBetweenShots = 3.0
+burstCount = 3
+burstDelay = 0.5
 projectileScene = ExtResource("4_4rmwx")
 
 [node name="spawnPoints" type="Node2D" parent="straightShooterComponent" index="0" unique_id=1843943047]
