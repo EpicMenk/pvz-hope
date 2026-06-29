@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ddtctg8v11c76" path="res://Zombies/baseZombie/baseZombie.gd" id="1_g00xo"]
 [ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="3_x688a"]
-[ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/zombieMeleeAttackComponent.tscn" id="4_ubbys"]
+[ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/ZombieComponents/zombieMeleeAttackComponent.tscn" id="4_ubbys"]
 [ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="4_x688a"]
-[ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/zombieMovementComponent.tscn" id="5_4eq78"]
+[ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/ZombieComponents/zombieMovementComponent.tscn" id="5_4eq78"]
 
 [node name="baseZombie" type="Node2D" unique_id=2108398841]
 script = ExtResource("1_g00xo")
