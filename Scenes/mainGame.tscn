@@ -29,22 +29,31 @@ drawLaneLines = true
 
 [node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1509141968]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
+position = Vector2(731, 450)
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=557355019]
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D" unique_id=1509141968]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -948.0
+offset_top = -525.0
+offset_right = -514.0
+offset_bottom = -475.0
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="Camera2D/HBoxContainer" unique_id=557355019]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "spawn plants"
 script = ExtResource("2_dx5hc")
 
-[node name="Button2" type="Button" parent="HBoxContainer" unique_id=46419034]
+[node name="Button2" type="Button" parent="Camera2D/HBoxContainer" unique_id=46419034]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "spawn zombies"
 script = ExtResource("3_ldq11")
 
-[connection signal="button_up" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_button_up"]
-[connection signal="button_up" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_button_up"]
+[connection signal="button_up" from="Camera2D/HBoxContainer/Button" to="Camera2D/HBoxContainer/Button" method="_on_button_up"]
+[connection signal="button_up" from="Camera2D/HBoxContainer/Button2" to="Camera2D/HBoxContainer/Button2" method="_on_button_up"]

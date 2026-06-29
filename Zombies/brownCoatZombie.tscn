@@ -19,3 +19,9 @@ scale = Vector2(0.99100345, 1.609159)
 offset = Vector2(-10.090782, -32.31502)
 polygon = PackedVector2Array(72.00003, -72, -56, -71.99999, -56, 31.999992, 72, 31.999992)
 uv = PackedVector2Array(67.19998, -69.99999, -56, -71.99999, -56, 31.999992, 64, 31.999992)
+
+[node name="zombieMovementComponent" parent="." index="4" unique_id=953325601]
+velocityModifier = null
+direction = null
+speed = null
+acceleration = null

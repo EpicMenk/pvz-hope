@@ -20,7 +20,7 @@ func _ready() -> void:
 func attack():
 	if not canAttack:
 		return 
-	var target := getTarget()
+	var target := getCurrentTarget()
 	if target == null:
 		setAttacking(false)
 		return
@@ -29,6 +29,9 @@ func attack():
 
 func getTarget() -> boardEntity:
 	return null #subclass overrides this
+
+func getCurrentTarget() -> boardEntity:
+	return getTarget()
 
 
 func setAttacking(attacking: bool):
@@ -46,6 +49,7 @@ func _dealDamage(target : boardEntity):
 	if hurtbox == null:
 		return
 	hurtbox.takeDamage(damage)
+
 	attackCooldownTimer.start()
 
 #helper functions

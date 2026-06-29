@@ -5,3 +5,6 @@ class_name zombieMeleeAttackComponent
 
 func getTarget() -> boardEntity:
 	return zombie._boardManager.getClosestPlantAhead(zombie , attackReachInTiles)
+
+#func _process(_delta: float) -> void:
+	#print(attackCooldownTimer.time_left)

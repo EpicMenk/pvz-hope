@@ -15,9 +15,9 @@ texture = ExtResource("2_gn6hk")
 maxHP = 100
 
 [node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206]
+position = Vector2(0, -1)
 script = ExtResource("3_1sky7")
-timeBetweenShots = 3.0
-burstCount = 3
+timeBetweenShots = 1.0
 burstDelay = 0.5
 projectileScene = ExtResource("4_4rmwx")
 
