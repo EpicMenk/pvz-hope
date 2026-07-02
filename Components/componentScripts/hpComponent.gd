@@ -41,7 +41,6 @@ func die():
 	died.emit()
 	parent.die()
 
-
 func isDead() -> bool:
 	return hasDied
 

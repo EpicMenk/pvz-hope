@@ -669,7 +669,7 @@ libraries/ = SubResource("AnimationLibrary_oaqsn")
 autoplay = &"idle"
 
 [node name="hpComponent" parent="." index="2" unique_id=1638797325]
-maxHP = 100
+maxHP = 1
 
 [node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206 node_paths=PackedStringArray("animPlayer")]
 position = Vector2(0, -1)

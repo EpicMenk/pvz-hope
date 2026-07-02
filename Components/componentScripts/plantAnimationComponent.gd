@@ -1,12 +1,17 @@
 extends Node
 class_name plantAnimationComponent
 
-@export var animPlayer : AnimationPlayer
+@export var animPlayer: AnimationPlayer
 
-func _ready() -> void:
-	animPlayer.animation_finished.connect(setIdle)
+func _ready():
+	animPlayer.animation_finished.connect(_onAnimationFinished)
 
+func playShoot():
+	animPlayer.play("shoot")
 
-func setIdle(anim : StringName):
+func playIdle():
+	animPlayer.play("idle")
+
+func _onAnimationFinished(anim: StringName):
 	if anim == "shoot":
-		animPlayer.current_animation = "idle"
+		playIdle()

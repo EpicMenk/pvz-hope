@@ -7,6 +7,7 @@ class_name Zombie
 @onready var zombieMovementC: zombieMovementComponent = %zombieMovementComponent
 
 
+
 func _ready() -> void:
 	updateHurtboxCollisionLayer()
 	zombieMeleeC.startedAttacking.connect(zombieMovementC.stop)

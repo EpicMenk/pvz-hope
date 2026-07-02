@@ -49,5 +49,6 @@ func shoot() -> void:
 
 func spawnProjectile(point : Marker2D):
 	var _projectile : projectile = projectileScene.instantiate()
+	_projectile.attacker = parent
 	_projectile.global_position = point.global_position
 	parent._boardManager.projectileSide.add_child(_projectile)
