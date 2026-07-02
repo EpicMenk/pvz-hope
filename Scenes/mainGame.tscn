@@ -22,15 +22,12 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("2_2k2ja")
 drawGrid = true
-drawCoordinates = true
-drawOccupiedGrids = true
 drawLaneNumbers = true
-drawLaneLines = true
 
 [node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
-position = Vector2(731, 450)
+position = Vector2(563, 415)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D" unique_id=1509141968]
 anchors_preset = 5

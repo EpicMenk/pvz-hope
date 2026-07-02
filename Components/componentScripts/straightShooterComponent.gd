@@ -1,6 +1,7 @@
 extends Node2D
 class_name straightShooterComponent
 
+@export var animPlayer : AnimationPlayer 
 @export var timeBetweenShots : float 
 @export var burstCount := 1
 @export var burstDelay := 0.0
@@ -33,7 +34,7 @@ func tryShoot():
 	if parent is Plant:
 		if not parent._boardManager.isZombieAhead(parent.lane , parent.global_position.x):
 			return
-	shoot()
+	animPlayer.play("shoot")
 
 func shoot() -> void:
 	for i in burstCount:

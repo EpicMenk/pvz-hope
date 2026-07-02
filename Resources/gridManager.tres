@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_0ygpj")
 grid_Row_Column_size = Vector2i(9, 5)
-grid_size = Vector2(175, 175)
+grid_size = Vector2(150, 175)
 metadata/_custom_type_script = "uid://dsoa1pxncs46"

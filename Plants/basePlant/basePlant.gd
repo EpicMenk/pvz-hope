@@ -14,6 +14,7 @@ func getHurtboxComponent() -> hurtboxComponent:
 	return hurtboxC
 
 
+
 func placePlant (_grid : Vector2i , __boardManager : boardManager):
 	dragC.isDragged = false
 	dragC.queue_free()

@@ -25,6 +25,10 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/project_time_tracker/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
+
 [layer_names]
 
 2d_physics/layer_1="Plants"
