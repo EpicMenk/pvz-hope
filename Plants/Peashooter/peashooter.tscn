@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://bveylvck36ofk" path="res://Plants/Peashooter/Assets/LeafLeft.png" id="14_kl1pt"]
 [ext_resource type="Texture2D" uid="uid://b7buows8w4nwe" path="res://Plants/Peashooter/Assets/LeftRight.png" id="15_i06hc"]
 [ext_resource type="PackedScene" uid="uid://rq3me6wd5e8l" path="res://Components/plantAnimationComponent.tscn" id="18_kfm6o"]
-[ext_resource type="Script" uid="uid://bcy1v84gs8kki" path="res://Components/componentScripts/plantAnimationComponent.gd" id="19_i0lx4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qtpw4"]
 animations = [{
@@ -669,7 +668,7 @@ libraries/ = SubResource("AnimationLibrary_oaqsn")
 autoplay = &"idle"
 
 [node name="hpComponent" parent="." index="2" unique_id=1638797325]
-maxHP = 1
+maxHP = 1000
 
 [node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206 node_paths=PackedStringArray("animPlayer")]
 position = Vector2(0, -1)
@@ -690,5 +689,4 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="plantAnimationComponent" parent="." index="5" unique_id=1882962916 node_paths=PackedStringArray("animPlayer") instance=ExtResource("18_kfm6o")]
-script = ExtResource("19_i0lx4")
 animPlayer = NodePath("../Sprite2D/AnimationPlayer")

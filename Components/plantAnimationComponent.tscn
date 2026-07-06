@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://rq3me6wd5e8l"]
 
+[ext_resource type="Script" uid="uid://bcy1v84gs8kki" path="res://Components/componentScripts/plantAnimationComponent.gd" id="1_ep3xa"]
+
 [node name="plantAnimationComponent" type="Node" unique_id=1882962916]
+script = ExtResource("1_ep3xa")

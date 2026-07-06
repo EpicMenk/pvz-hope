@@ -2,10 +2,10 @@ extends boardEntity
 class_name Zombie
 
 @export var hpC : hpComponent
-@onready var _hurtboxComponent: hurtboxComponent = %hurtboxComponent
-@onready var zombieMeleeC: zombieMeleeAttackComponent = %zombieMeleeAttackComponent
-@onready var zombieMovementC: zombieMovementComponent = %zombieMovementComponent
-
+@export var hurtboxC: hurtboxComponent
+@export var zombieMeleeC: zombieMeleeAttackComponent 
+@export var zombieMovementC: zombieMovementComponent 
+@export var zombieAnimationC: zombieAnimationComponent 
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 	zombieMeleeC.stoppedAttacking.connect(zombieMovementC.start)
 
 func getHurtboxComponent() -> hurtboxComponent:
-	return _hurtboxComponent
+	return hurtboxC
 
 func die():
 	_boardManager.unregisterZombie(self)
@@ -23,6 +23,6 @@ func die():
 func updateHurtboxCollisionLayer():
 	match team:
 		teamEnums.PLANT:
-			_hurtboxComponent.collision_layer = 1 << 0 # Layer 1
+			hurtboxC.collision_layer = 1 << 0 # Layer 1
 		teamEnums.ZOMBIE:
-			_hurtboxComponent.collision_layer = 1 << 1 # Layer 2
+			hurtboxC.collision_layer = 1 << 1 # Layer 2

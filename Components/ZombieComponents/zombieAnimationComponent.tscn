@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c52f0yra4qd04"]
+
+[ext_resource type="Script" uid="uid://qvacw8u4pru" path="res://Components/componentScripts/zombieAnimationComponent.gd" id="1_rt2hr"]
+
+[node name="zombieAnimationComponent" type="Node" unique_id=155459487]
+script = ExtResource("1_rt2hr")

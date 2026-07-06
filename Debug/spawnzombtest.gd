@@ -6,7 +6,7 @@ extends Button
 
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
-	var zombie : Zombie = preload("res://Zombies/brownCoatZombie.tscn").instantiate()
+	var zombie : Zombie = preload("res://Zombies/baseZombie/baseZombie.tscn").instantiate()
 	zombie._boardManager = board_manager
 	zombie.grid = Vector2(9 , spawnLane)
 	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))

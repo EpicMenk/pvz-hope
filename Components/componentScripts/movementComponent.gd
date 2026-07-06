@@ -38,9 +38,11 @@ func getDirectionVector() -> Vector2:
 
 func stop():
 	isMoving = false
+	set_process(false)
 
 func start():
 	isMoving = true 
+	set_process(true)
 
 func reverseDirection() -> void:
 	match direction:
