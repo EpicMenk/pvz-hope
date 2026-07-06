@@ -4,4 +4,3 @@
 
 [node name="ZombieLimbsImporter" type="Node" unique_id=407534395]
 script = ExtResource("1_e8ulw")
-spriteFolder = "res://Zombies/baseZombie/baseBasicZombieAssets"

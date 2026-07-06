@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv5dy7wtgt67l"
-path="res://.godot/imported/UpperLegLeft .png-f6739f9183ceced288fc4cbdc9dd2eb0.ctex"
+path="res://.godot/imported/UpperLegLeft.png-7a96f13a198cd6ac806a4b6194b80a25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegLeft .png"
-dest_files=["res://.godot/imported/UpperLegLeft .png-f6739f9183ceced288fc4cbdc9dd2eb0.ctex"]
+source_file="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegLeft.png"
+dest_files=["res://.godot/imported/UpperLegLeft.png-7a96f13a198cd6ac806a4b6194b80a25.ctex"]
 
 [params]
 

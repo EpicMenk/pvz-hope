@@ -27,7 +27,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/project_time_tracker/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
+enabled=PackedStringArray("res://addons/project_time_tracker/plugin.cfg")
 
 [layer_names]
 
