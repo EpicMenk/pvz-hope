@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsb6vxpbduj7f"]
+[gd_scene format=3 uid="uid://dsb6vxpbduj7f"]
 
-[ext_resource type="Script" path="res://addons/project_time_tracker/project_timer.gd" id="1_1r5vr"]
-[ext_resource type="Script" path="res://addons/project_time_tracker/settings_window.gd" id="2_p44mt"]
+[ext_resource type="Script" uid="uid://dhbywp87ujrbe" path="res://Addons/project_time_tracker/project_timer.gd" id="1_1r5vr"]
+[ext_resource type="Script" uid="uid://mtdyl4aa25fw" path="res://Addons/project_time_tracker/settings_window.gd" id="2_p44mt"]
 
 [node name="Project Timer" type="Control"]
 custom_minimum_size = Vector2(200, 91)

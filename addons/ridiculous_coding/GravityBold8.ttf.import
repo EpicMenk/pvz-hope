@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://coiaqb8xwuaic"
-path="res://.godot/imported/GravityBold8.ttf-e67aa3e4866d0a81519c9b866a8f924b.fontdata"
+path="res://.godot/imported/GravityBold8.ttf-12fb764db01f3ee732bcde54816ee7e6.fontdata"
 
 [deps]
 
-source_file="res://addons/ridiculous_coding/GravityBold8.ttf"
-dest_files=["res://.godot/imported/GravityBold8.ttf-e67aa3e4866d0a81519c9b866a8f924b.fontdata"]
+source_file="res://Addons/ridiculous_coding/GravityBold8.ttf"
+dest_files=["res://.godot/imported/GravityBold8.ttf-12fb764db01f3ee732bcde54816ee7e6.fontdata"]
 
 [params]
 

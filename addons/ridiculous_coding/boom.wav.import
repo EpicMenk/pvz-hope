@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b6841f7osi4rh"
-path="res://.godot/imported/boom.wav-8be8413d6a593a69a88c5aabb324258d.sample"
+path="res://.godot/imported/boom.wav-4122a93f7edae458aaf4769b556f932b.sample"
 
 [deps]
 
-source_file="res://addons/ridiculous_coding/boom.wav"
-dest_files=["res://.godot/imported/boom.wav-8be8413d6a593a69a88c5aabb324258d.sample"]
+source_file="res://Addons/ridiculous_coding/boom.wav"
+dest_files=["res://.godot/imported/boom.wav-4122a93f7edae458aaf4769b556f932b.sample"]
 
 [params]
 

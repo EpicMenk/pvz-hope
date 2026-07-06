@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0fhho0dp1svt"]
+[gd_scene format=3 uid="uid://c0fhho0dp1svt"]
 
-[ext_resource type="Script" path="res://addons/ridiculous_coding/blip.gd" id="1_tp8nq"]
-[ext_resource type="Texture2D" uid="uid://d1tio2ceqgm7m" path="res://addons/ridiculous_coding/blip.png" id="2_kj7um"]
-[ext_resource type="AudioStream" uid="uid://b2ood3lkcgpqb" path="res://addons/ridiculous_coding/blip.wav" id="3_xg6qd"]
-[ext_resource type="FontFile" uid="uid://bvwnnnja1ur2i" path="res://addons/ridiculous_coding/font.tres" id="4_ullf3"]
+[ext_resource type="Script" uid="uid://bygig8c0q5t1j" path="res://Addons/ridiculous_coding/blip.gd" id="1_tp8nq"]
+[ext_resource type="Texture2D" uid="uid://d1tio2ceqgm7m" path="res://Addons/ridiculous_coding/blip.png" id="2_kj7um"]
+[ext_resource type="AudioStream" uid="uid://b2ood3lkcgpqb" path="res://Addons/ridiculous_coding/blip.wav" id="3_xg6qd"]
+[ext_resource type="FontFile" uid="uid://bvwnnnja1ur2i" path="res://Addons/ridiculous_coding/font.tres" id="4_ullf3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp4ed"]
 atlas = ExtResource("2_kj7um")

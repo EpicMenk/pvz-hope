@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4rdv4wkukc5g"]
+[gd_scene format=3 uid="uid://c4rdv4wkukc5g"]
 
-[ext_resource type="Texture2D" uid="uid://dl75e74oom1i3" path="res://addons/ridiculous_coding/boom.png" id="1"]
-[ext_resource type="AudioStream" uid="uid://b6841f7osi4rh" path="res://addons/ridiculous_coding/boom.wav" id="2"]
-[ext_resource type="Script" path="res://addons/ridiculous_coding/boom.gd" id="4"]
-[ext_resource type="FontFile" uid="uid://bvwnnnja1ur2i" path="res://addons/ridiculous_coding/font.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://dl75e74oom1i3" path="res://Addons/ridiculous_coding/boom.png" id="1"]
+[ext_resource type="AudioStream" uid="uid://b6841f7osi4rh" path="res://Addons/ridiculous_coding/boom.wav" id="2"]
+[ext_resource type="Script" uid="uid://dmb08jsdomc67" path="res://Addons/ridiculous_coding/boom.gd" id="4"]
+[ext_resource type="FontFile" uid="uid://bvwnnnja1ur2i" path="res://Addons/ridiculous_coding/font.tres" id="5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3t5t"]
 atlas = ExtResource("1")

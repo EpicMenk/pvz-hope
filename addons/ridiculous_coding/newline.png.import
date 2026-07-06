@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1vn1823wqae2"
-path="res://.godot/imported/newline.png-03ec198c1b51eb116216995dcb893beb.ctex"
+path="res://.godot/imported/newline.png-169c3ca8b9d87e46e2be483e4f290aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/ridiculous_coding/newline.png"
-dest_files=["res://.godot/imported/newline.png-03ec198c1b51eb116216995dcb893beb.ctex"]
+source_file="res://Addons/ridiculous_coding/newline.png"
+dest_files=["res://.godot/imported/newline.png-169c3ca8b9d87e46e2be483e4f290aee.ctex"]
 
 [params]
 
