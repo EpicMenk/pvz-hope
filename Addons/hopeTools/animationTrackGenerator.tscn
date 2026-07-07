@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://racabk7dcnl4"]
+
+[ext_resource type="Script" uid="uid://mh5kf64rlcwf" path="res://Addons/hopeTools/scripts/animationTrackGenerator.gd" id="1_1sdep"]
+
+[node name="AnimationTrackGenerator" type="Node" unique_id=2132373557]
+script = ExtResource("1_1sdep")

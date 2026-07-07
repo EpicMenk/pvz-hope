@@ -36,7 +36,7 @@ unique_name_in_owner = true
 speed = 100.0
 
 [node name="visuals" type="Sprite2D" parent="." unique_id=1062233292]
-position = Vector2(-0.9999981, 64)
+position = Vector2(-1, 60)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(-34.828053, -172.30118)
 
