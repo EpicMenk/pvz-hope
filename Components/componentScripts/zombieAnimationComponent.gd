@@ -2,7 +2,7 @@ extends Node
 class_name zombieAnimationComponent
 
 @onready var zombie : Zombie = get_parent() as Zombie
-@onready var animationPlayer: AnimationPlayer = %AnimationPlayer
+@export var animationPlayer: AnimationPlayer 
 @export var customBlendValue : float = 0.9
 
 func _ready() -> void:

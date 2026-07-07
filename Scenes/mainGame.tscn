@@ -9,6 +9,7 @@
 
 [node name="BoardManager" type="Node2D" parent="." unique_id=369926797]
 unique_name_in_owner = true
+y_sort_enabled = true
 script = ExtResource("1_3fgs5")
 
 [node name="Plants" type="Node2D" parent="BoardManager" unique_id=1527356968]
