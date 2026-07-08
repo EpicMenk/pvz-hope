@@ -4,20 +4,36 @@ class_name hpComponent
 signal damaged(amount: int)
 signal healed(amount: int)
 signal died
+signal eventTriggered(event : StringName)
 
+@export var hpEvents : Dictionary [int , StringName]
 @export var maxHP : int 
 @export var shield : int
 @onready var parent : boardEntity = get_parent() as boardEntity
 var hasDied : bool = false
+var triggeredEvents : Array
 var currentHP : int : 
 	set(amount):
 		currentHP = clamp(amount , 0 ,maxHP)
+		checkHpEvents()
 		if currentHP <= 0 and not hasDied:
 			hasDied = true
 			die()
 
 func _ready() -> void:
 	currentHP = maxHP
+
+func checkHpEvents():
+	var thresholds := hpEvents.keys()
+	thresholds.sort()
+	
+	for threshold in thresholds:
+		if threshold in triggeredEvents:
+			continue
+		
+		if currentHP <= threshold:
+			triggeredEvents.append(threshold)
+			eventTriggered.emit(hpEvents[threshold])
 
 # i wanna make a damage data object later 
 func takeDamage(damage: int):

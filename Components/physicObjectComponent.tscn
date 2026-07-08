@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cduer3twlusei"]
+
+[ext_resource type="Script" uid="uid://cnhqrv8xoeocs" path="res://Components/componentScripts/physicObjectComponent.gd" id="1_bedot"]
+
+[node name="physicObjectComponent" type="Sprite2D" unique_id=2051216730]
+script = ExtResource("1_bedot")
+disappearsOnLanding = true

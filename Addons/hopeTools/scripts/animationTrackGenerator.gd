@@ -52,7 +52,7 @@ func addTransformTracks(animation : Animation, sprite : Sprite2D):
 	addTrack(animation, sprite, "position", sprite.position)
 	addTrack(animation, sprite, "rotation", sprite.rotation)
 	addTrack(animation, sprite, "scale", sprite.scale)
-	addTrack(animation, sprite, "visible", sprite.visible)
+	#addTrack(animation, sprite, "visible", sprite.visible)
 	addTrack(animation, sprite, "modulate", sprite.modulate)
 	addTrack(animation, sprite, "show_behind_parent", sprite.show_behind_parent)
 

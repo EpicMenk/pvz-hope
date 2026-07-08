@@ -3,14 +3,11 @@ class_name zombieMovementComponent
 
 @onready var zombie := parent as Zombie
 
-
-
 func move(delta):
 	if zombie.zombieMeleeC.getCurrentTarget() :
 		return
 	zombie.position += getVelocity() * delta
 	updateZombieGrid()
-
 
 
 func updateZombieGrid():

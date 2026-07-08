@@ -7,25 +7,18 @@ class_name zombieAnimationComponent
 
 func _ready() -> void:
 	zombie.zombieMeleeC.stoppedAttacking.connect(playWalk)
+	zombie.zombieMeleeC.startedAttacking.connect(playEat)
 
-func playReset():
-	animationPlayer.play("RESET" , customBlendValue)
-	print("reseted")
 
 func playWalk():
-	playReset()
-	animationPlayer.advance(1)
 	animationPlayer.play("walk" , customBlendValue)
 
 
 func playEat():
-	playReset()
-	animationPlayer.advance(1)
-	animationPlayer.play("eat" , customBlendValue)
+	animationPlayer.play("attack" , customBlendValue)
 
 
 func changeAnim(_name : StringName):
 	if animationPlayer.current_animation == _name:
 		return
-	animationPlayer.play("RESET" , 0.08) 
-	animationPlayer.play(_name , 0.08)
+	animationPlayer.play(_name , customBlendValue)

@@ -44,7 +44,6 @@ func setAttacking(attacking: bool):
 		return
 	isAttacking = attacking
 	if attacking:
-		print("es")
 		startedAttacking.emit()
 	else:
 		stoppedAttacking.emit()
