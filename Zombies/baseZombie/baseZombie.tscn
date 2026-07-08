@@ -4370,6 +4370,7 @@ _data = {
 }
 
 [node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC")]
+y_sort_enabled = true
 script = ExtResource("1_g00xo")
 hpC = NodePath("hpComponent")
 hurtboxC = NodePath("hurtboxComponent")

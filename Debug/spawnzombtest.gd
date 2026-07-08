@@ -3,6 +3,7 @@ extends Button
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 @onready var board_manager: boardManager = %BoardManager
 
+signal zombieCreated(zombie : Zombie)
 
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
@@ -12,6 +13,7 @@ func spawnZombie():
 	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))
 	board_manager.zombieSide.add_child(zombie)
 	board_manager.registerZombie(zombie)
+	zombieCreated.emit(zombie)
 
 
 func _input(event: InputEvent) -> void:

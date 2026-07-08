@@ -16,7 +16,7 @@ var lane:
 var column:
 	get:
 		return grid.x
-
+var ID : int
 
 func getHurtboxComponent() -> hurtboxComponent:
 	return null # let other classes override

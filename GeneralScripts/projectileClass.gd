@@ -12,13 +12,35 @@ var alreadyHit: Array[hurtboxComponent] = []
 var attacker : boardEntity
 var _damageInfo : damageInfo
 
+
 func _ready() -> void:
 	buildDamageInfo()
 	updateHitboxCollisionMask()
 	_hitboxComponent.collidedWithHurtbox.connect(dealDamage)
 	_hitboxComponent.ownerEntity = self
 
-func dealDamage(hurtbox : hurtboxComponent):
+
+func chooseTarget(hurtboxes : Array[hurtboxComponent]) -> hurtboxComponent:
+	if hurtboxes.is_empty():
+		return
+	
+	var target : hurtboxComponent = hurtboxes[0]
+	for hurtbox in hurtboxes:
+		# Prefer the zombie closest to the projectile
+		if hurtbox.global_position.x < target.global_position.x:
+			target = hurtbox
+	
+		# If they're essentially at the same position,
+		# use entityId as a deterministic tie-breaker.
+		elif is_equal_approx(hurtbox.global_position.x , target.global_position.x):
+			if hurtbox.owner.ID < target.owner.ID:
+				target = hurtbox
+	return target
+
+
+
+func dealDamage(hurtboxes : Array[hurtboxComponent]):
+	var hurtbox = chooseTarget(hurtboxes)
 	if hasAlreadyHit(hurtbox):
 		return
 	hurtbox.takeDamage(_damageInfo)

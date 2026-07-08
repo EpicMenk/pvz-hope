@@ -95,7 +95,6 @@ func copyHierarchy(from: Sprite2D , yfloor : float):
 		if child is Sprite2D:
 			var newChild : physicsSprite2D= preload("uid://cduer3twlusei").instantiate()
 			add_child(newChild)
-			print(child)
 			newChild.copyChildHierarchy(child , yfloor)
 
 

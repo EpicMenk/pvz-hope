@@ -7,10 +7,9 @@ class_name Zombie
 @export var zombieMovementC: zombieMovementComponent 
 @export var zombieAnimationC: zombieAnimationComponent 
 @onready var groundMarker: Marker2D = $GroundMarker
-
+@onready var head: Sprite2D = $visuals/Torso/Head
 @onready var lowerHandRight: Sprite2D = $visuals/Torso/UpperHandRight/LowerHandRight
-var test 
-var test2 = false
+
 
 func _ready() -> void:
 	updateHurtboxCollisionLayer()
@@ -30,13 +29,14 @@ func dropLimb(limb : Sprite2D):
 	get_parent().add_child(physicObject)
 	physicObject.copyHierarchy(limb , _floor)
 	physicObject.drop(
-	Vector2(120, -350))
+	Vector2(randf_range(-120,120), randf_range(-120,-350)) ,randf_range(-1,1))
 
 
 func getHurtboxComponent() -> hurtboxComponent:
 	return hurtboxC
 
 func die():
+	dropLimb(head)
 	_boardManager.unregisterZombie(self)
 	queue_free()
 
