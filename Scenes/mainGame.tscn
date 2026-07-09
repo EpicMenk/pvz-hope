@@ -20,6 +20,7 @@ y_sort_enabled = true
 
 [node name="Zombies" type="Node2D" parent="BoardManager" unique_id=1761822789]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="DebugController" type="Node2D" parent="BoardManager" unique_id=230407231]
 unique_name_in_owner = true
@@ -28,6 +29,7 @@ drawGrid = true
 drawLaneNumbers = true
 
 [node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
+y_sort_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)

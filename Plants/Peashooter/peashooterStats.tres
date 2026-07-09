@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="plantAttackerStats" format=3 uid="uid://b2osd3j4fguwe"]
+
+[ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="1_pql4y"]
+[ext_resource type="Script" uid="uid://dhuuqveo55bo1" path="res://GeneralScripts/plantAttackerStats.gd" id="2_bctb7"]
+
+[resource]
+script = ExtResource("2_bctb7")
+damage = 10
+timeBetweenAttack = 3.0
+projectileScene = ExtResource("1_pql4y")
+projectileSpeed = 600.0
+displayName = "Peashooter"
+maxHP = 100
+cooldown = 3.0
+sunCost = 100
+metadata/_custom_type_script = "uid://dhuuqveo55bo1"

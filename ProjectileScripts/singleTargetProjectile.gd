@@ -1,6 +1,7 @@
 extends projectile
 class_name singleTargetProjectile
 
+
 func _physics_process(_delta):
 	var hurtboxes := _hitboxComponent.getCollidingHurtboxes()
 	if hurtboxes.is_empty():

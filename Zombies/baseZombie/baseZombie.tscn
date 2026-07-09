@@ -4394,16 +4394,12 @@ metadata/_custom_type_script = "uid://crtgmpr781hw8"
 
 [node name="zombieMeleeAttackComponent" parent="." unique_id=125088792 instance=ExtResource("4_ubbys")]
 unique_name_in_owner = true
-damage = 3
+damage = 10
 attackCooldown = 1.0
 
 [node name="zombieMovementComponent" parent="." unique_id=953325601 instance=ExtResource("5_4eq78")]
 unique_name_in_owner = true
 speed = 30.0
-
-[node name="GroundMarker" type="Marker2D" parent="." unique_id=1708294267]
-position = Vector2(-42, 70)
-gizmo_extents = 132.5
 
 [node name="zombieAnimationComponent" parent="." unique_id=155459487 node_paths=PackedStringArray("animationPlayer") instance=ExtResource("26_hg078")]
 unique_name_in_owner = true
@@ -4411,7 +4407,7 @@ animationPlayer = NodePath("../visuals/AnimationPlayer")
 customBlendValue = 0.2
 
 [node name="visuals" type="Sprite2D" parent="." unique_id=607701518]
-position = Vector2(0, 69)
+position = Vector2(0, 63.999992)
 scale = Vector2(0.55, 0.45)
 offset = Vector2(0, -138)
 
@@ -4493,6 +4489,7 @@ texture = ExtResource("18_jg1lf")
 offset = Vector2(6, -18)
 
 [node name="Head" type="Sprite2D" parent="visuals/Torso" unique_id=1350573133]
+unique_name_in_owner = true
 position = Vector2(-14, -98)
 rotation = -0.076096505
 texture = ExtResource("19_j5tu1")
@@ -4522,6 +4519,7 @@ texture = ExtResource("23_toiah")
 offset = Vector2(-36, 106)
 
 [node name="LowerHandRight" type="Sprite2D" parent="visuals/Torso/UpperHandRight" unique_id=524635925]
+unique_name_in_owner = true
 position = Vector2(12, 76)
 rotation = 0.12614553
 texture = ExtResource("24_t1ybm")
@@ -4532,14 +4530,20 @@ position = Vector2(-2, 52)
 offset = Vector2(-6, 156)
 
 [node name="HandRight1" type="Sprite2D" parent="visuals/Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=2066289880]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-46, -22)
 texture = ExtResource("25_vpskx")
 
 [node name="HandRight2" type="Sprite2D" parent="visuals/Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=969222920]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(-46, -22)
 texture = ExtResource("26_2vkv5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=464782788]
 libraries/ = SubResource("AnimationLibrary_lswsf")
 autoplay = &"walk"
+
+[node name="GroundMarker" type="Marker2D" parent="visuals" unique_id=1708294267]
+unique_name_in_owner = true
+position = Vector2(-76.36363, 2.2222214)
+scale = Vector2(1.8181816, 2.222222)
+gizmo_extents = 132.5

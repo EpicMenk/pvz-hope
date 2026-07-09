@@ -10,7 +10,7 @@ var isDragged : bool = false
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if isDragged == true:
-		dragTarget.global_position = get_global_mouse_position()
+		dragTarget.global_position = get_global_mouse_position() 
 
 
 

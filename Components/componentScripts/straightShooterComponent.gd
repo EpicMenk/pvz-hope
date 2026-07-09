@@ -1,15 +1,17 @@
 extends Node2D
 class_name straightShooterComponent
 
+
 @export var animPlayer : AnimationPlayer 
 @export var timeBetweenShots : float 
 @export var burstCount := 1
 @export var burstDelay := 0.0
-@export var projectileScene : PackedScene #will be a projectile class later when i make it and will preload the projectile
+@export var projectileScene : PackedScene 
 @onready var spawnPoints: Array[Marker2D] = []
 @onready var parent : boardEntity = get_parent() as boardEntity
 @onready var timeBetweenShotsTimer: Timer = %timeBetweenShots
 var readyToShoot : bool = false
+var _projectileStats : projectileStats = projectileStats.new()
 
 func setUpMarks():
 	for child in %spawnPoints.get_children():
@@ -17,9 +19,13 @@ func setUpMarks():
 
 func _ready() -> void:
 	setUpMarks()
+	call_deferred("setUpTimer")
+
+func setUpTimer():
 	timeBetweenShotsTimer.wait_time = timeBetweenShots
 	timeBetweenShotsTimer.start()
 	timeBetweenShotsTimer.timeout.connect(updateShoot)
+
 
 func _process(_delta):
 	tryShoot()
@@ -48,7 +54,8 @@ func shoot() -> void:
 	timeBetweenShotsTimer.start()
 
 func spawnProjectile(point : Marker2D):
-	var _projectile : projectile = projectileScene.instantiate()
-	_projectile.attacker = parent
-	_projectile.global_position = point.global_position
-	parent._boardManager.projectileSide.add_child(_projectile)
+	var projectileInstance : projectile = projectileScene.instantiate()
+	projectileInstance.attacker = parent
+	projectileInstance.global_position = point.global_position
+	parent._boardManager.projectileSide.add_child(projectileInstance)
+	projectileInstance.initializeStats(_projectileStats)

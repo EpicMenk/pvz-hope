@@ -6,9 +6,9 @@ class_name Zombie
 @export var zombieMeleeC: zombieMeleeAttackComponent 
 @export var zombieMovementC: zombieMovementComponent 
 @export var zombieAnimationC: zombieAnimationComponent 
-@onready var groundMarker: Marker2D = $GroundMarker
-@onready var head: Sprite2D = $visuals/Torso/Head
-@onready var lowerHandRight: Sprite2D = $visuals/Torso/UpperHandRight/LowerHandRight
+@onready var groundMarker: Marker2D = %GroundMarker
+@onready var head: Sprite2D = %Head
+@onready var lowerHandRight: Sprite2D = %LowerHandRight
 
 
 func _ready() -> void:
@@ -28,6 +28,7 @@ func dropLimb(limb : Sprite2D):
 	var physicObject : physicsSprite2D = load("uid://cduer3twlusei").instantiate()
 	get_parent().add_child(physicObject)
 	physicObject.copyHierarchy(limb , _floor)
+	physicObject.z_index = z_index + 1
 	physicObject.drop(
 	Vector2(randf_range(-120,120), randf_range(-120,-350)) ,randf_range(-1,1))
 

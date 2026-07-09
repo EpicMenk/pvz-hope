@@ -1,19 +1,24 @@
 extends boardEntity
 class_name Plant
 
-@export var dragC : dragComponent
 @export var hpC : hpComponent
+@export var dragC : dragComponent
 @onready var hurtboxC : hurtboxComponent = %hurtboxComponent
-
 
 func die():
 	_boardManager.unregisterGridOccupant(grid)
 	queue_free()
 
+func initializeStats():
+	push_error("initializeStats() needs to be overriden")
+
+func _ready() -> void:
+	initializeStats()
+
 func getHurtboxComponent() -> hurtboxComponent:
+	if not hurtboxC :
+		return
 	return hurtboxC
-
-
 
 func placePlant (_grid : Vector2i , __boardManager : boardManager):
 	dragC.isDragged = false
