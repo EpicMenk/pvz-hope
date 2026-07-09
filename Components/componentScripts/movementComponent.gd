@@ -1,8 +1,6 @@
 extends Node
 class_name movementComponent
 
-signal moved
-
 enum directionEnums {
 	UP,
 	DOWN,
@@ -24,11 +22,10 @@ const DIRECTION_VECTORS := [
 @onready var parent = get_parent() as Node2D
 var isMoving : bool = true
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not isMoving:
 		return
 	move(delta)
-	moved.emit()
 
 func move(delta):
 	parent.position += getVelocity() * delta
@@ -41,11 +38,11 @@ func getDirectionVector() -> Vector2:
 
 func stop():
 	isMoving = false
-	set_physics_process(false)
+	set_process(false)
 
 func start():
 	isMoving = true 
-	set_physics_process(true)
+	set_process(true)
 
 func reverseDirection() -> void:
 	match direction:

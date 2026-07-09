@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://crqhoj621js1c"]
 
-[ext_resource type="Script" uid="uid://hftd35wss8sf" path="res://GeneralScripts/singleTargetProjectile.gd" id="1_k7dc6"]
+[ext_resource type="Script" uid="uid://dqst2qmajvtsi" path="res://GeneralScripts/projectileClass.gd" id="1_cu2lb"]
 [ext_resource type="PackedScene" uid="uid://ccnb3uc7pmvfp" path="res://Components/hitboxComponent.tscn" id="2_k7dc6"]
 [ext_resource type="Script" uid="uid://drccc8ihxypk1" path="res://Components/componentScripts/movementComponent.gd" id="3_k7dc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caukj"]
 
 [node name="Pea" type="Node2D" unique_id=1844973219]
-script = ExtResource("1_k7dc6")
+script = ExtResource("1_cu2lb")
 damage = 100
+pierceCount = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1841606247]
 position = Vector2(-20, 16)
