@@ -79,6 +79,7 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 script = ExtResource("6_arx4i")
 selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j")])
+seedSlotNum = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/Seedbank" unique_id=1924953330]
 unique_name_in_owner = true
@@ -86,7 +87,7 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 size_flags_horizontal = 0
-theme_override_constants/separation = 150
+theme_override_constants/separation = -20
 
 [connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug1" to="CanvasLayer/Control/HBoxContainer/debug1" method="_on_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug2" to="CanvasLayer/Control/HBoxContainer/debug2" method="_on_button_up"]

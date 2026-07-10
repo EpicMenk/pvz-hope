@@ -1,4 +1,4 @@
-extends Node
+extends entityComponent
 class_name meleeAttackComponent
 
 signal startedAttacking
@@ -23,6 +23,8 @@ func _ready() -> void:
 	attackCooldownTimer.timeout.connect(attack)
 
 func attack():
+	if not isActivated():
+		return
 	if not canAttack:
 		return 
 	var target := getCurrentTarget()

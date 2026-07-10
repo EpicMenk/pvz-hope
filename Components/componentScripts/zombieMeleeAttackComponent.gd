@@ -8,6 +8,8 @@ func getTarget() -> boardEntity:
 	return zombie._boardManager.getClosestPlantAhead(zombie , attackReachInTiles)
 
 func _process(_delta):
+	if not isActivated():
+		return
 	var target = getCurrentTarget()
 	if target != null and !isAttacking :
 		attack()

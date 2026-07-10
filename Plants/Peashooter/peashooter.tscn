@@ -587,9 +587,10 @@ _data = {
 &"shoot": SubResource("Animation_3nnya")
 }
 
-[node name="Peashooter" unique_id=719743608 instance=ExtResource("1_mhgda")]
+[node name="Peashooter" unique_id=719743608 node_paths=PackedStringArray("straightShooterC") instance=ExtResource("1_mhgda")]
 script = ExtResource("2_kfm6o")
 stats = ExtResource("3_i0lx4")
+straightShooterC = NodePath("straightShooterComponent")
 
 [node name="visuals" type="Sprite2D" parent="." index="0" unique_id=1605545839]
 position = Vector2(-2, 57)

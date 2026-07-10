@@ -12,6 +12,7 @@ class_name straightShooterComponent
 @onready var timeBetweenShotsTimer: Timer = %timeBetweenShots
 var readyToShoot : bool = false
 var _projectileStats : projectileStats = projectileStats.new()
+var isActive : bool = true
 
 func setUpMarks():
 	for child in %spawnPoints.get_children():
@@ -28,6 +29,8 @@ func setUpTimer():
 
 
 func _process(_delta):
+	if not isActive:
+		return
 	tryShoot()
 
 func updateShoot():
@@ -59,3 +62,13 @@ func spawnProjectile(point : Marker2D):
 	projectileInstance.global_position = point.global_position
 	parent._boardManager.projectileSide.add_child(projectileInstance)
 	projectileInstance.initializeStats(_projectileStats)
+
+func disable():
+	isActive = false
+	set_process(false)
+	set_physics_process(false)
+
+func enable():
+	isActive = true
+	set_process(true)
+	set_physics_process(true)

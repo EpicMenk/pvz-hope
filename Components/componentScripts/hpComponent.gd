@@ -1,4 +1,4 @@
-extends Node
+extends entityComponent
 class_name hpComponent
 
 signal damaged(amount: int)

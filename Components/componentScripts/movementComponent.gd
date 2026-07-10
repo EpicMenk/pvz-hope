@@ -1,4 +1,4 @@
-extends Node
+extends entityComponent
 class_name movementComponent
 
 signal moved
@@ -25,6 +25,8 @@ const DIRECTION_VECTORS := [
 var isMoving : bool = true
 
 func _physics_process(delta: float) -> void:
+	if not isActivated():
+		return
 	if not isMoving:
 		return
 	move(delta)

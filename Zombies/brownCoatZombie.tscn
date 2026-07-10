@@ -8,7 +8,4 @@
 maxHP = 1000
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]
-velocityModifier = null
-direction = null
-speed = null
-acceleration = null
+speed = 60.0

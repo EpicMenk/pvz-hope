@@ -1,4 +1,4 @@
-extends Node
+extends entityComponent
 class_name zombieAnimationComponent
 
 @onready var zombie : Zombie = get_parent() as Zombie
@@ -8,6 +8,7 @@ class_name zombieAnimationComponent
 func _ready() -> void:
 	zombie.zombieMeleeC.stoppedAttacking.connect(playWalk)
 	zombie.zombieMeleeC.startedAttacking.connect(playEat)
+
 
 
 func playWalk():

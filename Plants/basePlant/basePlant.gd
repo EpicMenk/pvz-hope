@@ -4,6 +4,7 @@ class_name Plant
 @export var hpC : hpComponent
 @export var dragC : dragComponent
 @onready var hurtboxC : hurtboxComponent = %hurtboxComponent
+var isPlaced : bool = false
 
 func die():
 	_boardManager.unregisterGridOccupant(grid)
@@ -12,8 +13,15 @@ func die():
 func evaluateStats():
 	push_error("initializeStats() needs to be overriden")
 
+func activateComponent():
+	push_error("activateComponent() needs to be overriden")
+
+func disableComponent():
+	push_error("disableComponent() needs to be overriden")
+
 func _ready() -> void:
 	evaluateStats()
+
 
 
 func getHurtboxComponent() -> hurtboxComponent:
@@ -22,6 +30,7 @@ func getHurtboxComponent() -> hurtboxComponent:
 	return hurtboxC
 
 func placePlant (_grid : Vector2i , __boardManager : boardManager):
+	activateComponent()
 	dragC.isDragged = false
 	dragC.queue_free()
 	grid = _grid
