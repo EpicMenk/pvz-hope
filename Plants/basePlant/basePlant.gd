@@ -23,13 +23,14 @@ func _ready() -> void:
 	evaluateStats()
 
 
-
 func getHurtboxComponent() -> hurtboxComponent:
 	if not hurtboxC :
 		return
 	return hurtboxC
 
+
 func placePlant (_grid : Vector2i , __boardManager : boardManager):
+	isPlaced = false
 	activateComponent()
 	dragC.isDragged = false
 	dragC.queue_free()

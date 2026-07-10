@@ -7,8 +7,6 @@ var _boardManager : boardManager
 func _ready() -> void:
 	self.pressed.connect(spawnPlant)
 
-
-
 func spawnPlant():
 	if not seedData:
 		return
