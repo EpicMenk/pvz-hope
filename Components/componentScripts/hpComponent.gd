@@ -21,7 +21,12 @@ var currentHP : int :
 			die()
 
 func _ready() -> void:
+	updateMaxHP(maxHP)
+
+func updateMaxHP(HP : int):
+	maxHP = HP
 	currentHP = maxHP
+
 
 func checkHpEvents():
 	var thresholds := hpEvents.keys()

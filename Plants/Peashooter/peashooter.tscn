@@ -691,6 +691,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="hpComponent" parent="." index="4" unique_id=1638797325]
+unique_name_in_owner = true
 maxHP = 100
 
 [node name="plantAnimationComponent" parent="." index="5" unique_id=1882962916 node_paths=PackedStringArray("animPlayer") instance=ExtResource("18_kfm6o")]

@@ -68,7 +68,6 @@ func addTrack(animation : Animation, node : Node, property : String, value : Var
 	)
 	
 	var track := findTrackIndex(animation, path)
-	
 	if track != -1:
 		return
 	

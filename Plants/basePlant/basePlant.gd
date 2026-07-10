@@ -9,11 +9,12 @@ func die():
 	_boardManager.unregisterGridOccupant(grid)
 	queue_free()
 
-func initializeStats():
+func evaluateStats():
 	push_error("initializeStats() needs to be overriden")
 
 func _ready() -> void:
-	initializeStats()
+	evaluateStats()
+
 
 func getHurtboxComponent() -> hurtboxComponent:
 	if not hurtboxC :

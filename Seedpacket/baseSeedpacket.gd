@@ -1,0 +1,22 @@
+extends Button
+class_name seedpacket
+
+var seedData : seedPacketData
+var _boardManager : boardManager
+
+func _ready() -> void:
+	self.pressed.connect(spawnPlant)
+
+func spawnPlant():
+	var plantScene : PackedScene = seedData.plantScene
+	if not plantScene:
+		return
+	var plant : Plant = plantScene.instantiate()
+	plant._boardManager = _boardManager
+	_boardManager.plantSide.add_child(plant)
+	plant.global_position = get_global_mouse_position()
+	if plant.dragC:
+		plant.dragC.isDragged = true
+
+func initialize(data : seedPacketData):
+	seedData = data

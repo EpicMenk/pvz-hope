@@ -2,7 +2,7 @@ extends Node2D
 class_name mainGame
 
 @onready var assigningIDs : int = 0
-@onready var button_2: Button = $Camera2D/HBoxContainer/Button2
+@onready var button_2: Button =%debug2
 
 func _ready() -> void:
 	button_2.zombieCreated.connect(assignIDs)

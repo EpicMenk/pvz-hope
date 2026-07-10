@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
+[ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedpacket/seedbank.gd" id="6_arx4i"]
+[ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://GeneralScripts/seedPacketData.gd" id="7_i3m4h"]
+[ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
 
 [node name="Game" type="Node2D" unique_id=323427591]
 script = ExtResource("1_yergv")
@@ -34,28 +37,56 @@ y_sort_enabled = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D" unique_id=1509141968]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -948.0
-offset_top = -525.0
-offset_right = -514.0
-offset_bottom = -475.0
-grow_horizontal = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479911839]
 
-[node name="Button" type="Button" parent="Camera2D/HBoxContainer" unique_id=557355019]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=775984144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1509141968]
+layout_mode = 1
+offset_right = 434.0
+offset_bottom = 50.0
+
+[node name="debug1" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=557355019]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "spawn plants"
 script = ExtResource("2_dx5hc")
 
-[node name="Button2" type="Button" parent="Camera2D/HBoxContainer" unique_id=46419034]
+[node name="debug2" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=46419034]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "spawn zombies"
 script = ExtResource("3_ldq11")
 
-[connection signal="button_up" from="Camera2D/HBoxContainer/Button" to="Camera2D/HBoxContainer/Button" method="_on_button_up"]
-[connection signal="button_up" from="Camera2D/HBoxContainer/Button2" to="Camera2D/HBoxContainer/Button2" method="_on_button_up"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=536436148]
+layout_mode = 1
+offset_right = 108.0
+offset_bottom = 108.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Seedbank" type="Control" parent="CanvasLayer/Control/MarginContainer" unique_id=1089244168]
+layout_mode = 2
+script = ExtResource("6_arx4i")
+selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/Seedbank" unique_id=1924953330]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 150
+
+[connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug1" to="CanvasLayer/Control/HBoxContainer/debug1" method="_on_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug2" to="CanvasLayer/Control/HBoxContainer/debug2" method="_on_button_up"]

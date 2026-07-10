@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://qlgnfvwrxge8"]
+
+[ext_resource type="Script" uid="uid://bef6pde7huhbb" path="res://Seedpacket/baseSeedpacket.gd" id="1_u3oah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3oah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plsho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf6r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22ct5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lthxs"]
+
+[node name="Button" type="Button" unique_id=1833703468]
+custom_minimum_size = Vector2(200, 150)
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(10.646094, 10.646094)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u3oah")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_plsho")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nf6r7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_22ct5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lthxs")
+script = ExtResource("1_u3oah")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1355242072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1361022, 0.7377922)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
