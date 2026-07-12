@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="seedPacketData" format=3 uid="uid://cobbmsfieapt3"]
 
 [ext_resource type="PackedScene" uid="uid://bu5x5yjvapyb4" path="res://Plants/Peashooter/peashooter.tscn" id="1_gb56x"]
+[ext_resource type="Texture2D" uid="uid://d3k2r41tl8i0o" path="res://Plants/Peashooter/Assets/PortraitPeashooter.png" id="2_kyoid"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://GeneralScripts/seedPacketData.gd" id="2_te3yy"]
 [ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_kyoid"]
 
@@ -8,4 +9,5 @@
 script = ExtResource("2_te3yy")
 plantScene = ExtResource("1_gb56x")
 stats = ExtResource("3_kyoid")
+portrait = ExtResource("2_kyoid")
 metadata/_custom_type_script = "uid://d0rijjwuyjhp8"

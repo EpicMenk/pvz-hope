@@ -4,7 +4,9 @@ class_name seedbank
 @export var selectedSeedPackets : Array[seedPacketData] #exported for now for debugging
 @onready var seedSlots : Array[seedpacket]
 @onready var vBoxContainer: VBoxContainer = %VBoxContainer
-@export var seedSlotNum : int = 1
+@onready var lid: Panel = %Lid
+@onready var straps: TextureRect = %Straps
+@export var seedSlotNum : int = 0
 @onready var seedPacketScene : PackedScene = preload("res://Seedpacket/baseSeedpacket.tscn")
 @onready var _boardManager: boardManager = %BoardManager
 
@@ -13,13 +15,15 @@ func _ready() -> void:
 	createBlankSeedSlots()
 	cacheSeedSlots()
 	populateSeedSlots()
+	lid.custom_minimum_size.y = getRequiredLidHeight()
+	call_deferred("updateStrappers")
 
 
 func populateSeedSlots():
 	var count = min(seedSlotNum , selectedSeedPackets.size())
 	
 	for i in range(count):
-		seedSlots[i].seedData = selectedSeedPackets[i] 
+		seedSlots[i].initialize(selectedSeedPackets[i] ) 
 	
 
 func cacheSeedSlots():
@@ -33,3 +37,24 @@ func createBlankSeedSlots():
 		var seedPacket :seedpacket= seedPacketScene.instantiate()
 		vBoxContainer.add_child(seedPacket)
 		seedPacket._boardManager = _boardManager
+
+
+func updateStrappers():
+	straps.global_position.y += lid.size.y
+
+
+
+func getRequiredLidHeight() -> float:
+	lid.grow_vertical = Control.GROW_DIRECTION_END
+	var padding := 4
+	var separation : int = vBoxContainer.get_theme_constant("separation")
+	if seedSlots.is_empty():
+		return 0
+	
+	var packetHeight = seedSlots[0].size.y
+	
+	return (
+		packetHeight * seedSlots.size()
+		+ separation * max(seedSlots.size() - 1, 0) + padding
+		* 2
+	)
