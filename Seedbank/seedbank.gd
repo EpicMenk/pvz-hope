@@ -1,6 +1,8 @@
 extends Control
 class_name seedbank
 
+signal finishedInitializing()
+
 @export var selectedSeedPackets : Array[seedPacketData] #exported for now for debugging
 @onready var seedSlots : Array[seedpacket]
 @onready var vBoxContainer: VBoxContainer = %VBoxContainer
@@ -17,7 +19,13 @@ func _ready() -> void:
 	populateSeedSlots()
 	lid.custom_minimum_size.y = getRequiredLidHeight()
 	call_deferred("updateStrappers")
+	finishedInitializing.emit()
 
+func getSeedSlots () -> Array[seedpacket]:
+	return seedSlots
+
+func getSeedAtIndex(index : int)-> seedpacket:
+	return seedSlots[index]
 
 func populateSeedSlots():
 	var count = min(seedSlotNum , selectedSeedPackets.size())

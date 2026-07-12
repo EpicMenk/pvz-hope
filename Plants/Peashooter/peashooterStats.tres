@@ -12,5 +12,5 @@ projectileSpeed = 600.0
 displayName = "Peashooter"
 maxHP = 90
 cooldown = 3.0
-sunCost = 100
+sunCost = 5000
 metadata/_custom_type_script = "uid://dhuuqveo55bo1"

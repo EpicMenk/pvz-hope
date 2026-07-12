@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
+[ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://GeneralScripts/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
@@ -54,6 +55,9 @@ drawLaneNumbers = true
 [node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
 y_sort_enabled = true
 
+[node name="SeedbankManager" type="Node" parent="." unique_id=424637520]
+script = ExtResource("4_k3x6f")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)
 
@@ -69,8 +73,10 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1509141968]
 layout_mode = 1
-offset_right = 434.0
-offset_bottom = 50.0
+offset_left = 1488.0
+offset_top = 9.0
+offset_right = 1922.0
+offset_bottom = 59.0
 
 [node name="debug1" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=557355019]
 layout_mode = 2
@@ -96,6 +102,7 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="Seedbank" type="Control" parent="CanvasLayer/Control/MarginContainer" unique_id=1089244168]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("6_arx4i")
 selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j")])

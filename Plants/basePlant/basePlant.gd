@@ -1,6 +1,8 @@
 extends boardEntity
 class_name Plant
 
+signal plantPlaced()
+
 @export var hpC : hpComponent
 @export var dragC : dragComponent
 @onready var hurtboxC : hurtboxComponent = %hurtboxComponent
@@ -38,3 +40,4 @@ func placePlant (_grid : Vector2i , __boardManager : boardManager):
 	_boardManager = __boardManager
 	self.position = _boardManager.gridToWorld(grid)
 	_boardManager.registerGridOccupant(grid , self)
+	plantPlaced.emit()
