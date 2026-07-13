@@ -11,6 +11,7 @@ signal finishedInitializing()
 @export var seedSlotNum : int = 0
 @onready var seedPacketScene : PackedScene = preload("res://Seedpacket/baseSeedpacket.tscn")
 @onready var _boardManager: boardManager = %BoardManager
+@onready var _sunManager: sunManager = %SunManager
 
 
 func _ready() -> void:
@@ -43,6 +44,7 @@ func cacheSeedSlots():
 func createBlankSeedSlots():
 	for i in range(seedSlotNum):
 		var seedPacket :seedpacket= seedPacketScene.instantiate()
+		seedPacket._sunManager = _sunManager
 		vBoxContainer.add_child(seedPacket)
 		seedPacket._boardManager = _boardManager
 

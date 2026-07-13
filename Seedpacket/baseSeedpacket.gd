@@ -8,16 +8,24 @@ var _boardManager : boardManager
 @onready var portrait: TextureRect = %portrait
 @onready var sunCostLabel: Label = %sunCost
 var isSelected : bool
-
-
+var _sunManager : sunManager
 
 func _ready() -> void:
 	self.pressed.connect(checkRequirements)
+	_sunManager.sunValueChanged.connect(onSunChanged)
+
+func onSunChanged(_sunCount : int):
+	updateSeedOverlay()
 
 func checkRequirements():
 	seedpacketPressed.emit(self)
 
-
+func updateSeedOverlay():
+	if not seedData:
+		return
+	if _sunManager.canAfford(seedData.stats.sunCost):
+		modulate = Color.WHITE
+	else : modulate = Color(0.5,0.5,0.5)
 
 
 func spawnPlant()-> Plant:
@@ -40,3 +48,4 @@ func initialize(data : seedPacketData):
 	seedData = data
 	portrait.texture = seedData.portrait
 	sunCostLabel.text = str(seedData.stats.sunCost)
+	updateSeedOverlay()

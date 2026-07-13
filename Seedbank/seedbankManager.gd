@@ -1,7 +1,7 @@
 extends Node
 class_name seedBankManager
 
-
+@onready var _sunManager: sunManager = %SunManager
 @onready var seedBank: seedbank = %Seedbank
 var seedSlots : Array[seedpacket]
 var holdingPlant : Plant 
@@ -15,24 +15,32 @@ func initializeSeedpackets():
 	connectToSeedpackets()
 
 func onSeedpacketPressed(seedPacket : seedpacket):
+	if not seedPacket.seedData:
+		return
+	var cost : int = seedPacket.seedData.stats.sunCost
+	print(cost , "," , _sunManager.currentSun)
+	if not _sunManager.canAfford(cost):
+		return
 	if selectedSeedpacket == seedPacket :
 		unselectCurrent()
 		return
 	if selectedSeedpacket != seedPacket:
-		if seedPacket.seedData :
-			unselectCurrent()
-			selectedSeedpacket = seedPacket
-			selectedSeedpacket.isSelected = true
-			holdingPlant = selectedSeedpacket.spawnPlant()
-			holdingPlant.plantPlaced.connect(onPlantPlaced)
+		unselectCurrent()
+		selectedSeedpacket = seedPacket
+		selectedSeedpacket.isSelected = true
+		holdingPlant = selectedSeedpacket.spawnPlant()
+		holdingPlant.plantPlaced.connect(onPlantPlaced)
 		
+
 
 func onPlantPlaced():
 	if holdingPlant.plantPlaced.is_connected(onPlantPlaced):
 		holdingPlant.plantPlaced.disconnect(onPlantPlaced)
-	
+	_sunManager.spendSun(selectedSeedpacket.seedData.stats.sunCost)
+	selectedSeedpacket.isSelected = false
 	holdingPlant = null
 	selectedSeedpacket = null
+
 
 
 func unselectCurrent():

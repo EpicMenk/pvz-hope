@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
+[ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://GeneralScripts/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
@@ -57,6 +58,12 @@ y_sort_enabled = true
 
 [node name="SeedbankManager" type="Node" parent="." unique_id=424637520]
 script = ExtResource("4_k3x6f")
+
+[node name="SunManager" type="Node" parent="." unique_id=1812893364]
+unique_name_in_owner = true
+script = ExtResource("5_juktf")
+maxSun = 9999
+startingSun = 100
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)
