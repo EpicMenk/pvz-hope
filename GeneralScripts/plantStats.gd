@@ -7,6 +7,7 @@ class_name plantStats
 @export var maxHP : int
 @export var internalID : int
 @export var cooldown : float
+@export var initialCooldown : float
 @export var sunCost : int
 
 

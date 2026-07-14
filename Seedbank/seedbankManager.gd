@@ -18,7 +18,6 @@ func onSeedpacketPressed(seedPacket : seedpacket):
 	if not seedPacket.seedData:
 		return
 	var cost : int = seedPacket.seedData.stats.sunCost
-	print(cost , "," , _sunManager.currentSun)
 	if not _sunManager.canAfford(cost):
 		return
 	if selectedSeedpacket == seedPacket :

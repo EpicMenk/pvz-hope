@@ -8,6 +8,8 @@ class_name boardManager
 @onready var projectileSide := $Projectiles
 
 
+
+
 var gridOccupants : Dictionary [Vector2i , Variant] = {}
 var zombieInLanes : Array[laneData]
 
@@ -73,6 +75,7 @@ func printZombies():
 
 
 ## Plants
+
 
 func getClosestPlantAhead(attacker: boardEntity ,attackReach: int) -> Plant:
 	for i in attackReach + 1:

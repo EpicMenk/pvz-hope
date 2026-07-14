@@ -8,12 +8,13 @@
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
-[ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://GeneralScripts/seedPacketData.gd" id="7_i3m4h"]
+[ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
 [ext_resource type="Texture2D" uid="uid://cbvht5ia872jq" path="res://Seedbank/Assets/Backpack.png" id="9_wxp0d"]
 [ext_resource type="Texture2D" uid="uid://r81ig8rh5nyc" path="res://Seedbank/Assets/Patch.png" id="10_k3x6f"]
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
+[ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Plants/basePlant/Cafeteria-Black.otf" id="13_h6y7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxp0d"]
 bg_color = Color(0.4619894, 0.23402339, 0.19118276, 1)
@@ -63,7 +64,7 @@ script = ExtResource("4_k3x6f")
 unique_name_in_owner = true
 script = ExtResource("5_juktf")
 maxSun = 9999
-startingSun = 100
+startingSun = 1000
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)
@@ -130,6 +131,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_k3x6f")
 
+[node name="SunCount" type="Label" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack/Patch" unique_id=1388593111]
+unique_name_in_owner = true
+top_level = true
+layout_mode = 1
+offset_left = 124.0
+offset_top = 34.000008
+offset_right = 164.0
+offset_bottom = 119.00001
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("13_h6y7g")
+theme_override_font_sizes/font_size = 75
+text = "0"
+
 [node name="SunMedal" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack" unique_id=573050259]
 layout_mode = 0
 offset_right = 40.0
@@ -176,6 +190,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = -10
+
+[node name="DraggedObjectLayer" type="CanvasLayer" parent="." unique_id=1719436569]
+unique_name_in_owner = true
 
 [connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug1" to="CanvasLayer/Control/HBoxContainer/debug1" method="_on_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug2" to="CanvasLayer/Control/HBoxContainer/debug2" method="_on_button_up"]
