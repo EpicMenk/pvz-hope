@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqox07tg77l4o"]
+
+[ext_resource type="Script" uid="uid://o7w8nks6etig" path="res://Components/componentScripts/clickComponent.gd" id="2_qfcoj"]
+[ext_resource type="Script" uid="uid://cvke8dhuoily" path="res://Sun/sun.gd" id="3_t2n81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sun4s"]
+
+[node name="Sun" type="Sprite2D" unique_id=1116950680]
+script = ExtResource("3_t2n81")
+airDrag = 10.0
+bounce = 0.0
+disappearTweenDuration = 0.2
+metadata/_custom_type_script = "uid://cvke8dhuoily"
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1127608825]
+position = Vector2(0, -1)
+offset = Vector2(-37, 9)
+polygon = PackedVector2Array(96, -47.999996, -24, -55.999996, -40, 31.999992, 104, 39.999992)
+uv = PackedVector2Array(96, -47.999996, -24, -55.999996, -40, 31.999992, 104, 39.999992)
+
+[node name="ClickComponent" type="Area2D" parent="." unique_id=811817156]
+unique_name_in_owner = true
+script = ExtResource("2_qfcoj")
+interactionMode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickComponent" unique_id=2116312633]
+unique_name_in_owner = true
+scale = Vector2(7.822324, 5.9462852)
+shape = SubResource("RectangleShape2D_sun4s")

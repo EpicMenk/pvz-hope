@@ -35,6 +35,12 @@ expand_margin_bottom = 10.0
 [node name="Game" type="Node2D" unique_id=323427591]
 script = ExtResource("1_yergv")
 
+[node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
+
+[node name="SunMarker" type="Marker2D" parent="EditorMarkers" unique_id=1824166909]
+unique_name_in_owner = true
+position = Vector2(72, 81)
+
 [node name="BoardManager" type="Node2D" parent="." unique_id=369926797]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -66,6 +72,9 @@ script = ExtResource("5_juktf")
 maxSun = 9999
 startingSun = 1000
 
+[node name="SunSpawnTimer" type="Timer" parent="SunManager" unique_id=688825087]
+unique_name_in_owner = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986539666]
 position = Vector2(563, 415)
 
@@ -78,6 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1509141968]
 layout_mode = 1
@@ -104,6 +114,7 @@ script = ExtResource("3_ldq11")
 layout_mode = 1
 offset_right = 108.0
 offset_bottom = 108.0
+mouse_filter = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 180
 theme_override_constants/margin_right = 100
@@ -112,6 +123,7 @@ theme_override_constants/margin_bottom = 100
 [node name="Seedbank" type="Control" parent="CanvasLayer/Control/MarginContainer" unique_id=1089244168]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 script = ExtResource("6_arx4i")
 selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j")])
 seedSlotNum = 4
@@ -123,12 +135,14 @@ offset_top = -398.0
 offset_right = 463.0
 offset_bottom = 302.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("9_wxp0d")
 
 [node name="Patch" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack" unique_id=1761174680]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("10_k3x6f")
 
 [node name="SunCount" type="Label" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack/Patch" unique_id=1388593111]
@@ -148,6 +162,7 @@ text = "0"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("12_h6y7g")
 
 [node name="Straps" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack" unique_id=1305372901]
@@ -191,7 +206,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = -10
 
-[node name="DraggedObjectLayer" type="CanvasLayer" parent="." unique_id=1719436569]
+[node name="VFXLayer" type="CanvasLayer" parent="." unique_id=1719436569]
 unique_name_in_owner = true
 
 [connection signal="button_up" from="CanvasLayer/Control/HBoxContainer/debug1" to="CanvasLayer/Control/HBoxContainer/debug1" method="_on_button_up"]

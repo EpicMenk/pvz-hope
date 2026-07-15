@@ -27,6 +27,7 @@ var hasLanded := false
 @export_range(0.0, 1.0)
 var bounce := 0.2
 @export var disappearsOnLanding : bool = false
+@export var disappearTweenDuration : float = 1
 const PHYSICS_OBJECT := preload("uid://cduer3twlusei")
 
 func _physics_process(delta):
@@ -53,11 +54,7 @@ func _physics_process(delta):
 			hasLanded = true
 			
 			if disappearsOnLanding:
-				var disappearTween := get_tree().create_tween()
-				disappearTween.tween_property(self, "modulate:a", 0.0, 1.0)
-				disappearTween.set_ease(Tween.EASE_IN_OUT)
-				disappearTween.set_trans(Tween.TRANS_SINE)
-				disappearTween.finished.connect(queue_free)
+				playDisappearingTween()
 		# Bounce
 		if abs(velocity.y) > 5.0:
 			velocity.y *= -bounce
@@ -78,6 +75,13 @@ func _physics_process(delta):
 		# Stop simulating when almost completely still
 		if velocity.length() < 2.0 and abs(angularVelocity) < 0.05:
 			stop()
+
+func playDisappearingTween():
+	var disappearTween := get_tree().create_tween()
+	disappearTween.tween_property(self, "modulate:a", 0.0, disappearTweenDuration)
+	disappearTween.set_ease(Tween.EASE_IN_OUT)
+	disappearTween.set_trans(Tween.TRANS_SINE)
+	disappearTween.finished.connect(queue_free)
 
 
 func copyHierarchy(from: Sprite2D , yfloor : float):

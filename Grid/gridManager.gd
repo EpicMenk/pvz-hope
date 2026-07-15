@@ -52,10 +52,18 @@ func clamp_Grid(grid_position: Vector2i) -> Vector2i:
 
 #------------------------------------------------------------------------------#
 #save a grid as a numerical value 
-func as_index(grid: Vector2i) -> int:
-	return int(grid.x + grid_Row_Column_size.x * grid.y)
+#func as_index(grid: Vector2i) -> int:
+	#return int(grid.x + grid_Row_Column_size.x * grid.y)
 
-#------------------------------------------------------------------------------#
+func getRandomLane() -> int:
+	return randi_range(0, laneCount - 1)
 
+## the x value is randomized while the y value is determined by the lane
+func getRandomPositionOnLawn() -> Vector2:
+	return Vector2(
+		randf_range(0.0, boardSize.x),
+		getLaneY(getRandomLane())
+	)
 
-#------------------------------------------------------------------------------#
+func getLaneY(lane: int) -> float:
+	return get_Position(Vector2i(0, lane)).y
