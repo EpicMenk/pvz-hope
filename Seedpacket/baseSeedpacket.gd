@@ -5,10 +5,12 @@ signal seedpacketPressed(seed : seedpacket)
 
 var seedData : seedPacketData
 var _boardManager : boardManager
+@onready var backdrop: TextureRect = %backdrop
+@onready var border: TextureRect = %border
 @onready var portrait: TextureRect = %portrait
 @onready var sunCostLabel: Label = %sunCost
 @onready var cooldownTimer: Timer = %cooldownTimer
-@onready var cooldownBar: ProgressBar = %ProgressBar
+@onready var cooldownBar: TextureProgressBar = %ProgressBar
 var isSelected : bool
 var _sunManager : sunManager
 var firstCooldown : bool = true
@@ -18,6 +20,7 @@ var currentCooldownDuration : float
 func _process(_delta: float) -> void:
 	if isCoolingdown:
 		cooldownBar.value = getCooldownPercent() * 100
+
 
 
 func _ready() -> void:
@@ -53,8 +56,15 @@ func updateSeedOverlay():
 	if not seedData:
 		return
 	if not _sunManager.canAfford(seedData.stats.sunCost) or isCoolingdown:
-		modulate = Color(0.5,0.5,0.5)
-	else : modulate = Color.WHITE
+		changeOverlaySeedPacket(Color(0.5,0.5,0.5))
+	else : changeOverlaySeedPacket(Color.WHITE)
+
+func changeOverlaySeedPacket(color : Color):
+	backdrop.modulate = color
+	border.modulate = color
+	sunCostLabel.modulate = color
+	portrait.modulate = color
+
 
 
 func spawnPlant()-> Plant:

@@ -1,6 +1,7 @@
 extends Node2D
 class_name boardManager
 
+@warning_ignore("unused_private_class_variable")
 @onready var _sunManager: sunManager = %SunManager
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 @onready var plantSide := %Plants
