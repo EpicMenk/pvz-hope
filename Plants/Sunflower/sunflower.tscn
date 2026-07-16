@@ -2,11 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_qket1"]
 [ext_resource type="Script" uid="uid://cy78gda34wmxh" path="res://Components/componentScripts/sunSpawnComponent.gd" id="2_lqiny"]
+[ext_resource type="Script" uid="uid://bp73dkivl0ns6" path="res://Plants/Sunflower/sunflower.gd" id="2_pg8hw"]
+[ext_resource type="Resource" uid="uid://dms6xigjm2l4o" path="res://Plants/Sunflower/sunflowerStats.tres" id="3_pg8hw"]
+[ext_resource type="Resource" uid="uid://c1g28tm5wwnct" path="res://Sun/normalSunStats.tres" id="5_n62bd"]
 
-[node name="Sunflower" unique_id=719743608 instance=ExtResource("1_qket1")]
+[node name="Sunflower" unique_id=719743608 node_paths=PackedStringArray("sunSpawnC") instance=ExtResource("1_qket1")]
+script = ExtResource("2_pg8hw")
+sunSpawnC = NodePath("sunSpawnComponent")
+plantSunProcStats = ExtResource("3_pg8hw")
 
-[node name="sunSpawnComponent" type="Node" parent="." index="4" unique_id=873825250]
+[node name="hpComponent" parent="." index="2" unique_id=1638797325]
+maxHP = 1
+
+[node name="sunSpawnComponent" type="Node2D" parent="." index="4" unique_id=1942751824 node_paths=PackedStringArray("spawnTimer")]
 script = ExtResource("2_lqiny")
+sunConfig = ExtResource("5_n62bd")
+spawnTimer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="sunSpawnComponent" index="0" unique_id=1239939906]
 unique_name_in_owner = true
+
+[node name="SpawnMarker" type="Marker2D" parent="sunSpawnComponent" index="1" unique_id=2096976105]
+unique_name_in_owner = true
+position = Vector2(0, -31)
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="6" unique_id=783314423]
+polygon = PackedVector2Array(-31, -33, 33, -41, 29, 54, -29, 54)

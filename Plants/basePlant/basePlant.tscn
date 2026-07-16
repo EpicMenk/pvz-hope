@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://coo72g5h5oq7v" path="res://Plants/basePlant/basePlant.gd" id="1_ylh16"]
 [ext_resource type="PackedScene" uid="uid://c37ki858atwe5" path="res://Components/hpComponent.tscn" id="2_khxjq"]
 [ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="2_q2sqp"]
-[ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="3_yawjj"]
 [ext_resource type="PackedScene" uid="uid://gpqcuxgvxou5" path="res://Components/dragComponent.tscn" id="4_yawjj"]
 
-[node name="basePlant" type="Node2D" unique_id=719743608 node_paths=PackedStringArray("dragC", "hpC")]
+[node name="basePlant" type="Node2D" unique_id=719743608 node_paths=PackedStringArray("hpC", "dragC")]
 script = ExtResource("1_ylh16")
-dragC = NodePath("dragComponent")
 hpC = NodePath("hpComponent")
+dragC = NodePath("dragComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605545839]
 
@@ -18,6 +17,9 @@ unique_name_in_owner = true
 hpC = NodePath("../hpComponent")
 
 [node name="hpComponent" parent="." unique_id=1638797325 instance=ExtResource("2_khxjq")]
-script = ExtResource("3_yawjj")
 
 [node name="dragComponent" parent="." unique_id=2127445933 instance=ExtResource("4_yawjj")]
+
+[node name="Ground" type="Marker2D" parent="." unique_id=1162007860]
+unique_name_in_owner = true
+position = Vector2(0, 61)

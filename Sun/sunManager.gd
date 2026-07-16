@@ -59,7 +59,7 @@ func spawnSkySun():
 	spawnSun(sunSkyStats, 
 	Vector2(randf_range(0 , _gridManager.boardSize.x) , spawnHeight),
 	_gridManager.getLaneY(_gridManager.getRandomLane()),
-	Vector2(0,10)
+	Vector2(0,0)
 	)
 
 

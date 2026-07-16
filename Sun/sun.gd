@@ -3,8 +3,8 @@ class_name sun
 
 signal sunClicked(_sun : sun)
 
-@export var sunLifeTime : float 
-@export var sunValue : int = 50
+var sunLifeTime : float 
+var sunValue : int = 50
 @export var _clickComponent: clickComponent
 @export var sunLifeTimeTimer: Timer 
 
@@ -16,6 +16,7 @@ func _ready() -> void:
 	landed.connect(func(): sunLifeTimeTimer.start())
 
 func onClicked():
+	modulate.a = 1
 	sunLifeTimeTimer.stop()
 	_clickComponent.disable()
 	simulatePhysics = false

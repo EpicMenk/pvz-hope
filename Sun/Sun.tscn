@@ -9,7 +9,7 @@
 script = ExtResource("3_t2n81")
 _clickComponent = NodePath("ClickComponent")
 sunLifeTimeTimer = NodePath("Timer")
-airDrag = 10.0
+airDrag = 7.5
 bounce = 0.0
 disappearTweenDuration = 0.2
 metadata/_custom_type_script = "uid://cvke8dhuoily"

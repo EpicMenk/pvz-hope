@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cbvht5ia872jq" path="res://Seedbank/Assets/Backpack.png" id="9_wxp0d"]
 [ext_resource type="Texture2D" uid="uid://r81ig8rh5nyc" path="res://Seedbank/Assets/Patch.png" id="10_k3x6f"]
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
+[ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Plants/basePlant/Cafeteria-Black.otf" id="13_h6y7g"]
 
@@ -78,6 +79,7 @@ unique_name_in_owner = true
 script = ExtResource("5_juktf")
 maxSun = 9999
 startingSun = 1000
+sunSpawnWaitTime = 5.0
 sunSkyStats = SubResource("Resource_7nkqc")
 
 [node name="SunSpawnTimer" type="Timer" parent="SunManager" unique_id=688825087]
@@ -133,7 +135,7 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("6_arx4i")
-selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j")])
+selectedSeedPackets = Array[ExtResource("7_i3m4h")]([ExtResource("8_p034j"), ExtResource("12_54fq6")])
 seedSlotNum = 4
 
 [node name="Backpack" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/Seedbank" unique_id=439836847]

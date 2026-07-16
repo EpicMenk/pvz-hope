@@ -6,7 +6,9 @@ signal plantPlaced()
 @export var hpC : hpComponent
 @export var dragC : dragComponent
 @onready var hurtboxC : hurtboxComponent = %hurtboxComponent
+@onready var ground: Marker2D = %Ground
 var isPlaced : bool = false
+
 
 func die():
 	_boardManager.unregisterGridOccupant(grid)

@@ -81,17 +81,20 @@ func getCooldownPercent() -> float:
 		return 1.0
 	return 1.0 - cooldownTimer.time_left / currentCooldownDuration
 
+
 func startCooldown():
 	isCoolingdown = true
 	if firstCooldown:
 		
-		isPlantZeroCooldown()
+		if isCooldownZero(seedData.stats.initialCooldown):
+			return
 		
 		currentCooldownDuration = seedData.stats.initialCooldown
 		cooldownTimer.start(seedData.stats.initialCooldown)
 		firstCooldown = false
 	else:
-		isPlantZeroCooldown()
+		if isCooldownZero(seedData.stats.cooldown):
+			return
 		if seedData.stats.cooldown <= 0:
 			firstCooldown = false
 			isCoolingdown = false
@@ -99,14 +102,17 @@ func startCooldown():
 		
 		currentCooldownDuration = seedData.stats.cooldown
 		cooldownTimer.start(seedData.stats.cooldown)
+	cooldownBar.value = getCooldownPercent() * 100
 	cooldownBar.show()
 	updateSeedOverlay()
 
-func isPlantZeroCooldown():
-	if seedData.stats.initialCooldown <= 0:
+
+func isCooldownZero(duration: float) -> bool:
+	if duration <= 0:
 		firstCooldown = false
 		isCoolingdown = false
-		return
+		return true
+	return false
 
 
 func initialize(data : seedPacketData):

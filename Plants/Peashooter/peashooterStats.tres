@@ -11,5 +11,6 @@ projectileScene = ExtResource("1_pql4y")
 projectileSpeed = 600.0
 displayName = "Peashooter"
 maxHP = 90
+cooldown = 2.0
 sunCost = 100
 metadata/_custom_type_script = "uid://dhuuqveo55bo1"

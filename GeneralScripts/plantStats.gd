@@ -19,5 +19,6 @@ enum PLANT_TYPE {
 }
 
 enum PLANT_FAMILY {
-	AppeaseMint
+	AppeaseMint,
+	EnlightMint
 }

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="seedPacketData" format=3 uid="uid://bwonl2ndheb02"]
+
+[ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="1_86qm4"]
+[ext_resource type="PackedScene" uid="uid://cw343srtv0a0l" path="res://Plants/Sunflower/sunflower.tscn" id="1_fnk82"]
+[ext_resource type="Resource" uid="uid://dms6xigjm2l4o" path="res://Plants/Sunflower/sunflowerStats.tres" id="3_ef528"]
+
+[resource]
+script = ExtResource("1_86qm4")
+plantScene = ExtResource("1_fnk82")
+stats = ExtResource("3_ef528")
+metadata/_custom_type_script = "uid://d0rijjwuyjhp8"
