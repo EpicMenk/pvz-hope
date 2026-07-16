@@ -1,6 +1,8 @@
 extends Sprite2D
 class_name physicsSprite2D
 
+signal landed
+
 # Friction while sliding on the ground.
 @export var groundFriction := 700.0
 # How quickly spinning slows down.
@@ -52,7 +54,7 @@ func _physics_process(delta):
 		# First time hitting the floor
 		if !hasLanded:
 			hasLanded = true
-			
+			landed.emit()
 			if disappearsOnLanding:
 				playDisappearingTween()
 		# Bounce

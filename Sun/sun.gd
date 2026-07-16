@@ -3,15 +3,20 @@ class_name sun
 
 signal sunClicked(_sun : sun)
 
+@export var sunLifeTime : float 
 @export var sunValue : int = 50
-@onready var _clickComponent: clickComponent = %ClickComponent
-var _sunManager : sunManager
+@export var _clickComponent: clickComponent
+@export var sunLifeTimeTimer: Timer 
+
 
 
 func _ready() -> void:
 	_clickComponent.clicked.connect(onClicked)
+	sunLifeTimeTimer.timeout.connect(func() : playDisappearingTween())
+	landed.connect(func(): sunLifeTimeTimer.start())
 
 func onClicked():
+	sunLifeTimeTimer.stop()
 	_clickComponent.disable()
 	simulatePhysics = false
 	sunClicked.emit(self)
@@ -23,3 +28,8 @@ func tweenToPosition(_position : Vector2):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.connect("finished" , func(): playDisappearingTween())
+
+func evaluateStats(stats : sunStats):
+	sunValue = stats.sunValue
+	sunLifeTime = stats.sunLifeTime
+	sunLifeTimeTimer.wait_time = sunLifeTime

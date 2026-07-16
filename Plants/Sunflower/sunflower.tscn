@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cw343srtv0a0l"]
+
+[ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_qket1"]
+[ext_resource type="Script" uid="uid://cy78gda34wmxh" path="res://Components/componentScripts/sunSpawnComponent.gd" id="2_lqiny"]
+
+[node name="Sunflower" unique_id=719743608 instance=ExtResource("1_qket1")]
+
+[node name="sunSpawnComponent" type="Node" parent="." index="4" unique_id=873825250]
+script = ExtResource("2_lqiny")
+
+[node name="Timer" type="Timer" parent="sunSpawnComponent" index="0" unique_id=1239939906]
+unique_name_in_owner = true

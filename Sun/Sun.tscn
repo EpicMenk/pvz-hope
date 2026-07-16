@@ -5,8 +5,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sun4s"]
 
-[node name="Sun" type="Sprite2D" unique_id=1116950680]
+[node name="Sun" type="Sprite2D" unique_id=1116950680 node_paths=PackedStringArray("_clickComponent", "sunLifeTimeTimer")]
 script = ExtResource("3_t2n81")
+_clickComponent = NodePath("ClickComponent")
+sunLifeTimeTimer = NodePath("Timer")
 airDrag = 10.0
 bounce = 0.0
 disappearTweenDuration = 0.2
@@ -27,3 +29,7 @@ interactionMode = 1
 unique_name_in_owner = true
 scale = Vector2(7.822324, 5.9462852)
 shape = SubResource("RectangleShape2D_sun4s")
+
+[node name="Timer" type="Timer" parent="." unique_id=100317506]
+unique_name_in_owner = true
+one_shot = true

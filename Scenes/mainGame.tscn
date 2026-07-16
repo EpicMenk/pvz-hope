@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
+[ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://GeneralScripts/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
@@ -15,6 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Plants/basePlant/Cafeteria-Black.otf" id="13_h6y7g"]
+
+[sub_resource type="Resource" id="Resource_7nkqc"]
+script = ExtResource("6_7nkqc")
+sunValue = 50
+sunLifeTime = 10.0
+metadata/_custom_type_script = "uid://cwtmkm755le4w"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxp0d"]
 bg_color = Color(0.4619894, 0.23402339, 0.19118276, 1)
@@ -71,6 +78,7 @@ unique_name_in_owner = true
 script = ExtResource("5_juktf")
 maxSun = 9999
 startingSun = 1000
+sunSkyStats = SubResource("Resource_7nkqc")
 
 [node name="SunSpawnTimer" type="Timer" parent="SunManager" unique_id=688825087]
 unique_name_in_owner = true

@@ -15,6 +15,7 @@ signal sunValueChanged(currentSunCount : int)
 @export var sunSpawnedValue : int = 50
 @export var startingSun : int = 50
 @export var sunSpawnWaitTime : float = 1
+@export var sunSkyStats : sunStats
 var currentSun : int :
 	set(amount):
 		currentSun = clamp(amount , 0 , maxSun)
@@ -37,18 +38,15 @@ func animateSunCount(newValue : int):
 	)
 
 
-func spawnSun():
+func spawnSun(sunConfig : sunStats , _position : Vector2 , floorY : float , force : Vector2):
 	var _sun : sun = sunScene.instantiate()
-	_sun.sunValue = sunSpawnedValue
-	_sun._sunManager = self
-	_sun.global_position = Vector2(
-		randf_range(0.0 , _gridManager.boardSize.x),
-		spawnHeight
-	)
-	_sun.floorY = _gridManager.getLaneY(_gridManager.getRandomLane())
+	_sun.evaluateStats(sunConfig)
+	_sun.global_position = _position
+	_sun.floorY = floorY
 	_boardManager.add_child(_sun)
-	_sun.drop(Vector2(0,10))
+	_sun.drop(force)
 	_sun.sunClicked.connect(onSunClicked)
+
 
 func onSunClicked(_sun : sun):
 	addSun(_sun.sunValue)
@@ -57,11 +55,18 @@ func onSunClicked(_sun : sun):
 	_sun.position = screen_pos
 	_sun.tweenToPosition(sunMarker.global_position)
 
+func spawnSkySun():
+	spawnSun(sunSkyStats, 
+	Vector2(randf_range(0 , _gridManager.boardSize.x) , spawnHeight),
+	_gridManager.getLaneY(_gridManager.getRandomLane()),
+	Vector2(0,10)
+	)
+
 
 func setUpSpawnTimer():
 	sunSpawnTimer.wait_time = sunSpawnWaitTime
 	startSpawningSun()
-	sunSpawnTimer.timeout.connect(spawnSun)
+	sunSpawnTimer.timeout.connect(spawnSkySun)
 
 func _ready() -> void:
 	setUpSpawnTimer()
@@ -74,7 +79,6 @@ func stopSpawningSun():
 
 func startSpawningSun():
 	sunSpawnTimer.start()
-
 
 func canAfford(cost : int) -> bool:
 	return cost <= currentSun
