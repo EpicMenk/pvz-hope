@@ -11,7 +11,7 @@ class_name straightShooterComponent
 @onready var parent : boardEntity = get_parent() as boardEntity
 @onready var timeBetweenShotsTimer: Timer = %timeBetweenShots
 var readyToShoot : bool = false
-var _projectileStats : projectileStats = projectileStats.new()
+@export var _projectileStats : projectileStats = projectileStats.new()
 var isActive : bool = true
 
 func setUpMarks():
@@ -20,12 +20,12 @@ func setUpMarks():
 
 func _ready() -> void:
 	setUpMarks()
-	call_deferred("setUpTimer")
+	timeBetweenShotsTimer.timeout.connect(updateShoot)
 
-func setUpTimer():
+func evaluateStats():
 	timeBetweenShotsTimer.wait_time = timeBetweenShots
 	timeBetweenShotsTimer.start()
-	timeBetweenShotsTimer.timeout.connect(updateShoot)
+
 
 
 func _process(_delta):
@@ -61,7 +61,7 @@ func spawnProjectile(point : Marker2D):
 	projectileInstance.attacker = parent
 	projectileInstance.global_position = point.global_position
 	parent._boardManager.projectileSide.add_child(projectileInstance)
-	projectileInstance.initializeStats(_projectileStats)
+	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():
 	isActive = false

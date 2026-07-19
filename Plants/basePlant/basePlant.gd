@@ -14,8 +14,11 @@ func die():
 	_boardManager.unregisterGridOccupant(grid)
 	queue_free()
 
+func onPlanted():
+	pass
+
 func evaluateStats():
-	push_error("initializeStats() needs to be overriden")
+	push_error("evaluateStats() needs to be overriden")
 
 func activateComponent():
 	push_error("activateComponent() needs to be overriden")
@@ -25,6 +28,7 @@ func disableComponent():
 
 func _ready() -> void:
 	evaluateStats()
+	self.plantPlaced.connect(onPlanted)
 
 
 func getHurtboxComponent() -> hurtboxComponent:

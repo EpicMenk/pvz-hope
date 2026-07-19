@@ -1,16 +1,19 @@
 extends Plant
 class_name peashooter
 
-@export var stats : plantAttackerStats
+@export var stats : plantStats
+@export var _attackConfigs : attackConfigs
+@export var _projectileConfigs : projectileConfigs
 @export var straightShooterC: straightShooterComponent 
 
 
 func evaluateStats():
-	straightShooterC._projectileStats.damage = stats.damage
-	straightShooterC._projectileStats.projectileSpeed = stats.projectileSpeed
-	straightShooterC._projectileStats.damageType = stats.damageType
-	straightShooterC.timeBetweenShots = stats.timeBetweenAttack
-	straightShooterC.projectileScene = stats.projectileScene
+	straightShooterC._projectileStats.damage = _attackConfigs.damage
+	straightShooterC._projectileStats.projectileSpeed = _projectileConfigs.projectileSpeed
+	straightShooterC._projectileStats.damageType = _attackConfigs.damageType
+	straightShooterC.timeBetweenShots = _attackConfigs.timeBetweenAttack
+	straightShooterC.projectileScene = _projectileConfigs.projectileScene
+	straightShooterC.evaluateStats()
 	hpC.updateMaxHP(stats.maxHP)
 
 func activateComponent():

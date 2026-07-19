@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
-[ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Plants/basePlant/Cafeteria-Black.otf" id="13_h6y7g"]
+[ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
 
 [sub_resource type="Resource" id="Resource_7nkqc"]
 script = ExtResource("6_7nkqc")

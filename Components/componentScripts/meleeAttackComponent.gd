@@ -17,10 +17,12 @@ var _damageInfo : damageInfo
 
 
 func _ready() -> void:
+	attackCooldownTimer.timeout.connect(attack)
+
+func evaluateStats():
 	buildDamageInfo()
 	attackCooldownTimer.wait_time = attackCooldown
 	attackCooldownTimer.start()
-	attackCooldownTimer.timeout.connect(attack)
 
 func attack():
 	if not isActivated():

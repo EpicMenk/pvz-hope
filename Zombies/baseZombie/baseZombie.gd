@@ -10,8 +10,17 @@ class_name Zombie
 @onready var head: Sprite2D = %Head
 @onready var lowerHandRight: Sprite2D = %LowerHandRight
 
+func evaluateStats():
+	push_error("evaluateStats() needs to be overriden")
+
+func activateComponent():
+	push_error("activateComponent() needs to be overriden")
+
+func disableComponent():
+	push_error("disableComponent() needs to be overriden")
 
 func _ready() -> void:
+	evaluateStats()
 	updateHurtboxCollisionLayer()
 	hpC.eventTriggered.connect(evaluateEvent)
 	zombieMeleeC.startedAttacking.connect(zombieMovementC.stop)

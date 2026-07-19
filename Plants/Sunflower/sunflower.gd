@@ -2,19 +2,22 @@ extends Plant
 class_name sunflower
 
 @export var sunSpawnC : sunSpawnComponent
-@export var plantSunProcStats : plantSunProducerStats
+@export var stats : plantStats
+@export var _sunConfigs : sunConfigs
+
 
 func evaluateStats():
-	sunSpawnC.spawnTimer.wait_time = plantSunProcStats.timeBetweenSun
-	sunSpawnC.sunConfig = plantSunProcStats.sunConfig
+	sunSpawnC.spawnTimerWaitTime = _sunConfigs.timeBetweenSun
+	sunSpawnC.sunConfig = _sunConfigs._sunStats
 	sunSpawnC._sunManager = _boardManager._sunManager
 	sunSpawnC.floorMarker = ground
-	hpC.updateMaxHP(plantSunProcStats.maxHP)
+	sunSpawnC.evaluateStats()
+	hpC.updateMaxHP(stats.maxHP)
 
 func activateComponent():
 	sunSpawnC.enable()
 	hpC.enable()
 
 func disableComponent():
-	sunSpawnC.enable()
+	sunSpawnC.disable()
 	hpC.disable()

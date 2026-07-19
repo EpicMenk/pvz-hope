@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_mhgda"]
 [ext_resource type="Texture2D" uid="uid://eprr33t76uqm" path="res://Plants/Peashooter/Assets/Stem.png" id="2_cl0hm"]
 [ext_resource type="Script" uid="uid://dg3dnn577ah5y" path="res://Plants/Peashooter/peashooter.gd" id="2_kfm6o"]
+[ext_resource type="Script" uid="uid://bii4dy5as42sb" path="res://GeneralScripts/plantStats.gd" id="3_01iyj"]
 [ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
-[ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_i0lx4"]
 [ext_resource type="Texture2D" uid="uid://bke34mavvdh6y" path="res://Plants/Peashooter/Assets/Collar.png" id="3_r2obu"]
 [ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
+[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://GeneralScripts/attackConfigs.gd" id="4_7veov"]
 [ext_resource type="Texture2D" uid="uid://c4gneyw72s6kp" path="res://Plants/Peashooter/Assets/Head.png" id="4_kfm6o"]
+[ext_resource type="Script" uid="uid://donhesawxw8ce" path="res://GeneralScripts/projectileConfigs.gd" id="5_6bdoo"]
 [ext_resource type="Texture2D" uid="uid://cljarqqm3xyi7" path="res://Plants/Peashooter/Assets/LeafHead.png" id="5_i0lx4"]
 [ext_resource type="Texture2D" uid="uid://ly14aguj57kn" path="res://Plants/Peashooter/Assets/Cheek.png" id="6_31xav"]
 [ext_resource type="Texture2D" uid="uid://cfbnxn6ndvrb3" path="res://Plants/Peashooter/Assets/EyeRight.png" id="7_01iyj"]
@@ -20,6 +22,27 @@
 [ext_resource type="Texture2D" uid="uid://bveylvck36ofk" path="res://Plants/Peashooter/Assets/LeafLeft.png" id="14_kl1pt"]
 [ext_resource type="Texture2D" uid="uid://b7buows8w4nwe" path="res://Plants/Peashooter/Assets/LeftRight.png" id="15_i06hc"]
 [ext_resource type="PackedScene" uid="uid://rq3me6wd5e8l" path="res://Components/plantAnimationComponent.tscn" id="18_kfm6o"]
+
+[sub_resource type="Resource" id="Resource_i0lx4"]
+script = ExtResource("3_01iyj")
+displayName = "Peashooter"
+maxHP = 200
+cooldown = 5.0
+initialCooldown = 1.0
+sunCost = 100
+metadata/_custom_type_script = "uid://bii4dy5as42sb"
+
+[sub_resource type="Resource" id="Resource_xijgq"]
+script = ExtResource("4_7veov")
+damage = 30
+timeBetweenAttack = 3.0
+metadata/_custom_type_script = "uid://dglnge4u7ue6c"
+
+[sub_resource type="Resource" id="Resource_t3fsq"]
+script = ExtResource("5_6bdoo")
+projectileSpeed = 1000.0
+projectileScene = ExtResource("4_4rmwx")
+metadata/_custom_type_script = "uid://donhesawxw8ce"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qtpw4"]
 animations = [{
@@ -589,7 +612,9 @@ _data = {
 
 [node name="Peashooter" unique_id=719743608 node_paths=PackedStringArray("straightShooterC") instance=ExtResource("1_mhgda")]
 script = ExtResource("2_kfm6o")
-stats = ExtResource("3_i0lx4")
+stats = SubResource("Resource_i0lx4")
+_attackConfigs = SubResource("Resource_xijgq")
+_projectileConfigs = SubResource("Resource_t3fsq")
 straightShooterC = NodePath("straightShooterComponent")
 
 [node name="visuals" type="Sprite2D" parent="." index="0" unique_id=1605545839]

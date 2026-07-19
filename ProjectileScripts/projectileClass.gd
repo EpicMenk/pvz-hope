@@ -26,7 +26,7 @@ func processHit(hurtboxes : Array[hurtboxComponent]) -> void:
 func getTargets(_hurtboxes : Array[hurtboxComponent]) -> Array[hurtboxComponent]:
 	return []
 
-func initializeStats(_projectileStats : projectileStats):
+func evaluateStats(_projectileStats : projectileStats):
 	damage = _projectileStats.damage
 	movementC.speed = _projectileStats.projectileSpeed
 	damageType = _projectileStats.damageType
