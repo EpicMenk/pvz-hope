@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="sunStats" format=3 uid="uid://c1g28tm5wwnct"]
 
-[ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://GeneralScripts/sunStats.gd" id="1_kbpy6"]
+[ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="1_kbpy6"]
 
 [resource]
 script = ExtResource("1_kbpy6")

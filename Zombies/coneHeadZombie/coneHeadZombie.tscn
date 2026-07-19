@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cqnvqpt13n8ot"]
+
+[ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_rtdrv"]
+[ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="2_in7q6"]
+[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_wpolw"]
+[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="4_eh87m"]
+[ext_resource type="Script" uid="uid://c04h0hinpck7y" path="res://StatsConfigs/rangeConfigs.gd" id="5_cgmt6"]
+
+[sub_resource type="Resource" id="Resource_fdmtf"]
+script = ExtResource("3_wpolw")
+displayName = "Cone Head Zombie"
+hp = 1000
+shield = 100
+speed = 60.0
+weight = 1.0
+point = 1.5
+metadata/_custom_type_script = "uid://e8w77s8p2s5y"
+
+[sub_resource type="Resource" id="Resource_f0ur8"]
+script = ExtResource("4_eh87m")
+damage = 50
+timeBetweenAttack = 2.0
+metadata/_custom_type_script = "uid://dglnge4u7ue6c"
+
+[sub_resource type="Resource" id="Resource_wpolw"]
+script = ExtResource("5_cgmt6")
+rangeInTiles = 3
+metadata/_custom_type_script = "uid://c04h0hinpck7y"
+
+[node name="coneHeadZombie" unique_id=2108398841 instance=ExtResource("1_rtdrv")]
+script = ExtResource("2_in7q6")
+stats = SubResource("Resource_fdmtf")
+attackStats = SubResource("Resource_f0ur8")
+rangeStats = SubResource("Resource_wpolw")

@@ -1,5 +1,5 @@
 extends Zombie
-class_name brownCoatZombie
+class_name basicZombie
 
 @export var stats : zombieStats
 @export var attackStats : attackConfigs
@@ -12,6 +12,7 @@ func evaluateStats():
 	zombieMeleeC.damageType = attackStats.damageType
 	zombieMovementC.speed = stats.speed
 	zombieMeleeC.evaluateStats()
+	hpC.updateShield(stats.shield)
 	hpC.updateMaxHP(stats.hp)
 
 func disableComponent():

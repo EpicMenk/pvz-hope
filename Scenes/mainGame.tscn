@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
-[ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://GeneralScripts/sunStats.gd" id="6_7nkqc"]
+[ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]

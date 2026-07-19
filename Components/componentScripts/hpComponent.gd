@@ -27,6 +27,8 @@ func updateMaxHP(HP : int):
 	maxHP = HP
 	currentHP = maxHP
 
+func updateShield(amount : int):
+	shield = amount
 
 func checkHpEvents():
 	var thresholds := hpEvents.keys()

@@ -3,20 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_qket1"]
 [ext_resource type="Script" uid="uid://cy78gda34wmxh" path="res://Components/componentScripts/sunSpawnComponent.gd" id="2_lqiny"]
 [ext_resource type="Script" uid="uid://bp73dkivl0ns6" path="res://Plants/Sunflower/sunflower.gd" id="2_pg8hw"]
-[ext_resource type="Script" uid="uid://bii4dy5as42sb" path="res://GeneralScripts/plantStats.gd" id="3_n62bd"]
-[ext_resource type="Script" uid="uid://bd6jvnfikarfl" path="res://GeneralScripts/sunConfigs.gd" id="5_kbtc0"]
+[ext_resource type="Resource" uid="uid://dms6xigjm2l4o" path="res://Plants/Sunflower/sunflowerStats.tres" id="3_kbtc0"]
+[ext_resource type="Script" uid="uid://bd6jvnfikarfl" path="res://StatsConfigs/sunConfigs.gd" id="5_kbtc0"]
 [ext_resource type="Resource" uid="uid://c1g28tm5wwnct" path="res://Sun/normalSunStats.tres" id="5_n62bd"]
-
-[sub_resource type="Resource" id="Resource_pg8hw"]
-script = ExtResource("3_n62bd")
-plantType = 2
-plantFamily = 1
-displayName = "Sunflower"
-maxHP = 300
-internalID = 1
-cooldown = 7.0
-sunCost = 50
-metadata/_custom_type_script = "uid://bii4dy5as42sb"
 
 [sub_resource type="Resource" id="Resource_kbtc0"]
 script = ExtResource("5_kbtc0")
@@ -27,7 +16,7 @@ metadata/_custom_type_script = "uid://bd6jvnfikarfl"
 [node name="Sunflower" unique_id=719743608 node_paths=PackedStringArray("sunSpawnC") instance=ExtResource("1_qket1")]
 script = ExtResource("2_pg8hw")
 sunSpawnC = NodePath("sunSpawnComponent")
-stats = SubResource("Resource_pg8hw")
+stats = ExtResource("3_kbtc0")
 _sunConfigs = SubResource("Resource_kbtc0")
 
 [node name="hpComponent" parent="." index="2" unique_id=1638797325]

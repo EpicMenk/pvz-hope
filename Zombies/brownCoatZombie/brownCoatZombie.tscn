@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cib6eho7hwnqc"]
 
 [ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_tlp3n"]
-[ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/brownCoatZombie.gd" id="2_slscc"]
-[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://GeneralScripts/zombieStats.gd" id="3_aqq7f"]
-[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://GeneralScripts/attackConfigs.gd" id="4_sj78i"]
-[ext_resource type="Script" uid="uid://c04h0hinpck7y" path="res://GeneralScripts/rangeConfigs.gd" id="5_jlv4t"]
+[ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="2_slscc"]
+[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_aqq7f"]
+[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="4_sj78i"]
+[ext_resource type="Script" uid="uid://c04h0hinpck7y" path="res://StatsConfigs/rangeConfigs.gd" id="5_jlv4t"]
 
 [sub_resource type="Resource" id="Resource_slscc"]
 script = ExtResource("3_aqq7f")
+displayName = "Brown Coat Zombie"
 hp = 200
 speed = 70.0
 weight = 1.0
