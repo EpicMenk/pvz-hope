@@ -15,22 +15,22 @@ weight = 1.0
 point = 1.0
 metadata/_custom_type_script = "uid://e8w77s8p2s5y"
 
-[sub_resource type="Resource" id="Resource_sneqg"]
+[sub_resource type="Resource" id="Resource_jcs8v"]
 script = ExtResource("4_sj78i")
-damage = 30
-timeBetweenAttack = 1.0
+damage = 100
+timeBetweenAttack = 0.5
 metadata/_custom_type_script = "uid://dglnge4u7ue6c"
 
-[sub_resource type="Resource" id="Resource_rtj34"]
+[sub_resource type="Resource" id="Resource_mu0ib"]
 script = ExtResource("5_jlv4t")
-rangeInTiles = 6
+rangeInTiles = 2
 metadata/_custom_type_script = "uid://c04h0hinpck7y"
 
 [node name="brownCoatZombie" unique_id=2108398841 instance=ExtResource("1_tlp3n")]
 script = ExtResource("2_slscc")
 stats = SubResource("Resource_slscc")
-attackStats = SubResource("Resource_sneqg")
-rangeStats = SubResource("Resource_rtj34")
+_attackConfigs = SubResource("Resource_jcs8v")
+_rangeConfigs = SubResource("Resource_mu0ib")
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
 maxHP = 1000

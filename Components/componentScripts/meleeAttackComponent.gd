@@ -4,7 +4,8 @@ class_name meleeAttackComponent
 signal startedAttacking
 signal stoppedAttacking
 
-
+@export var _attackConfigs : attackConfigs = attackConfigs.new()
+@export var _rangeConfigs : rangeConfigs = rangeConfigs.new()
 @export var damage : int 
 @export var attackReachInTiles : int
 @export var attackCooldown : float 
@@ -20,6 +21,10 @@ func _ready() -> void:
 	attackCooldownTimer.timeout.connect(attack)
 
 func evaluateStats():
+	damage = _attackConfigs.damage
+	damageType = _attackConfigs.damageType
+	attackCooldown = _attackConfigs.timeBetweenAttack
+	attackReachInTiles = _rangeConfigs.rangeInTiles
 	buildDamageInfo()
 	attackCooldownTimer.wait_time = attackCooldown
 	attackCooldownTimer.start()

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cxt43gyflsbo5"]
+
+[ext_resource type="Script" uid="uid://cy78gda34wmxh" path="res://Components/componentScripts/sunSpawnComponent.gd" id="1_y4m4p"]
+
+[node name="sunSpawnComponent" type="Node2D" unique_id=557407300 node_paths=PackedStringArray("spawnTimer")]
+script = ExtResource("1_y4m4p")
+spawnTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=796503756]
+unique_name_in_owner = true
+
+[node name="SpawnMarker" type="Marker2D" parent="." unique_id=1516445443]
+unique_name_in_owner = true
+position = Vector2(0, -31)

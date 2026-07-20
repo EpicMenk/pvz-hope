@@ -1,5 +1,5 @@
-extends Node
-class_name entityComponent
+extends Node2D
+class_name entityComponent2D
 
 var _behavior := entityComponentBehavior.new(self)
 

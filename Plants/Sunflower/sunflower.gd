@@ -7,8 +7,7 @@ class_name sunflower
 
 
 func evaluateStats():
-	sunSpawnC.spawnTimerWaitTime = _sunConfigs.timeBetweenSun
-	sunSpawnC.sunConfig = _sunConfigs._sunStats
+	sunSpawnC._sunConfigs = _sunConfigs
 	sunSpawnC._sunManager = _boardManager._sunManager
 	sunSpawnC.floorMarker = ground
 	sunSpawnC.evaluateStats()

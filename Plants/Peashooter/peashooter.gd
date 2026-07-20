@@ -8,11 +8,8 @@ class_name peashooter
 
 
 func evaluateStats():
-	straightShooterC._projectileStats.damage = _attackConfigs.damage
-	straightShooterC._projectileStats.projectileSpeed = _projectileConfigs.projectileSpeed
-	straightShooterC._projectileStats.damageType = _attackConfigs.damageType
-	straightShooterC.timeBetweenShots = _attackConfigs.timeBetweenAttack
-	straightShooterC.projectileScene = _projectileConfigs.projectileScene
+	straightShooterC._attackConfigs = _attackConfigs
+	straightShooterC._projectileConfigs = _projectileConfigs
 	straightShooterC.evaluateStats()
 	hpC.updateMaxHP(stats.maxHP)
 

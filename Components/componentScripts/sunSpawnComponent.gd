@@ -1,32 +1,34 @@
-extends Node2D
+extends entityComponent2D
 class_name sunSpawnComponent
 
-@export var sunConfig : sunStats
-@onready var spawnMarker : Marker2D = %SpawnMarker
+@export var _sunStats : sunStats = sunStats.new()
+@export var _sunConfigs : sunConfigs = sunConfigs.new()
 @export var spawnTimer: Timer
 @export var spawnTimerWaitTime : float 
+@onready var spawnMarker : Marker2D = %SpawnMarker
 var floorMarker : Marker2D
 var _sunManager : sunManager
-var isActive : bool 
 
 func _ready() -> void:
 	spawnTimer.timeout.connect(spawnSun)
 
 func evaluateStats():
+	spawnTimerWaitTime = _sunConfigs.timeBetweenSun
+	_sunStats = _sunConfigs._sunStats
 	spawnTimer.wait_time = spawnTimerWaitTime
 
 func spawnSun():
-	if not isActive:
+	if not _behavior.isActive:
 		return
-	_sunManager.spawnSun(sunConfig ,
+	_sunManager.spawnSun(_sunStats ,
 	spawnMarker.global_position ,
 	floorMarker.global_position.y , 
 	Vector2(randf_range(-750,750) , -750))
 
 func disable():
-	isActive = false
+	super()
 	spawnTimer.stop()
 
 func enable():
-	isActive = true
+	super()
 	spawnTimer.start()

@@ -11,7 +11,6 @@ var _damageInfo : damageInfo
 
 
 func _ready() -> void:
-	buildDamageInfo()
 	updateHitboxCollisionMask()
 	_hitboxComponent.ownerEntity = self
 
@@ -28,9 +27,10 @@ func getTargets(_hurtboxes : Array[hurtboxComponent]) -> Array[hurtboxComponent]
 
 func evaluateStats(_projectileStats : projectileStats):
 	damage = _projectileStats.damage
-	movementC.speed = _projectileStats.projectileSpeed
+	projectileSpeed = _projectileStats.projectileSpeed
 	damageType = _projectileStats.damageType
-
+	movementC.speed = projectileSpeed
+	buildDamageInfo()
 
 
 func updateHitboxCollisionMask():

@@ -1,7 +1,9 @@
-extends Node2D
+extends entityComponent2D
 class_name straightShooterComponent
 
-
+@export var _attackConfigs : attackConfigs = attackConfigs.new()
+@export var _projectileConfigs : projectileConfigs = projectileConfigs.new()
+@export var _projectileStats : projectileStats = projectileStats.new()
 @export var animPlayer : AnimationPlayer 
 @export var timeBetweenShots : float 
 @export var burstCount := 1
@@ -11,8 +13,6 @@ class_name straightShooterComponent
 @onready var parent : boardEntity = get_parent() as boardEntity
 @onready var timeBetweenShotsTimer: Timer = %timeBetweenShots
 var readyToShoot : bool = false
-@export var _projectileStats : projectileStats = projectileStats.new()
-var isActive : bool = true
 
 func setUpMarks():
 	for child in %spawnPoints.get_children():
@@ -23,13 +23,17 @@ func _ready() -> void:
 	timeBetweenShotsTimer.timeout.connect(updateShoot)
 
 func evaluateStats():
+	_projectileStats.damage = _attackConfigs.damage
+	_projectileStats.damageType = _attackConfigs.damageType
+	_projectileStats.projectileSpeed = _projectileConfigs.projectileSpeed
+	timeBetweenShots = _attackConfigs.timeBetweenAttack
+	projectileScene = _projectileConfigs.projectileScene
 	timeBetweenShotsTimer.wait_time = timeBetweenShots
 	timeBetweenShotsTimer.start()
 
 
-
 func _process(_delta):
-	if not isActive:
+	if not _behavior.isActive:
 		return
 	tryShoot()
 
@@ -64,11 +68,9 @@ func spawnProjectile(point : Marker2D):
 	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():
-	isActive = false
-	set_process(false)
-	set_physics_process(false)
+	super()
+	timeBetweenShotsTimer.stop()
 
 func enable():
-	isActive = true
-	set_process(true)
-	set_physics_process(true)
+	super()
+	timeBetweenShotsTimer.start()

@@ -2,14 +2,12 @@ extends Zombie
 class_name basicZombie
 
 @export var stats : zombieStats
-@export var attackStats : attackConfigs
-@export var rangeStats : rangeConfigs
+@export var _attackConfigs : attackConfigs
+@export var _rangeConfigs : rangeConfigs
 
 func evaluateStats():
-	zombieMeleeC.attackReachInTiles = rangeStats.rangeInTiles
-	zombieMeleeC.damage = attackStats.damage
-	zombieMeleeC.attackCooldown = attackStats.timeBetweenAttack
-	zombieMeleeC.damageType = attackStats.damageType
+	zombieMeleeC._attackConfigs = _attackConfigs
+	zombieMeleeC._rangeConfigs = _rangeConfigs
 	zombieMovementC.speed = stats.speed
 	zombieMeleeC.evaluateStats()
 	hpC.updateShield(stats.shield)
