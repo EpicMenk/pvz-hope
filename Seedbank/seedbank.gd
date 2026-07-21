@@ -66,5 +66,6 @@ func getRequiredLidHeight() -> float:
 	return (
 		packetHeight * seedSlots.size()
 		+ separation * max(seedSlots.size() - 1, 0) + padding
-		* 2
+		* 2 + 50
+		
 	)

@@ -5,9 +5,13 @@
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="2_te3yy"]
 [ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_kyoid"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_te3yy"]
+atlas = ExtResource("2_kyoid")
+region = Rect2(0, 24, 164, 125)
+
 [resource]
 script = ExtResource("2_te3yy")
 plantScene = ExtResource("1_gb56x")
 stats = ExtResource("3_kyoid")
-portrait = ExtResource("2_kyoid")
+portrait = SubResource("AtlasTexture_te3yy")
 metadata/_custom_type_script = "uid://d0rijjwuyjhp8"

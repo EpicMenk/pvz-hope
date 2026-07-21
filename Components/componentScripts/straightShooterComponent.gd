@@ -33,7 +33,7 @@ func evaluateStats():
 
 
 func _process(_delta):
-	if not _behavior.isActive:
+	if not isActivated():
 		return
 	tryShoot()
 

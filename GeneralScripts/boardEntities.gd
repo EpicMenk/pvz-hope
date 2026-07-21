@@ -1,6 +1,24 @@
 extends Node2D
 class_name boardEntity
 
+# pair components with their configs resource that can be changed during runtime
+var runtimeComponents : Array[Dictionary] = [] 
+
+func registerRuntimeComponent(component : Node , configs : Dictionary):
+	runtimeComponents.append({"component": component, "configs": configs})
+
+func evaluateComponentStats():
+	for component in runtimeComponents:
+		component.component.evaluateStats()
+
+func activateComponent():
+	for component in runtimeComponents:
+		component.component.enable()
+
+func disableComponent():
+	for component in runtimeComponents:
+		component.component.disable()
+
 enum teamEnums {
 	PLANT,
 	ZOMBIE

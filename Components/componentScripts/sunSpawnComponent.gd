@@ -18,7 +18,7 @@ func evaluateStats():
 	spawnTimer.wait_time = spawnTimerWaitTime
 
 func spawnSun():
-	if not _behavior.isActive:
+	if not isActivated():
 		return
 	_sunManager.spawnSun(_sunStats ,
 	spawnMarker.global_position ,

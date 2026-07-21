@@ -10,7 +10,7 @@ var _boardManager : boardManager
 @onready var portrait: TextureRect = %portrait
 @onready var sunCostLabel: Label = %sunCost
 @onready var cooldownTimer: Timer = %cooldownTimer
-@onready var cooldownBar: TextureProgressBar = %ProgressBar
+@onready var cooldownOverlay: TextureProgressBar = %cooldownOverlay
 var isSelected : bool
 var _sunManager : sunManager
 var firstCooldown : bool = true
@@ -19,19 +19,18 @@ var currentCooldownDuration : float
 
 func _process(_delta: float) -> void:
 	if isCoolingdown:
-		cooldownBar.value = getCooldownPercent() * 100
-
-
+		cooldownOverlay.value = getCooldownPercent() * 100
 
 func _ready() -> void:
 	self.pressed.connect(checkRequirements)
 	_sunManager.sunValueChanged.connect(onSunChanged)
 	cooldownTimer.timeout.connect(onCooldownTimeout)
+	
 
 
 func onCooldownTimeout():
 	isCoolingdown = false
-	cooldownBar.hide()
+	cooldownOverlay.hide()
 	updateSeedOverlay()
 
 
@@ -55,7 +54,7 @@ func updateTextOutline():
 func updateSeedOverlay():
 	if not seedData:
 		return
-	if not _sunManager.canAfford(seedData.stats.sunCost) or isCoolingdown:
+	if not _sunManager.canAfford(seedData.stats.sunCost): #or isCoolingdown:
 		changeOverlaySeedPacket(Color(0.5,0.5,0.5))
 	else : changeOverlaySeedPacket(Color.WHITE)
 
@@ -88,8 +87,8 @@ func connectToPlant(plant : Plant):
 
 func getCooldownPercent() -> float:
 	if !isCoolingdown:
-		return 1.0
-	return 1.0 - cooldownTimer.time_left / currentCooldownDuration
+		return 0.0
+	return cooldownTimer.time_left / currentCooldownDuration 
 
 
 func startCooldown():
@@ -112,8 +111,7 @@ func startCooldown():
 		
 		currentCooldownDuration = seedData.stats.cooldown
 		cooldownTimer.start(seedData.stats.cooldown)
-	cooldownBar.value = getCooldownPercent() * 100
-	cooldownBar.show()
+	cooldownOverlay.show()
 	updateSeedOverlay()
 
 

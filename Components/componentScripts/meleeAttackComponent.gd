@@ -81,3 +81,11 @@ func startAttack():
 	canAttack = true
 	attackCooldownTimer.start()
 	setAttacking(true)
+
+func disable():
+	super()
+	attackCooldownTimer.stop()
+
+func enable():
+	super()
+	attackCooldownTimer.start()

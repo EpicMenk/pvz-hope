@@ -35,13 +35,15 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
 
 [node name="Game" type="Node2D" unique_id=323427591]
 script = ExtResource("1_yergv")
+
+[node name="LevelManager" type="Node" parent="." unique_id=28449932]
 
 [node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
 
@@ -179,28 +181,30 @@ texture = ExtResource("12_h6y7g")
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 0
-offset_top = -62.0
+offset_top = -129.0
 offset_right = 700.0
-offset_bottom = 638.0
+offset_bottom = 571.0
 mouse_filter = 2
 texture = ExtResource("11_juktf")
 
 [node name="Lid" type="Panel" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack" unique_id=884682048]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = 63.0
-offset_right = 91.0
-offset_bottom = 163.0
+anchors_preset = -1
+anchor_left = 0.5257143
+anchor_top = 0.51
+anchor_right = 0.5257143
+anchor_bottom = 0.51
+offset_left = -119.0
+offset_top = 48.0
+offset_right = 61.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wxp0d")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/Seedbank/Backpack/Lid" unique_id=1924953330]
 unique_name_in_owner = true
@@ -211,10 +215,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
-theme_override_constants/separation = -10
+theme_override_constants/separation = 20
 
 [node name="VFXLayer" type="CanvasLayer" parent="." unique_id=1719436569]
 unique_name_in_owner = true

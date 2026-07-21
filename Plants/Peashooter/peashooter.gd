@@ -6,7 +6,6 @@ class_name peashooter
 @export var _projectileConfigs : projectileConfigs
 @export var straightShooterC: straightShooterComponent 
 
-
 func evaluateStats():
 	straightShooterC._attackConfigs = _attackConfigs
 	straightShooterC._projectileConfigs = _projectileConfigs

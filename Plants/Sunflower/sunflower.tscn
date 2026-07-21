@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_kbtc0"]
 script = ExtResource("5_kbtc0")
 _sunStats = ExtResource("5_n62bd")
-timeBetweenSun = 0.1
+timeBetweenSun = 5.0
 metadata/_custom_type_script = "uid://bd6jvnfikarfl"
 
 [sub_resource type="Resource" id="Resource_xijgq"]
