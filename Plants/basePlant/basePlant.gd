@@ -43,7 +43,7 @@ func placePlant (_grid : Vector2i , __boardManager : boardManager):
 	dragC.isDragged = false
 	dragC.queue_free()
 	grid = _grid
-	_boardManager = __boardManager
+	initializeManagers(__boardManager)
 	self.global_position = _boardManager.gridToWorld(grid)
 	_boardManager.registerGridOccupant(grid , self)
 	plantPlaced.emit()

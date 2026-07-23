@@ -73,8 +73,8 @@ func spawnPlant()-> Plant:
 	if not plantScene:
 		return
 	var plant : Plant = plantScene.instantiate()
-	plant._boardManager = _boardManager
-	_boardManager.plantSide.add_child(plant)
+	plant.initializeManagers(_boardManager)
+	_boardManager._plantManager.add_child(plant)
 	plant.disableComponent()
 	plant.global_position = get_global_mouse_position()
 	if plant.dragC:

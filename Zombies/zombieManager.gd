@@ -1,15 +1,12 @@
 extends Node2D
 class_name zombieManager
 
-@onready var _boardManager: boardManager = %BoardManager
-@onready var _gridManager : gridManager 
+@onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 var zombieInLanes : Array[laneData]
 
 
 func _ready() -> void:
-	_gridManager = _boardManager._gridManager
 	initializeLanes()
-
 
 func isZombieAhead(lane: int, xPosition: float) -> bool:
 	for zombie: Zombie in zombieInLanes[lane].zombies:

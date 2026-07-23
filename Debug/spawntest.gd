@@ -4,7 +4,7 @@ extends Button
 
 func spawningPlant():
 	var spawnPlant : Plant = preload("res://Plants/Peashooter/peashooter.tscn").instantiate()
-	_boardManager.plantSide.add_child(spawnPlant)
+	_boardManager._plantManager.add_child(spawnPlant)
 	spawnPlant._boardManager = _boardManager
 	spawnPlant.global_position = get_global_mouse_position()
 	if spawnPlant.dragC :

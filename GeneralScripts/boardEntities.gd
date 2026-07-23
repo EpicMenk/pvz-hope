@@ -1,6 +1,16 @@
 extends Node2D
 class_name boardEntity
 
+var _plantManager : plantManager
+var _zombieManager : zombieManager
+var _boardManager : boardManager
+
+func initializeManagers(bm: boardManager):
+	_boardManager = bm
+	_plantManager = bm.getPlantManager()
+	_zombieManager = bm.getZombieManager()
+
+
 # pair components with their configs resource that can be changed during runtime
 var runtimeComponents : Array[Dictionary] = [] 
 
@@ -26,7 +36,7 @@ enum teamEnums {
 
 @export var team: teamEnums
 @warning_ignore("unused_private_class_variable")
-var _boardManager : boardManager
+
 var grid: Vector2i = Vector2i(-1, -1)
 var lane:
 	get:

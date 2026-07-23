@@ -12,6 +12,12 @@ class_name boardManager
 
 var gridOccupants : Dictionary [Vector2i , Variant] = {} #including both plant and grid items
 
+func getPlantManager() -> plantManager:
+	return _plantManager
+
+func getZombieManager() -> zombieManager:
+	return _zombieManager
+
 func registerGridOccupant(grid: Vector2i , object: Variant):
 	gridOccupants [grid] = object
 	debug_controller.refresh()

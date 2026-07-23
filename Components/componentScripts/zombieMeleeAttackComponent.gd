@@ -5,7 +5,7 @@ class_name zombieMeleeAttackComponent
 
 
 func getTarget() -> boardEntity:
-	return zombie._boardManager.getClosestPlantAhead(zombie , attackReachInTiles)
+	return zombie._plantManager.getClosestPlantAhead(zombie , attackReachInTiles)
 
 func _process(_delta):
 	if not isActivated():

@@ -45,7 +45,7 @@ func tryShoot():
 	if not readyToShoot:
 		return
 	if parent is Plant:
-		if not parent._boardManager.isZombieAhead(parent.lane , parent.global_position.x):
+		if not parent._zombieManager.isZombieAhead(parent.lane , parent.global_position.x):
 			return
 	animPlayer.play("shoot")
 
@@ -64,7 +64,7 @@ func spawnProjectile(point : Marker2D):
 	var projectileInstance : projectile = projectileScene.instantiate()
 	projectileInstance.attacker = parent
 	projectileInstance.global_position = point.global_position
-	parent._boardManager.projectileSide.add_child(projectileInstance)
+	parent._boardManager.projectileManager.add_child(projectileInstance)
 	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():

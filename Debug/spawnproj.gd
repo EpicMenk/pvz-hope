@@ -11,5 +11,5 @@ func _ready() -> void:
 func spawnProjectile():
 	var projectileInstance : projectile = projectileScene.instantiate()
 	projectileInstance.global_position = Vector2(50,50)
-	_boardManager.projectileSide.add_child(projectileInstance)
+	_boardManager.projectileManager.add_child(projectileInstance)
 	projectileInstance.evaluateStats(_projectileStats)
