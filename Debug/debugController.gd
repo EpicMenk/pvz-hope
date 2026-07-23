@@ -4,6 +4,7 @@ class_name debugController
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 @onready var debugFont : Font = preload("res://Debug/Roboto_Condensed-Black.ttf")
 @onready var _boardManager: boardManager = %BoardManager
+@onready var hpOverlay: debugHPOverlay = %HPOverlay
 
 
 @export var drawGrid := false
@@ -11,7 +12,7 @@ class_name debugController
 @export var drawOccupiedGrids := false
 @export var drawLaneNumbers := false
 @export var drawLaneLines := false
-
+@export var drawHP := false
 
 func _draw() -> void:
 	if drawGrid:
@@ -24,6 +25,8 @@ func _draw() -> void:
 		_drawLaneNumbers()
 	if drawLaneLines:
 		_drawLaneLines()
+	if drawHP:
+		hpOverlay.enabled = true
 
 func refresh():
 	queue_redraw()

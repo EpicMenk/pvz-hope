@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
 [ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
+[ext_resource type="Script" uid="uid://cgvft17sb7lg5" path="res://Debug/hpOverlay.gd" id="6_muhop"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
 [ext_resource type="Script" uid="uid://bj1r1pye73hgp" path="res://Debug/spawnproj.gd" id="9_r4fum"]
@@ -82,7 +83,15 @@ script = ExtResource("3_ahx5u")
 unique_name_in_owner = true
 script = ExtResource("2_2k2ja")
 drawGrid = true
+drawCoordinates = true
+drawOccupiedGrids = true
 drawLaneNumbers = true
+drawLaneLines = true
+drawHP = true
+
+[node name="HPOverlay" type="Node2D" parent="BoardManager/DebugController" unique_id=633303296]
+unique_name_in_owner = true
+script = ExtResource("6_muhop")
 
 [node name="ProjectileManager" type="Node2D" parent="BoardManager" unique_id=1817123745]
 unique_name_in_owner = true
