@@ -4,8 +4,8 @@ class_name boardManager
 @warning_ignore_start("unused_private_class_variable")
 @onready var _sunManager: sunManager = %SunManager
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
-@onready var _plantManager := %PlantManager
-@onready var _zombieManager := %ZombieManager
+@onready var _plantManager : plantManager = %PlantManager
+@onready var _zombieManager : zombieManager = %ZombieManager
 @onready var debug_controller: debugController = %DebugController
 @onready var projectileManager := %ProjectileManager
 

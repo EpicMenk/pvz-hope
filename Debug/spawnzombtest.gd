@@ -17,8 +17,8 @@ func spawnZombie():
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("ui_select"):
-		board_manager.printZombies()
+	if event.is_action_pressed("ui_accept"):
+		board_manager._zombieManager.printZombies()
 
 
 func _on_button_up() -> void:

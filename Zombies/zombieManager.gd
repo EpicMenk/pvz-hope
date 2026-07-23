@@ -33,4 +33,5 @@ func getZombiesInLane(lane : int) -> Array[Zombie]:
 
 func printZombies():
 	for i in _gridManager.laneCount:
-		print(zombieInLanes[i].printLanes())
+		print("------ZOMBIES IN LANES " , i , "------")
+		zombieInLanes[i].printLanes()

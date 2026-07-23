@@ -48,7 +48,7 @@ func getHurtboxComponent() -> hurtboxComponent:
 
 func die():
 	dropLimb(head)
-	_boardManager._zombieManager.unregisterZombie(self)
+	_zombieManager.unregisterZombie(self)
 	queue_free()
 
 func updateHurtboxCollisionLayer():
