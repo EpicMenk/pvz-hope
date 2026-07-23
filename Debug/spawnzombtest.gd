@@ -7,7 +7,8 @@ signal zombieCreated(zombie : Zombie)
 
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
-	var zombie : Zombie = preload("res://Zombies/coneHeadZombie/coneHeadZombie.tscn").instantiate()
+	var zombie : Zombie = preload("res://testzombie.tscn").instantiate()
+	print(zombie)
 	zombie._boardManager = board_manager
 	zombie.grid = Vector2(9 , spawnLane)
 	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))

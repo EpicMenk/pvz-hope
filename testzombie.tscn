@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bwdm0a6nquvm"]
+
+[ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="1_hqjqk"]
+[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="2_0wqp7"]
+[ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/ZombieComponents/zombieMeleeAttackComponent.tscn" id="2_0714a"]
+[ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/ZombieComponents/zombieMovementComponent.tscn" id="3_i5bpm"]
+[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="3_w2lsh"]
+[ext_resource type="PackedScene" uid="uid://c37ki858atwe5" path="res://Components/hpComponent.tscn" id="4_0wqp7"]
+[ext_resource type="Script" uid="uid://c04h0hinpck7y" path="res://StatsConfigs/rangeConfigs.gd" id="4_wb2j4"]
+[ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="5_w2lsh"]
+[ext_resource type="PackedScene" uid="uid://drepq3xs3qrvx" path="res://Zombies/zombieGroundMarker.tscn" id="6_wb2j4"]
+
+[sub_resource type="Resource" id="Resource_m5gd2"]
+script = ExtResource("2_0wqp7")
+displayName = "s"
+hp = 100
+shield = 100
+speed = 80.0
+weight = 1.0
+point = 1.0
+metadata/_custom_type_script = "uid://e8w77s8p2s5y"
+
+[sub_resource type="Resource" id="Resource_r4fum"]
+script = ExtResource("3_w2lsh")
+damage = 2
+timeBetweenAttack = 2.0
+metadata/_custom_type_script = "uid://dglnge4u7ue6c"
+
+[sub_resource type="Resource" id="Resource_slwi5"]
+script = ExtResource("4_wb2j4")
+metadata/_custom_type_script = "uid://c04h0hinpck7y"
+
+[node name="testzombie" type="Node2D" unique_id=913069967 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "groundMarker")]
+script = ExtResource("1_hqjqk")
+stats = SubResource("Resource_m5gd2")
+_attackConfigs = SubResource("Resource_r4fum")
+_rangeConfigs = SubResource("Resource_slwi5")
+hpC = NodePath("hpComponent")
+hurtboxC = NodePath("hurtboxComponent")
+zombieMeleeC = NodePath("zombieMeleeAttackComponent")
+zombieMovementC = NodePath("zombieMovementComponent")
+groundMarker = NodePath("GroundMarker")
+team = 1
+
+[node name="zombieMeleeAttackComponent" parent="." unique_id=125088792 instance=ExtResource("2_0714a")]
+
+[node name="zombieMovementComponent" parent="." unique_id=953325601 instance=ExtResource("3_i5bpm")]
+
+[node name="hpComponent" parent="." unique_id=1638797325 instance=ExtResource("4_0wqp7")]
+
+[node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("5_w2lsh")]
+collision_layer = 2
+hpC = NodePath("../hpComponent")
+
+[node name="GroundMarker" parent="." unique_id=1189790841 instance=ExtResource("6_wb2j4")]
+position = Vector2(0, 59.999996)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=261650710]
+polygon = PackedVector2Array(-40, -65, 39, -61, 26, 46, -29, 54)

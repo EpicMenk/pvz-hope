@@ -33,6 +33,9 @@ _attackConfigs = SubResource("Resource_jcs8v")
 _rangeConfigs = SubResource("Resource_mu0ib")
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
+hpEvents = Dictionary[int, StringName]({
+199: &"dropRightArm"
+})
 maxHP = 1000
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]

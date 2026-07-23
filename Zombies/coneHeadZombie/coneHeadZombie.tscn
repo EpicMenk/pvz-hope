@@ -32,3 +32,9 @@ script = ExtResource("2_in7q6")
 stats = SubResource("Resource_fdmtf")
 _attackConfigs = SubResource("Resource_6ec8d")
 _rangeConfigs = SubResource("Resource_b1mwp")
+
+[node name="HandRight1" parent="CanvasGroup/visuals/Torso/UpperHandRight/LowerHandRight/HandRight" parent_id_path=PackedInt32Array(1221917341) index="0" unique_id=2066289880]
+modulate = Color(1, 1, 1, 1)
+
+[node name="HandRight2" parent="CanvasGroup/visuals/Torso/UpperHandRight/LowerHandRight/HandRight" parent_id_path=PackedInt32Array(1221917341) index="1" unique_id=969222920]
+modulate = Color(1, 1, 1, 0)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qlgnfvwrxge8"]
 
 [ext_resource type="Script" uid="uid://bef6pde7huhbb" path="res://Seedpacket/baseSeedpacket.gd" id="1_u3oah"]
-[ext_resource type="Texture2D" uid="uid://d1gthm8gkrpl5" path="res://new_atlas_texture.tres" id="3_nf6r7"]
+[ext_resource type="Texture2D" uid="uid://d1gthm8gkrpl5" path="res://Seedpacket/atlasMask.tres" id="3_nf6r7"]
 [ext_resource type="Texture2D" uid="uid://sdur81uebfui" path="res://Seedpacket/assets/SeedpacketBorder.png" id="3_plsho"]
 [ext_resource type="FontFile" uid="uid://6wht8tnlp6rk" path="res://Seedpacket/assets/Cafeteria-Black.otf" id="4_plsho"]
 [ext_resource type="Shader" uid="uid://dkgfc8ctffdv7" path="res://Seedpacket/overlay.gdshader" id="5_nf6r7"]
@@ -40,11 +40,17 @@ script = ExtResource("1_u3oah")
 
 [node name="backdrop" type="TextureRect" parent="." unique_id=497815374]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(167, 110.7)
+custom_minimum_size = Vector2(164, 107)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -53.5
+offset_right = 82.0
+offset_bottom = 53.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)

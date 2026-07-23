@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/ZombieComponents/zombieMeleeAttackComponent.tscn" id="4_ubbys"]
 [ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="4_x688a"]
 [ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/ZombieComponents/zombieMovementComponent.tscn" id="5_4eq78"]
+[ext_resource type="PackedScene" uid="uid://drepq3xs3qrvx" path="res://Zombies/zombieGroundMarker.tscn" id="7_arsdy"]
 [ext_resource type="Texture2D" uid="uid://cv5dy7wtgt67l" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegLeft.png" id="7_hg078"]
 [ext_resource type="Texture2D" uid="uid://bsgcuo0xjjfl3" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerLegLeft.png" id="8_mfkcq"]
 [ext_resource type="Texture2D" uid="uid://210q2o8rrdc1" path="res://Zombies/baseZombie/baseBasicZombieAssets/BackFeetLeft.png" id="9_arsdy"]
@@ -44,7 +45,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Torso/UpperHandLeft:rotation")
+tracks/1/path = NodePath("UpperHandLeft:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,7 +57,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:rotation")
+tracks/2/path = NodePath("UpperHandLeft/LowerHandLeft:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -68,7 +69,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:rotation")
+tracks/3/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -272,19 +273,19 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Torso/UpperHandLeft:position")
+tracks/20/path = NodePath("UpperHandLeft:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, -90)]
+"values": [Vector2(-40, -272)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:position")
+tracks/21/path = NodePath("UpperHandLeft/LowerHandLeft:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -376,6 +377,18 @@ tracks/28/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.133815]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("UpperHandLeft:show_behind_parent")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_jrkx0"]
@@ -984,19 +997,19 @@ tracks/49/keys = {
 tracks/50/type = "value"
 tracks/50/imported = false
 tracks/50/enabled = true
-tracks/50/path = NodePath("Torso/UpperHandLeft:position")
+tracks/50/path = NodePath("UpperHandLeft:position")
 tracks/50/interp = 2
 tracks/50/loop_wrap = true
 tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, -90)]
+"values": [Vector2(-40, -272)]
 }
 tracks/51/type = "value"
 tracks/51/imported = false
 tracks/51/enabled = true
-tracks/51/path = NodePath("Torso/UpperHandLeft:rotation")
+tracks/51/path = NodePath("UpperHandLeft:rotation")
 tracks/51/interp = 2
 tracks/51/loop_wrap = true
 tracks/51/keys = {
@@ -1008,7 +1021,7 @@ tracks/51/keys = {
 tracks/52/type = "value"
 tracks/52/imported = false
 tracks/52/enabled = true
-tracks/52/path = NodePath("Torso/UpperHandLeft:scale")
+tracks/52/path = NodePath("UpperHandLeft:scale")
 tracks/52/interp = 2
 tracks/52/loop_wrap = true
 tracks/52/keys = {
@@ -1020,7 +1033,7 @@ tracks/52/keys = {
 tracks/53/type = "value"
 tracks/53/imported = false
 tracks/53/enabled = true
-tracks/53/path = NodePath("Torso/UpperHandLeft:modulate")
+tracks/53/path = NodePath("UpperHandLeft:modulate")
 tracks/53/interp = 2
 tracks/53/loop_wrap = true
 tracks/53/keys = {
@@ -1032,19 +1045,19 @@ tracks/53/keys = {
 tracks/54/type = "value"
 tracks/54/imported = false
 tracks/54/enabled = true
-tracks/54/path = NodePath("Torso/UpperHandLeft:show_behind_parent")
+tracks/54/path = NodePath("UpperHandLeft:show_behind_parent")
 tracks/54/interp = 2
 tracks/54/loop_wrap = true
 tracks/54/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [true]
 }
 tracks/55/type = "value"
 tracks/55/imported = false
 tracks/55/enabled = true
-tracks/55/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:position")
+tracks/55/path = NodePath("UpperHandLeft/LowerHandLeft:position")
 tracks/55/interp = 2
 tracks/55/loop_wrap = true
 tracks/55/keys = {
@@ -1056,7 +1069,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:rotation")
+tracks/56/path = NodePath("UpperHandLeft/LowerHandLeft:rotation")
 tracks/56/interp = 2
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -1068,7 +1081,7 @@ tracks/56/keys = {
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:scale")
+tracks/57/path = NodePath("UpperHandLeft/LowerHandLeft:scale")
 tracks/57/interp = 2
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -1080,7 +1093,7 @@ tracks/57/keys = {
 tracks/58/type = "value"
 tracks/58/imported = false
 tracks/58/enabled = true
-tracks/58/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:modulate")
+tracks/58/path = NodePath("UpperHandLeft/LowerHandLeft:modulate")
 tracks/58/interp = 2
 tracks/58/loop_wrap = true
 tracks/58/keys = {
@@ -1092,7 +1105,7 @@ tracks/58/keys = {
 tracks/59/type = "value"
 tracks/59/imported = false
 tracks/59/enabled = true
-tracks/59/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:show_behind_parent")
+tracks/59/path = NodePath("UpperHandLeft/LowerHandLeft:show_behind_parent")
 tracks/59/interp = 2
 tracks/59/loop_wrap = true
 tracks/59/keys = {
@@ -1104,7 +1117,7 @@ tracks/59/keys = {
 tracks/60/type = "value"
 tracks/60/imported = false
 tracks/60/enabled = true
-tracks/60/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:position")
+tracks/60/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:position")
 tracks/60/interp = 2
 tracks/60/loop_wrap = true
 tracks/60/keys = {
@@ -1116,7 +1129,7 @@ tracks/60/keys = {
 tracks/61/type = "value"
 tracks/61/imported = false
 tracks/61/enabled = true
-tracks/61/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:rotation")
+tracks/61/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:rotation")
 tracks/61/interp = 2
 tracks/61/loop_wrap = true
 tracks/61/keys = {
@@ -1128,7 +1141,7 @@ tracks/61/keys = {
 tracks/62/type = "value"
 tracks/62/imported = false
 tracks/62/enabled = true
-tracks/62/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:scale")
+tracks/62/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:scale")
 tracks/62/interp = 2
 tracks/62/loop_wrap = true
 tracks/62/keys = {
@@ -1140,7 +1153,7 @@ tracks/62/keys = {
 tracks/63/type = "value"
 tracks/63/imported = false
 tracks/63/enabled = true
-tracks/63/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:modulate")
+tracks/63/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:modulate")
 tracks/63/interp = 2
 tracks/63/loop_wrap = true
 tracks/63/keys = {
@@ -1152,7 +1165,7 @@ tracks/63/keys = {
 tracks/64/type = "value"
 tracks/64/imported = false
 tracks/64/enabled = true
-tracks/64/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
+tracks/64/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
 tracks/64/interp = 2
 tracks/64/loop_wrap = true
 tracks/64/keys = {
@@ -2308,19 +2321,19 @@ tracks/49/keys = {
 tracks/50/type = "value"
 tracks/50/imported = false
 tracks/50/enabled = true
-tracks/50/path = NodePath("Torso/UpperHandLeft:position")
+tracks/50/path = NodePath("UpperHandLeft:position")
 tracks/50/interp = 2
 tracks/50/loop_wrap = true
 tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, -90)]
+"values": [Vector2(-40, -272)]
 }
 tracks/51/type = "value"
 tracks/51/imported = false
 tracks/51/enabled = true
-tracks/51/path = NodePath("Torso/UpperHandLeft:rotation")
+tracks/51/path = NodePath("UpperHandLeft:rotation")
 tracks/51/interp = 2
 tracks/51/loop_wrap = true
 tracks/51/keys = {
@@ -2332,7 +2345,7 @@ tracks/51/keys = {
 tracks/52/type = "value"
 tracks/52/imported = false
 tracks/52/enabled = true
-tracks/52/path = NodePath("Torso/UpperHandLeft:scale")
+tracks/52/path = NodePath("UpperHandLeft:scale")
 tracks/52/interp = 2
 tracks/52/loop_wrap = true
 tracks/52/keys = {
@@ -2344,7 +2357,7 @@ tracks/52/keys = {
 tracks/53/type = "value"
 tracks/53/imported = false
 tracks/53/enabled = true
-tracks/53/path = NodePath("Torso/UpperHandLeft:modulate")
+tracks/53/path = NodePath("UpperHandLeft:modulate")
 tracks/53/interp = 2
 tracks/53/loop_wrap = true
 tracks/53/keys = {
@@ -2356,19 +2369,19 @@ tracks/53/keys = {
 tracks/54/type = "value"
 tracks/54/imported = false
 tracks/54/enabled = true
-tracks/54/path = NodePath("Torso/UpperHandLeft:show_behind_parent")
+tracks/54/path = NodePath("UpperHandLeft:show_behind_parent")
 tracks/54/interp = 2
 tracks/54/loop_wrap = true
 tracks/54/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [true]
 }
 tracks/55/type = "value"
 tracks/55/imported = false
 tracks/55/enabled = true
-tracks/55/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:position")
+tracks/55/path = NodePath("UpperHandLeft/LowerHandLeft:position")
 tracks/55/interp = 2
 tracks/55/loop_wrap = true
 tracks/55/keys = {
@@ -2380,7 +2393,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:rotation")
+tracks/56/path = NodePath("UpperHandLeft/LowerHandLeft:rotation")
 tracks/56/interp = 2
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -2392,7 +2405,7 @@ tracks/56/keys = {
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:scale")
+tracks/57/path = NodePath("UpperHandLeft/LowerHandLeft:scale")
 tracks/57/interp = 2
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -2404,7 +2417,7 @@ tracks/57/keys = {
 tracks/58/type = "value"
 tracks/58/imported = false
 tracks/58/enabled = true
-tracks/58/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:modulate")
+tracks/58/path = NodePath("UpperHandLeft/LowerHandLeft:modulate")
 tracks/58/interp = 2
 tracks/58/loop_wrap = true
 tracks/58/keys = {
@@ -2416,7 +2429,7 @@ tracks/58/keys = {
 tracks/59/type = "value"
 tracks/59/imported = false
 tracks/59/enabled = true
-tracks/59/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:show_behind_parent")
+tracks/59/path = NodePath("UpperHandLeft/LowerHandLeft:show_behind_parent")
 tracks/59/interp = 2
 tracks/59/loop_wrap = true
 tracks/59/keys = {
@@ -2428,7 +2441,7 @@ tracks/59/keys = {
 tracks/60/type = "value"
 tracks/60/imported = false
 tracks/60/enabled = true
-tracks/60/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:position")
+tracks/60/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:position")
 tracks/60/interp = 2
 tracks/60/loop_wrap = true
 tracks/60/keys = {
@@ -2440,7 +2453,7 @@ tracks/60/keys = {
 tracks/61/type = "value"
 tracks/61/imported = false
 tracks/61/enabled = true
-tracks/61/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:rotation")
+tracks/61/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:rotation")
 tracks/61/interp = 2
 tracks/61/loop_wrap = true
 tracks/61/keys = {
@@ -2452,7 +2465,7 @@ tracks/61/keys = {
 tracks/62/type = "value"
 tracks/62/imported = false
 tracks/62/enabled = true
-tracks/62/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:scale")
+tracks/62/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:scale")
 tracks/62/interp = 2
 tracks/62/loop_wrap = true
 tracks/62/keys = {
@@ -2464,7 +2477,7 @@ tracks/62/keys = {
 tracks/63/type = "value"
 tracks/63/imported = false
 tracks/63/enabled = true
-tracks/63/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
+tracks/63/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
 tracks/63/interp = 2
 tracks/63/loop_wrap = true
 tracks/63/keys = {
@@ -3620,19 +3633,19 @@ tracks/49/keys = {
 tracks/50/type = "value"
 tracks/50/imported = false
 tracks/50/enabled = true
-tracks/50/path = NodePath("Torso/UpperHandLeft:position")
+tracks/50/path = NodePath("UpperHandLeft:position")
 tracks/50/interp = 2
 tracks/50/loop_wrap = true
 tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, -90)]
+"values": [Vector2(-40, -272)]
 }
 tracks/51/type = "value"
 tracks/51/imported = false
 tracks/51/enabled = true
-tracks/51/path = NodePath("Torso/UpperHandLeft:rotation")
+tracks/51/path = NodePath("UpperHandLeft:rotation")
 tracks/51/interp = 2
 tracks/51/loop_wrap = true
 tracks/51/keys = {
@@ -3644,7 +3657,7 @@ tracks/51/keys = {
 tracks/52/type = "value"
 tracks/52/imported = false
 tracks/52/enabled = true
-tracks/52/path = NodePath("Torso/UpperHandLeft:scale")
+tracks/52/path = NodePath("UpperHandLeft:scale")
 tracks/52/interp = 2
 tracks/52/loop_wrap = true
 tracks/52/keys = {
@@ -3656,7 +3669,7 @@ tracks/52/keys = {
 tracks/53/type = "value"
 tracks/53/imported = false
 tracks/53/enabled = true
-tracks/53/path = NodePath("Torso/UpperHandLeft:modulate")
+tracks/53/path = NodePath("UpperHandLeft:modulate")
 tracks/53/interp = 2
 tracks/53/loop_wrap = true
 tracks/53/keys = {
@@ -3668,19 +3681,19 @@ tracks/53/keys = {
 tracks/54/type = "value"
 tracks/54/imported = false
 tracks/54/enabled = true
-tracks/54/path = NodePath("Torso/UpperHandLeft:show_behind_parent")
+tracks/54/path = NodePath("UpperHandLeft:show_behind_parent")
 tracks/54/interp = 2
 tracks/54/loop_wrap = true
 tracks/54/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [true]
 }
 tracks/55/type = "value"
 tracks/55/imported = false
 tracks/55/enabled = true
-tracks/55/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:position")
+tracks/55/path = NodePath("UpperHandLeft/LowerHandLeft:position")
 tracks/55/interp = 2
 tracks/55/loop_wrap = true
 tracks/55/keys = {
@@ -3692,7 +3705,7 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:rotation")
+tracks/56/path = NodePath("UpperHandLeft/LowerHandLeft:rotation")
 tracks/56/interp = 2
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -3704,7 +3717,7 @@ tracks/56/keys = {
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:scale")
+tracks/57/path = NodePath("UpperHandLeft/LowerHandLeft:scale")
 tracks/57/interp = 2
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -3716,7 +3729,7 @@ tracks/57/keys = {
 tracks/58/type = "value"
 tracks/58/imported = false
 tracks/58/enabled = true
-tracks/58/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:modulate")
+tracks/58/path = NodePath("UpperHandLeft/LowerHandLeft:modulate")
 tracks/58/interp = 2
 tracks/58/loop_wrap = true
 tracks/58/keys = {
@@ -3728,7 +3741,7 @@ tracks/58/keys = {
 tracks/59/type = "value"
 tracks/59/imported = false
 tracks/59/enabled = true
-tracks/59/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:show_behind_parent")
+tracks/59/path = NodePath("UpperHandLeft/LowerHandLeft:show_behind_parent")
 tracks/59/interp = 2
 tracks/59/loop_wrap = true
 tracks/59/keys = {
@@ -3740,7 +3753,7 @@ tracks/59/keys = {
 tracks/60/type = "value"
 tracks/60/imported = false
 tracks/60/enabled = true
-tracks/60/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:position")
+tracks/60/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:position")
 tracks/60/interp = 2
 tracks/60/loop_wrap = true
 tracks/60/keys = {
@@ -3752,7 +3765,7 @@ tracks/60/keys = {
 tracks/61/type = "value"
 tracks/61/imported = false
 tracks/61/enabled = true
-tracks/61/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:rotation")
+tracks/61/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:rotation")
 tracks/61/interp = 2
 tracks/61/loop_wrap = true
 tracks/61/keys = {
@@ -3764,7 +3777,7 @@ tracks/61/keys = {
 tracks/62/type = "value"
 tracks/62/imported = false
 tracks/62/enabled = true
-tracks/62/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:scale")
+tracks/62/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:scale")
 tracks/62/interp = 2
 tracks/62/loop_wrap = true
 tracks/62/keys = {
@@ -3776,7 +3789,7 @@ tracks/62/keys = {
 tracks/63/type = "value"
 tracks/63/imported = false
 tracks/63/enabled = true
-tracks/63/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:modulate")
+tracks/63/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:modulate")
 tracks/63/interp = 2
 tracks/63/loop_wrap = true
 tracks/63/keys = {
@@ -3788,7 +3801,7 @@ tracks/63/keys = {
 tracks/64/type = "value"
 tracks/64/imported = false
 tracks/64/enabled = true
-tracks/64/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
+tracks/64/path = NodePath("UpperHandLeft/LowerHandLeft/HandLeft:show_behind_parent")
 tracks/64/interp = 2
 tracks/64/loop_wrap = true
 tracks/64/keys = {
@@ -4369,7 +4382,7 @@ _data = {
 &"walk": SubResource("Animation_t4mxe")
 }
 
-[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC")]
+[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "groundMarker", "head", "lowerHandRight")]
 y_sort_enabled = true
 script = ExtResource("1_g00xo")
 hpC = NodePath("hpComponent")
@@ -4377,6 +4390,9 @@ hurtboxC = NodePath("hurtboxComponent")
 zombieMeleeC = NodePath("zombieMeleeAttackComponent")
 zombieMovementC = NodePath("zombieMovementComponent")
 zombieAnimationC = NodePath("zombieAnimationComponent")
+groundMarker = NodePath("GroundMarker")
+head = NodePath("visuals/Torso/Head")
+lowerHandRight = NodePath("visuals/Torso/UpperHandRight/LowerHandRight")
 team = 1
 
 [node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("3_x688a")]
@@ -4406,8 +4422,12 @@ unique_name_in_owner = true
 animationPlayer = NodePath("../visuals/AnimationPlayer")
 customBlendValue = 0.2
 
+[node name="GroundMarker" parent="." unique_id=1189790841 instance=ExtResource("7_arsdy")]
+unique_name_in_owner = true
+position = Vector2(-42, 64.99999)
+
 [node name="visuals" type="Sprite2D" parent="." unique_id=607701518]
-position = Vector2(0, 63.999992)
+position = Vector2(0, 69)
 scale = Vector2(0.55, 0.45)
 offset = Vector2(0, -138)
 
@@ -4415,6 +4435,24 @@ offset = Vector2(0, -138)
 animationPlayer = NodePath("../AnimationPlayer")
 visuals = NodePath("..")
 animationName = &"attack"
+
+[node name="UpperHandLeft" type="Sprite2D" parent="visuals" unique_id=6794035]
+show_behind_parent = true
+position = Vector2(-40, -272)
+texture = ExtResource("16_wgcd6")
+offset = Vector2(6, 100)
+
+[node name="LowerHandLeft" type="Sprite2D" parent="visuals/UpperHandLeft" unique_id=521677197]
+position = Vector2(-4, 70)
+rotation = 0.08715206
+texture = ExtResource("17_uo1s4")
+offset = Vector2(10, 30)
+
+[node name="HandLeft" type="Sprite2D" parent="visuals/UpperHandLeft/LowerHandLeft" unique_id=218248827]
+position = Vector2(4, 48)
+rotation = 0.122495234
+texture = ExtResource("18_jg1lf")
+offset = Vector2(6, -18)
 
 [node name="UpperLegLeft" type="Sprite2D" parent="visuals" unique_id=292742074]
 position = Vector2(-1.8525236, -186.9285)
@@ -4470,24 +4508,6 @@ rotation = -0.067248
 texture = ExtResource("15_yyysg")
 offset = Vector2(-34, 10)
 
-[node name="UpperHandLeft" type="Sprite2D" parent="visuals/Torso" unique_id=6794035]
-z_index = -1
-position = Vector2(-40, -90)
-texture = ExtResource("16_wgcd6")
-offset = Vector2(6, 100)
-
-[node name="LowerHandLeft" type="Sprite2D" parent="visuals/Torso/UpperHandLeft" unique_id=521677197]
-position = Vector2(-4, 70)
-rotation = 0.08715206
-texture = ExtResource("17_uo1s4")
-offset = Vector2(10, 30)
-
-[node name="HandLeft" type="Sprite2D" parent="visuals/Torso/UpperHandLeft/LowerHandLeft" unique_id=218248827]
-position = Vector2(4, 48)
-rotation = 0.122495234
-texture = ExtResource("18_jg1lf")
-offset = Vector2(6, -18)
-
 [node name="Head" type="Sprite2D" parent="visuals/Torso" unique_id=1350573133]
 unique_name_in_owner = true
 position = Vector2(-14, -98)
@@ -4541,9 +4561,3 @@ texture = ExtResource("26_2vkv5")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=464782788]
 libraries/ = SubResource("AnimationLibrary_lswsf")
 autoplay = &"walk"
-
-[node name="GroundMarker" type="Marker2D" parent="visuals" unique_id=1708294267]
-unique_name_in_owner = true
-position = Vector2(-76.36363, 2.2222214)
-scale = Vector2(1.8181816, 2.222222)
-gizmo_extents = 132.5

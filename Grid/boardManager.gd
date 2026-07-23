@@ -1,25 +1,16 @@
 extends Node2D
 class_name boardManager
 
-@warning_ignore("unused_private_class_variable")
+@warning_ignore_start("unused_private_class_variable")
 @onready var _sunManager: sunManager = %SunManager
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
-@onready var plantSide := %Plants
-@onready var zombieSide := %Zombies
+@onready var _plantManager := %PlantManager
+@onready var _zombieManager := %ZombieManager
 @onready var debug_controller: debugController = %DebugController
-@onready var projectileSide := $Projectiles
+@onready var projectileManager := %ProjectileManager
 
 
-
-
-var gridOccupants : Dictionary [Vector2i , Variant] = {}
-var zombieInLanes : Array[laneData]
-
-
-func _ready() -> void:
-	SignalBus.connect("placePlant" , tryPlacePlant)
-	initializeLanes()
-
+var gridOccupants : Dictionary [Vector2i , Variant] = {} #including both plant and grid items
 
 func registerGridOccupant(grid: Vector2i , object: Variant):
 	gridOccupants [grid] = object
@@ -46,61 +37,3 @@ func gridToWorld(grid: Vector2i) -> Vector2:
 
 func worldToGrid(_position: Vector2) -> Vector2i:
 	return _gridManager.get_Coordinate(_position)
-
-## Zombies
-func isZombieAhead(lane: int, xPosition: float) -> bool:
-	for zombie: Zombie in zombieInLanes[lane].zombies:
-		if zombie.global_position.x > xPosition:
-			return true
-	return false
-
-func initializeLanes():
-	zombieInLanes.resize(_gridManager.laneCount)
-	for lanes in _gridManager.laneCount :
-		zombieInLanes[lanes] = laneData.new()
-
-func registerZombie(zombie : Zombie):
-	zombieInLanes[zombie.lane].registerZombie(zombie)
-
-func unregisterZombie(zombie : Zombie):
-	zombieInLanes[zombie.lane].unregisterZombie(zombie)
-
-func isZombieInLane (lane : int) -> bool:
-	return zombieInLanes[lane].hasZombies()
-
-func getZombiesInLane(lane : int) -> Array[Zombie]:
-	return zombieInLanes[lane].zombies.duplicate(false)
-
-func printZombies():
-	for i in _gridManager.laneCount:
-		print(zombieInLanes[i].printLanes())
-
-
-## Plants
-
-
-func getClosestPlantAhead(attacker: boardEntity ,attackReach: int) -> Plant:
-	for i in attackReach + 1:
-		var grid := Vector2i(attacker.column - i, attacker.lane)
-		if not isOccupied(grid):
-			continue
-		var occupant = getObjectAtGrid(grid)
-		if occupant is Plant:
-			return occupant
-	return null
-
-
-func tryPlacePlant(plant : Plant , _position : Vector2):
-	var grid : Vector2i = worldToGrid(_position)
-	if not canPlacePlant(grid):
-		return
-	plant.placePlant(grid , self)
-
-
-
-func canPlacePlant(grid: Vector2i) -> bool:
-	if not _gridManager.is_On_Lawn(grid):
-		return false
-	if isOccupied(grid):
-		return false
-	return true

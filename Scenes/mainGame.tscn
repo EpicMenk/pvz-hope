@@ -4,25 +4,37 @@
 [ext_resource type="Script" uid="uid://dbv43hdtsfrke" path="res://GeneralScripts/mainGame.gd" id="1_yergv"]
 [ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
+[ext_resource type="Script" uid="uid://gvwx4tcmvvpx" path="res://Zombies/zombieManager.gd" id="3_ahx5u"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
+[ext_resource type="Script" uid="uid://becu5tb6wvvay" path="res://Plants/plantManager.gd" id="3_w6yvb"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
 [ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
+[ext_resource type="Script" uid="uid://bj1r1pye73hgp" path="res://Debug/spawnproj.gd" id="9_r4fum"]
 [ext_resource type="Texture2D" uid="uid://cbvht5ia872jq" path="res://Seedbank/Assets/Backpack.png" id="9_wxp0d"]
+[ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="10_iky2f"]
 [ext_resource type="Texture2D" uid="uid://r81ig8rh5nyc" path="res://Seedbank/Assets/Patch.png" id="10_k3x6f"]
+[ext_resource type="Script" uid="uid://dktt3mvsegtuk" path="res://ProjectileScripts/projectileStats.gd" id="11_ahx5u"]
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
+[ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
 [sub_resource type="Resource" id="Resource_7nkqc"]
 script = ExtResource("6_7nkqc")
 sunValue = 50
 sunLifeTime = 10.0
 metadata/_custom_type_script = "uid://cwtmkm755le4w"
+
+[sub_resource type="Resource" id="Resource_r4fum"]
+script = ExtResource("11_ahx5u")
+damage = 10
+projectileSpeed = 10.0
+metadata/_custom_type_script = "uid://dktt3mvsegtuk"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxp0d"]
 bg_color = Color(0.4619894, 0.23402339, 0.19118276, 1)
@@ -56,13 +68,15 @@ unique_name_in_owner = true
 y_sort_enabled = true
 script = ExtResource("1_3fgs5")
 
-[node name="Plants" type="Node2D" parent="BoardManager" unique_id=1527356968]
+[node name="PlantManager" type="Node2D" parent="BoardManager" unique_id=1527356968]
 unique_name_in_owner = true
 y_sort_enabled = true
+script = ExtResource("3_w6yvb")
 
-[node name="Zombies" type="Node2D" parent="BoardManager" unique_id=1761822789]
+[node name="ZombieManager" type="Node2D" parent="BoardManager" unique_id=1761822789]
 unique_name_in_owner = true
 y_sort_enabled = true
+script = ExtResource("3_ahx5u")
 
 [node name="DebugController" type="Node2D" parent="BoardManager" unique_id=230407231]
 unique_name_in_owner = true
@@ -70,7 +84,8 @@ script = ExtResource("2_2k2ja")
 drawGrid = true
 drawLaneNumbers = true
 
-[node name="Projectiles" type="Node2D" parent="BoardManager" unique_id=1817123745]
+[node name="ProjectileManager" type="Node2D" parent="BoardManager" unique_id=1817123745]
+unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="SeedbankManager" type="Node" parent="." unique_id=424637520]
@@ -103,10 +118,12 @@ mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1509141968]
 layout_mode = 1
-offset_left = 1488.0
-offset_top = 9.0
-offset_right = 1922.0
-offset_bottom = 59.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -574.0
+offset_bottom = 50.0
+grow_horizontal = 0
 
 [node name="debug1" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=557355019]
 layout_mode = 2
@@ -121,6 +138,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "spawn zombies"
 script = ExtResource("3_ldq11")
+
+[node name="debug3" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=374094347]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "spawn projectile
+"
+script = ExtResource("9_r4fum")
+projectileScene = ExtResource("10_iky2f")
+_projectileStats = SubResource("Resource_r4fum")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=536436148]
 layout_mode = 1
@@ -219,6 +245,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1965423402]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 56
+script = ExtResource("18_m5gd2")
 
 [node name="VFXLayer" type="CanvasLayer" parent="." unique_id=1719436569]
 unique_name_in_owner = true

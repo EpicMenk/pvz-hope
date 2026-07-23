@@ -6,9 +6,9 @@ class_name Zombie
 @export var zombieMeleeC: zombieMeleeAttackComponent 
 @export var zombieMovementC: zombieMovementComponent 
 @export var zombieAnimationC: zombieAnimationComponent 
-@onready var groundMarker: Marker2D = %GroundMarker
-@onready var head: Sprite2D = %Head
-@onready var lowerHandRight: Sprite2D = %LowerHandRight
+@export var groundMarker: Marker2D 
+@export var head: Sprite2D 
+@export var lowerHandRight: Sprite2D 
 
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
@@ -32,6 +32,7 @@ func evaluateEvent(event : StringName):
 			dropLimb(lowerHandRight)
 
 func dropLimb(limb : Sprite2D):
+	if not limb : 	return
 	var _floor : float = groundMarker.global_position.y
 	limb.visible = false
 	var physicObject : physicsSprite2D = load("uid://cduer3twlusei").instantiate()
