@@ -22,12 +22,14 @@ func evaluateComponentStats():
 		component.component.evaluateStats()
 
 func activateComponent():
-	for component in runtimeComponents:
-		component.component.enable()
+	for child in get_children():
+		if child is entityComponent or child is entityComponent2D:
+			child.enable()
 
 func disableComponent():
-	for component in runtimeComponents:
-		component.component.disable()
+	for child in get_children():
+		if child is entityComponent or child is entityComponent2D:
+			child.disable()
 
 enum teamEnums {
 	PLANT,

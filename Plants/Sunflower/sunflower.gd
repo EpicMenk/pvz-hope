@@ -11,11 +11,3 @@ func evaluateStats():
 	sunSpawnC.floorMarker = ground
 	sunSpawnC.evaluateStats()
 	hpC.updateMaxHP(stats.maxHP)
-
-func activateComponent():
-	sunSpawnC.enable()
-	hpC.enable()
-
-func disableComponent():
-	sunSpawnC.disable()
-	hpC.disable()

@@ -12,13 +12,3 @@ func evaluateStats():
 	zombieMeleeC.evaluateStats()
 	hpC.updateShield(stats.shield)
 	hpC.updateMaxHP(stats.hp)
-
-func disableComponent():
-	zombieMeleeC.disable()
-	zombieMovementC.disable()
-	hpC.disable()
-
-func activateComponent():
-	zombieMeleeC.enable()
-	zombieMovementC.enable()
-	hpC.enable()

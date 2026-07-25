@@ -11,11 +11,3 @@ func evaluateStats():
 	straightShooterC._projectileConfigs = _projectileConfigs
 	straightShooterC.evaluateStats()
 	hpC.updateMaxHP(stats.maxHP)
-
-func activateComponent():
-	straightShooterC.enable()
-	hpC.enable()
-
-func disableComponent():
-	straightShooterC.disable()
-	hpC.disable()

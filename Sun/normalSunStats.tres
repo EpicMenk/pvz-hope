@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_kbpy6")
+sunValue = 50
 metadata/_custom_type_script = "uid://cwtmkm755le4w"
