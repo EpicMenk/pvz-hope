@@ -1,30 +1,38 @@
+## Manages the sun economy: current sun count, spawning falling sun both
+## from plants and periodically from the sky, and handling sun pickup
+## (click-to-collect, fly-to-counter animation).
 extends Node
 class_name sunManager
 
-signal sunValueChanged(currentSunCount : int)
+signal sunValueChanged(currentSunCount: int)
 
 @onready var sunMarker: Marker2D = %SunMarker
 @onready var vfxLayer := %VFXLayer
 @onready var sunSpawnTimer: Timer = %SunSpawnTimer
 @onready var _boardManager: boardManager = %BoardManager
-@onready var _gridManager : gridManager
+var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 @onready var sunScene : PackedScene = preload("res://Sun/Sun.tscn")
 @onready var sunCountLabel: Label = %SunCount
-@export var spawnHeight : float =  -200
-@export var maxSun : int
+@export var spawnHeight : float = -200
+@export var maxSun : int = 9990
 @export var sunSpawnedValue : int = 50
 @export var startingSun : int = 50
 @export var sunSpawnWaitTime : float = 1
 @export var sunSkyStats : sunStats
+
+## Current sun total, clamped to [0, maxSun]. Setting this animates the
+## displayed count and emits [signal sunValueChanged].
 var currentSun : int :
 	set(amount):
-		currentSun = clamp(amount , 0 , maxSun)
+		currentSun = clamp(amount, 0, maxSun)
 		sunValueChanged.emit(currentSun)
 		animateSunCount(currentSun)
 var sunTween : Tween
 
 
-func animateSunCount(newValue : int):
+## Tweens the displayed sun count label from its current value to
+## [param newValue] over a short duration.
+func animateSunCount(newValue: int):
 	if sunTween:
 		sunTween.kill()
 	var from := int(sunCountLabel.text)
@@ -38,7 +46,10 @@ func animateSunCount(newValue : int):
 	)
 
 
-func spawnSun(sunConfig : sunStats , _position : Vector2 , floorY : float , force : Vector2):
+## Spawns a [sun] instance configured with [param sunConfig] at
+## [param _position], falling toward [param floorY] with initial
+## [param force] applied.
+func spawnSun(sunConfig: sunStats, _position: Vector2, floorY: float, force: Vector2):
 	var _sun : sun = sunScene.instantiate()
 	_sun.evaluateStats(sunConfig)
 	_sun.global_position = _position
@@ -48,46 +59,65 @@ func spawnSun(sunConfig : sunStats , _position : Vector2 , floorY : float , forc
 	_sun.sunClicked.connect(onSunClicked)
 
 
-func onSunClicked(_sun : sun):
+## Called when [param _sun] is clicked — collects its value and flies it
+## toward [member sunMarker] as a UI effect.
+func onSunClicked(_sun: sun):
 	addSun(_sun.sunValue)
 	var screen_pos := _sun.get_global_transform_with_canvas().origin
 	_sun.reparent(vfxLayer)
 	_sun.position = screen_pos
 	_sun.tweenToPosition(sunMarker.global_position)
 
+
+## Spawns a sun at a random point along the top of the board, using
+## [member sunSkyStats].
 func spawnSkySun():
-	spawnSun(sunSkyStats, 
-	Vector2(randf_range(0 , _gridManager.boardSize.x) , spawnHeight),
+	spawnSun(sunSkyStats,
+	Vector2(randf_range(0, _gridManager.boardSize.x), spawnHeight),
 	_gridManager.getLaneY(_gridManager.getRandomLane()),
-	Vector2(0,0)
+	Vector2(0, 0)
 	)
 
 
+## Configures and connects the periodic sky-sun spawn timer.
 func setUpSpawnTimer():
+	sunSpawnTimer.timeout.connect(spawnSkySun)
 	sunSpawnTimer.wait_time = sunSpawnWaitTime
 	startSpawningSun()
-	sunSpawnTimer.timeout.connect(spawnSkySun)
+
+
 
 func _ready() -> void:
 	setUpSpawnTimer()
-	_gridManager = _boardManager._gridManager
 	addSun(startingSun)
 	sunCountLabel.text = str(currentSun)
 
+
+## Stops periodic sky-sun spawning.
 func stopSpawningSun():
 	sunSpawnTimer.stop()
 
+
+## Starts (or resumes) periodic sky-sun spawning.
 func startSpawningSun():
 	sunSpawnTimer.start()
 
-func canAfford(cost : int) -> bool:
+
+## Returns whether [param cost] can be paid from the current sun total.
+func canAfford(cost: int) -> bool:
 	return cost <= currentSun
 
-func addSun (value:int):
+
+## Adds [param value] sun.
+func addSun(value: int):
 	currentSun += value
 
-func spendSun (value:int):
+
+## Spends [param value] sun.
+func spendSun(value: int):
 	currentSun -= value
 
-func setSun(value : int):
+
+## Directly sets the current sun total to [param value].
+func setSun(value: int):
 	currentSun = value

@@ -1,37 +1,59 @@
+## Handles zombie-side board logic: tracking which zombies are in which
+## lane, registering/unregistering them, and answering lane-based queries
+## like whether a zombie is ahead of a given point.
+
 extends Node2D
 class_name zombieManager
 
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
-var zombieInLanes : Array[laneData]
+## One [zombieLaneData] per lane, tracking which zombies currently occupy it.
+var zombieInLanes : Array[zombieLaneData]
+
+
 
 
 func _ready() -> void:
 	initializeLanes()
 
+
+## Returns whether any zombie in [param lane] is ahead of [param xPosition]
+## on the x-axis (used by attackers to check line of sight/range).
 func isZombieAhead(lane: int, xPosition: float) -> bool:
 	for zombie: Zombie in zombieInLanes[lane].zombies:
 		if zombie.global_position.x > xPosition:
 			return true
 	return false
 
+
+## Creates one empty [zombieLaneData] per lane, sized to [member gridManager.laneCount].
 func initializeLanes():
 	zombieInLanes.resize(_gridManager.laneCount)
-	for lanes in _gridManager.laneCount :
-		zombieInLanes[lanes] = laneData.new()
+	for lanes in _gridManager.laneCount:
+		zombieInLanes[lanes] = zombieLaneData.new()
 
-func registerZombie(zombie : Zombie):
+
+## Registers [param zombie] into its lane, based on [member boardEntity.lane].
+func registerZombie(zombie: Zombie):
 	zombieInLanes[zombie.lane].registerZombie(zombie)
 
-func unregisterZombie(zombie : Zombie):
+
+## Removes [param zombie] from its lane.
+func unregisterZombie(zombie: Zombie):
 	zombieInLanes[zombie.lane].unregisterZombie(zombie)
 
-func isZombieInLane (lane : int) -> bool:
+
+## Returns whether [param lane] currently has any zombies in it.
+func isZombieInLane(lane: int) -> bool:
 	return zombieInLanes[lane].hasZombies()
 
-func getZombiesInLane(lane : int) -> Array[Zombie]:
+
+## Returns a shallow copy of the zombies currently in [param lane].
+func getZombiesInLane(lane: int) -> Array[Zombie]:
 	return zombieInLanes[lane].zombies.duplicate(false)
 
+
+## Debug helper — prints every lane's current zombie list to the console.
 func printZombies():
 	for i in _gridManager.laneCount:
-		print("------ZOMBIES IN LANES " , i , "------")
+		print("------ZOMBIES IN LANES ", i, "------")
 		zombieInLanes[i].printLanes()

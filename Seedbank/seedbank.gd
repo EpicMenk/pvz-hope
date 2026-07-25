@@ -1,9 +1,17 @@
+## UI panel for the seed bank: creates and populates seed packet slots,
+## and sizes the backpack lid/straps to fit them. Emits
+## [signal finishedInitializing] once slots are ready, which
+## [SeedBankManager] waits on before wiring up press handlers.
 extends Control
 class_name seedbank
 
 signal finishedInitializing()
 
-@export var selectedSeedPackets : Array[seedPacketData] #exported for now for debugging
+## The plant loadout to populate the bank with. Exported directly for
+## debugging — eventually this should come from the level/player's actual
+## loadout rather than being set per-scene.
+@export var selectedSeedPackets : Array[seedPacketData]
+
 @onready var seedSlots : Array[seedpacket]
 @onready var vBoxContainer: VBoxContainer = %VBoxContainer
 @onready var lid: Panel = %Lid
@@ -22,36 +30,46 @@ func _ready() -> void:
 	call_deferred("updateStrappers")
 	finishedInitializing.emit()
 
-func getSeedSlots () -> Array[seedpacket]:
+
+## Returns every seed slot in the bank.
+func getSeedSlots() -> Array[seedpacket]:
 	return seedSlots
 
-func getSeedAtIndex(index : int)-> seedpacket:
+
+## Returns the seed slot at [param index].
+func getSeedAtIndex(index: int) -> seedpacket:
 	return seedSlots[index]
 
-func populateSeedSlots():
-	var count = min(seedSlotNum , selectedSeedPackets.size())
-	
-	for i in range(count):
-		seedSlots[i].initialize(selectedSeedPackets[i] ) 
-	
 
+## Initializes each seed slot with its corresponding entry from
+## [member selectedSeedPackets], up to whichever is smaller between that
+## and [member seedSlotNum].
+func populateSeedSlots():
+	var count = min(seedSlotNum, selectedSeedPackets.size())
+
+	for i in range(count):
+		seedSlots[i].initialize(selectedSeedPackets[i])
+
+
+## Collects every [seedpacket] child of [member vBoxContainer] into
+## [member seedSlots].
 func cacheSeedSlots():
-	for child in vBoxContainer.get_children() : 
+	for child in vBoxContainer.get_children():
 		if child is seedpacket:
 			seedSlots.append(child)
 
 
+## Instantiates [member seedSlotNum] empty seed packet slots and adds them
+## to the bank.
 func createBlankSeedSlots():
 	for i in range(seedSlotNum):
-		var seedPacket :seedpacket= seedPacketScene.instantiate()
+		var seedPacket : seedpacket = seedPacketScene.instantiate()
 		seedPacket._sunManager = _sunManager
 		vBoxContainer.add_child(seedPacket)
 		seedPacket._boardManager = _boardManager
 
-
 func updateStrappers():
 	straps.global_position.y += lid.size.y
-
 
 
 func getRequiredLidHeight() -> float:
