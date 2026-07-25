@@ -64,7 +64,7 @@ func spawnProjectile(point : Marker2D):
 	var projectileInstance : projectile = projectileScene.instantiate()
 	projectileInstance.attacker = parent
 	projectileInstance.global_position = point.global_position
-	parent._boardManager.projectileManager.add_child(projectileInstance)
+	parent._boardManager._projectileManager.add_child(projectileInstance)
 	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():

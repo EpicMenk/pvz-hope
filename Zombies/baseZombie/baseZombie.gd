@@ -13,12 +13,6 @@ class_name Zombie
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
 
-func activateComponent():
-	push_error("activateComponent() needs to be overriden")
-
-func disableComponent():
-	push_error("disableComponent() needs to be overriden")
-
 func _ready() -> void:
 	evaluateStats()
 	updateHurtboxCollisionLayer()

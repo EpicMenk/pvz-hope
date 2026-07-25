@@ -14,7 +14,8 @@ class_name boardManager
 @onready var _plantManager : plantManager = %PlantManager
 @onready var _zombieManager : zombieManager = %ZombieManager
 @onready var _debugController: debugController = %DebugController
-@onready var _projectileManager := %ProjectileManager
+@onready var _projectileManager: Node2D = %ProjectileManager
+
 
 
 ## Maps a grid coordinate to whatever occupies it — a [Plant] or a grid item.
