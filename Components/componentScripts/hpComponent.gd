@@ -7,7 +7,7 @@ signal died
 signal eventTriggered(event : StringName)
 
 @export var hpEvents : Dictionary [int , StringName]
-@export var maxHP : int 
+@export var maxHP : int = 1
 @export var shield : int
 @onready var parent : boardEntity = get_parent() as boardEntity
 var hasDied : bool = false

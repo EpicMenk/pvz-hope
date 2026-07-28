@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhirt0qy0u56y" path="res://Grid/boardManager.gd" id="1_3fgs5"]
 [ext_resource type="Script" uid="uid://dbv43hdtsfrke" path="res://GeneralScripts/mainGame.gd" id="1_yergv"]
 [ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
+[ext_resource type="Script" uid="uid://cjucm57xhoexx" path="res://LevelRelated/actionContext.gd" id="2_8cv8s"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
 [ext_resource type="Script" uid="uid://gvwx4tcmvvpx" path="res://Zombies/zombieManager.gd" id="3_ahx5u"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
@@ -55,6 +56,9 @@ expand_margin_bottom = 20.0
 
 [node name="Game" type="Node2D" unique_id=323427591]
 script = ExtResource("1_yergv")
+
+[node name="ActionContext" type="Node" parent="." unique_id=502793947]
+script = ExtResource("2_8cv8s")
 
 [node name="LevelManager" type="Node" parent="." unique_id=28449932]
 

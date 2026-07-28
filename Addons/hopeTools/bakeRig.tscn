@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ceaao2ems0pw1"]
+
+[ext_resource type="Script" uid="uid://by3rl77gpikf" path="res://Addons/hopeTools/scripts/bakeRig.gd" id="1_oaj8d"]
+
+[node name="BakeRig" type="Node2D" unique_id=1151502894]
+script = ExtResource("1_oaj8d")
+target_fps = 30.0
+capture_size = Vector2i(250, 300)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1614657845]
+unique_name_in_owner = true
+size = Vector2i(250, 300)
+
+[node name="Node2D" type="Node2D" parent="SubViewport" unique_id=2020141629]
+unique_name_in_owner = true
+position = Vector2(160, 196)

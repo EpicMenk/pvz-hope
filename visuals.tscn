@@ -1,33 +1,26 @@
-[gd_scene format=3 uid="uid://nd2hikxhc76m"]
+[gd_scene format=3 uid="uid://m3igncdj0cu6"]
 
-[ext_resource type="Script" uid="uid://ddtctg8v11c76" path="res://Zombies/baseZombie/baseZombie.gd" id="1_g00xo"]
-[ext_resource type="PackedScene" uid="uid://bmn3oajohi1m6" path="res://Components/hurtboxComponent.tscn" id="3_x688a"]
-[ext_resource type="PackedScene" uid="uid://bgpek5f1yfuu0" path="res://Components/ZombieComponents/zombieMeleeAttackComponent.tscn" id="4_ubbys"]
-[ext_resource type="Script" uid="uid://crtgmpr781hw8" path="res://Components/componentScripts/hpComponent.gd" id="4_x688a"]
-[ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/ZombieComponents/zombieMovementComponent.tscn" id="5_4eq78"]
-[ext_resource type="PackedScene" uid="uid://drepq3xs3qrvx" path="res://Zombies/zombieGroundMarker.tscn" id="7_arsdy"]
-[ext_resource type="Texture2D" uid="uid://cv5dy7wtgt67l" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegLeft.png" id="7_hg078"]
-[ext_resource type="Texture2D" uid="uid://bsgcuo0xjjfl3" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerLegLeft.png" id="8_mfkcq"]
-[ext_resource type="Texture2D" uid="uid://210q2o8rrdc1" path="res://Zombies/baseZombie/baseBasicZombieAssets/BackFeetLeft.png" id="9_arsdy"]
-[ext_resource type="Texture2D" uid="uid://cctsbtj114dpn" path="res://Zombies/baseZombie/baseBasicZombieAssets/FrontFeetLeft.png" id="10_jrkx0"]
-[ext_resource type="Texture2D" uid="uid://cd3kppl071p6h" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegRight.png" id="11_lswsf"]
-[ext_resource type="Texture2D" uid="uid://6ybqsqd4urrx" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerLegRight.png" id="12_t4mxe"]
-[ext_resource type="Texture2D" uid="uid://cpsscqaatiflf" path="res://Zombies/baseZombie/baseBasicZombieAssets/BackFeetRight.png" id="13_dlswt"]
-[ext_resource type="Texture2D" uid="uid://80tol2vbsbv0" path="res://Zombies/baseZombie/baseBasicZombieAssets/FrontFeetRight.png" id="14_0o3uk"]
-[ext_resource type="Texture2D" uid="uid://c1r8tmnrl0bn5" path="res://Zombies/baseZombie/baseBasicZombieAssets/Torso.png" id="15_yyysg"]
-[ext_resource type="Texture2D" uid="uid://bd2m4fyjxm2x2" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperHandLeft.png" id="16_wgcd6"]
-[ext_resource type="Texture2D" uid="uid://dhn3v13jqucww" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerHandLeft.png" id="17_uo1s4"]
-[ext_resource type="Texture2D" uid="uid://dyfhs65y636mt" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandLeft.png" id="18_jg1lf"]
-[ext_resource type="Texture2D" uid="uid://i6otoqcidb7b" path="res://Zombies/baseZombie/baseBasicZombieAssets/Head.png" id="19_j5tu1"]
-[ext_resource type="Texture2D" uid="uid://u22x5vjru6ms" path="res://Zombies/baseZombie/baseBasicZombieAssets/Jaw.png" id="20_g3by5"]
-[ext_resource type="Texture2D" uid="uid://bl8dt6i58qjfh" path="res://Zombies/baseZombie/baseBasicZombieAssets/EyeLeft.png" id="21_1o1tc"]
-[ext_resource type="Texture2D" uid="uid://demevuv8hlc1t" path="res://Zombies/baseZombie/baseBasicZombieAssets/EyeRight.png" id="22_rppks"]
-[ext_resource type="Texture2D" uid="uid://badridpqhghcr" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperHandRight.png" id="23_toiah"]
-[ext_resource type="Texture2D" uid="uid://balk8dbjx0asq" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerHandRight.png" id="24_t1ybm"]
-[ext_resource type="Texture2D" uid="uid://bsya7lisvubhy" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandRight1.png" id="25_vpskx"]
-[ext_resource type="Texture2D" uid="uid://bryj27yj7ywx0" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandRight2.png" id="26_2vkv5"]
-[ext_resource type="PackedScene" uid="uid://c52f0yra4qd04" path="res://Components/ZombieComponents/zombieAnimationComponent.tscn" id="26_hg078"]
-[ext_resource type="PackedScene" uid="uid://racabk7dcnl4" path="res://Addons/hopeTools/animationTrackGenerator.tscn" id="27_mfkcq"]
+[ext_resource type="PackedScene" uid="uid://racabk7dcnl4" path="res://Addons/hopeTools/animationTrackGenerator.tscn" id="1_r84nk"]
+[ext_resource type="Texture2D" uid="uid://bd2m4fyjxm2x2" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperHandLeft.png" id="2_ijol8"]
+[ext_resource type="Texture2D" uid="uid://dhn3v13jqucww" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerHandLeft.png" id="3_wytbo"]
+[ext_resource type="Texture2D" uid="uid://dyfhs65y636mt" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandLeft.png" id="4_afr7u"]
+[ext_resource type="Texture2D" uid="uid://cv5dy7wtgt67l" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegLeft.png" id="5_ubd57"]
+[ext_resource type="Texture2D" uid="uid://bsgcuo0xjjfl3" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerLegLeft.png" id="6_el0wy"]
+[ext_resource type="Texture2D" uid="uid://210q2o8rrdc1" path="res://Zombies/baseZombie/baseBasicZombieAssets/BackFeetLeft.png" id="7_qanem"]
+[ext_resource type="Texture2D" uid="uid://cctsbtj114dpn" path="res://Zombies/baseZombie/baseBasicZombieAssets/FrontFeetLeft.png" id="8_haorx"]
+[ext_resource type="Texture2D" uid="uid://cd3kppl071p6h" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperLegRight.png" id="9_p8fre"]
+[ext_resource type="Texture2D" uid="uid://6ybqsqd4urrx" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerLegRight.png" id="10_liekj"]
+[ext_resource type="Texture2D" uid="uid://cpsscqaatiflf" path="res://Zombies/baseZombie/baseBasicZombieAssets/BackFeetRight.png" id="11_lxfsx"]
+[ext_resource type="Texture2D" uid="uid://80tol2vbsbv0" path="res://Zombies/baseZombie/baseBasicZombieAssets/FrontFeetRight.png" id="12_j0fa1"]
+[ext_resource type="Texture2D" uid="uid://c1r8tmnrl0bn5" path="res://Zombies/baseZombie/baseBasicZombieAssets/Torso.png" id="13_lf0ee"]
+[ext_resource type="Texture2D" uid="uid://i6otoqcidb7b" path="res://Zombies/baseZombie/baseBasicZombieAssets/Head.png" id="14_i4s0u"]
+[ext_resource type="Texture2D" uid="uid://u22x5vjru6ms" path="res://Zombies/baseZombie/baseBasicZombieAssets/Jaw.png" id="15_bugms"]
+[ext_resource type="Texture2D" uid="uid://bl8dt6i58qjfh" path="res://Zombies/baseZombie/baseBasicZombieAssets/EyeLeft.png" id="16_xr0uj"]
+[ext_resource type="Texture2D" uid="uid://demevuv8hlc1t" path="res://Zombies/baseZombie/baseBasicZombieAssets/EyeRight.png" id="17_7w6an"]
+[ext_resource type="Texture2D" uid="uid://badridpqhghcr" path="res://Zombies/baseZombie/baseBasicZombieAssets/UpperHandRight.png" id="18_qhjmq"]
+[ext_resource type="Texture2D" uid="uid://balk8dbjx0asq" path="res://Zombies/baseZombie/baseBasicZombieAssets/LowerHandRight.png" id="19_px5kd"]
+[ext_resource type="Texture2D" uid="uid://bsya7lisvubhy" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandRight1.png" id="20_bjkhx"]
+[ext_resource type="Texture2D" uid="uid://bryj27yj7ywx0" path="res://Zombies/baseZombie/baseBasicZombieAssets/HandRight2.png" id="21_tt5e8"]
 
 [sub_resource type="Animation" id="Animation_mfkcq"]
 tracks/0/type = "value"
@@ -4382,182 +4375,137 @@ _data = {
 &"walk": SubResource("Animation_t4mxe")
 }
 
-[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "groundMarker", "head", "lowerHandRight")]
-y_sort_enabled = true
-script = ExtResource("1_g00xo")
-hpC = NodePath("hpComponent")
-hurtboxC = NodePath("hurtboxComponent")
-zombieMeleeC = NodePath("zombieMeleeAttackComponent")
-zombieMovementC = NodePath("zombieMovementComponent")
-zombieAnimationC = NodePath("zombieAnimationComponent")
-groundMarker = NodePath("GroundMarker")
-head = NodePath("")
-lowerHandRight = NodePath("")
-team = 1
-
-[node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("3_x688a")]
-unique_name_in_owner = true
-z_index = -5
-hpC = NodePath("../hpComponent")
-
-[node name="hpComponent" type="Node" parent="." unique_id=1730016595]
-script = ExtResource("4_x688a")
-hpEvents = Dictionary[int, StringName]({
-340: &"dropRightArm"
-})
-maxHP = 350
-metadata/_custom_type_script = "uid://crtgmpr781hw8"
-
-[node name="zombieMeleeAttackComponent" parent="." unique_id=125088792 instance=ExtResource("4_ubbys")]
-unique_name_in_owner = true
-damage = 10
-attackCooldown = 1.0
-
-[node name="zombieMovementComponent" parent="." unique_id=953325601 instance=ExtResource("5_4eq78")]
-unique_name_in_owner = true
-speed = 30.0
-
-[node name="zombieAnimationComponent" parent="." unique_id=155459487 node_paths=PackedStringArray("animationPlayer") instance=ExtResource("26_hg078")]
-unique_name_in_owner = true
-animationPlayer = NodePath("")
-customBlendValue = 0.2
-
-[node name="GroundMarker" parent="." unique_id=1189790841 instance=ExtResource("7_arsdy")]
-unique_name_in_owner = true
-position = Vector2(-42, 64.99999)
-
-[node name="visuals" type="Sprite2D" parent="." unique_id=842318153]
-position = Vector2(0, 69)
+[node name="visuals" type="Sprite2D" unique_id=842318153]
 scale = Vector2(0.55, 0.45)
 offset = Vector2(0, -138)
 
-[node name="AnimationTrackGenerator" parent="visuals" unique_id=2132373557 node_paths=PackedStringArray("animationPlayer", "visuals") instance=ExtResource("27_mfkcq")]
+[node name="AnimationTrackGenerator" parent="." unique_id=2132373557 node_paths=PackedStringArray("animationPlayer", "visuals") instance=ExtResource("1_r84nk")]
 animationPlayer = NodePath("../AnimationPlayer")
 visuals = NodePath("..")
 animationName = &"attack"
 
-[node name="UpperHandLeft" type="Sprite2D" parent="visuals" unique_id=2122455004]
+[node name="UpperHandLeft" type="Sprite2D" parent="." unique_id=2122455004]
 show_behind_parent = true
 position = Vector2(-40, -272)
-texture = ExtResource("16_wgcd6")
+texture = ExtResource("2_ijol8")
 offset = Vector2(6, 100)
 
-[node name="LowerHandLeft" type="Sprite2D" parent="visuals/UpperHandLeft" unique_id=811841540]
+[node name="LowerHandLeft" type="Sprite2D" parent="UpperHandLeft" unique_id=811841540]
 position = Vector2(-4, 70)
 rotation = 0.08715206
-texture = ExtResource("17_uo1s4")
+texture = ExtResource("3_wytbo")
 offset = Vector2(10, 30)
 
-[node name="HandLeft" type="Sprite2D" parent="visuals/UpperHandLeft/LowerHandLeft" unique_id=1623844412]
+[node name="HandLeft" type="Sprite2D" parent="UpperHandLeft/LowerHandLeft" unique_id=1623844412]
 position = Vector2(4, 48)
 rotation = 0.122495234
-texture = ExtResource("18_jg1lf")
+texture = ExtResource("4_afr7u")
 offset = Vector2(6, -18)
 
-[node name="UpperLegLeft" type="Sprite2D" parent="visuals" unique_id=1284332219]
+[node name="UpperLegLeft" type="Sprite2D" parent="." unique_id=1284332219]
 position = Vector2(-1.8525236, -186.9285)
 rotation = -0.04763024
-texture = ExtResource("7_hg078")
+texture = ExtResource("5_ubd57")
 offset = Vector2(-12, 8)
 
-[node name="LowerLegLeft" type="Sprite2D" parent="visuals/UpperLegLeft" unique_id=1998898758]
+[node name="LowerLegLeft" type="Sprite2D" parent="UpperLegLeft" unique_id=1998898758]
 position = Vector2(-6, 78)
 rotation = 0.07980388
-texture = ExtResource("8_mfkcq")
+texture = ExtResource("6_el0wy")
 offset = Vector2(-6, -70)
 
-[node name="BackFeetLeft" type="Sprite2D" parent="visuals/UpperLegLeft/LowerLegLeft" unique_id=1262013464]
+[node name="BackFeetLeft" type="Sprite2D" parent="UpperLegLeft/LowerLegLeft" unique_id=1262013464]
 position = Vector2(2.6041367, 100.86333)
 rotation = -0.064682685
-texture = ExtResource("9_arsdy")
+texture = ExtResource("7_qanem")
 offset = Vector2(0, -154)
 
-[node name="FrontFeetLeft" type="Sprite2D" parent="visuals/UpperLegLeft/LowerLegLeft/BackFeetLeft" unique_id=1641089909]
+[node name="FrontFeetLeft" type="Sprite2D" parent="UpperLegLeft/LowerLegLeft/BackFeetLeft" unique_id=1641089909]
 position = Vector2(0, 16)
 rotation = 0.06701092
-texture = ExtResource("10_jrkx0")
+texture = ExtResource("8_haorx")
 offset = Vector2(0, -170)
 
-[node name="UpperLegRight" type="Sprite2D" parent="visuals" unique_id=286781156]
+[node name="UpperLegRight" type="Sprite2D" parent="." unique_id=286781156]
 position = Vector2(14.820211, -199.53043)
 rotation = 0.059195187
-texture = ExtResource("11_lswsf")
+texture = ExtResource("9_p8fre")
 offset = Vector2(-72, 26)
 
-[node name="LowerLegRight" type="Sprite2D" parent="visuals/UpperLegRight" unique_id=1026571249]
+[node name="LowerLegRight" type="Sprite2D" parent="UpperLegRight" unique_id=1026571249]
 position = Vector2(6, 86)
 rotation = -0.09617061
-texture = ExtResource("12_t4mxe")
+texture = ExtResource("10_liekj")
 offset = Vector2(-78, -60)
 
-[node name="BackFeetRight" type="Sprite2D" parent="visuals/UpperLegRight/LowerLegRight" unique_id=1884360092]
+[node name="BackFeetRight" type="Sprite2D" parent="UpperLegRight/LowerLegRight" unique_id=1884360092]
 position = Vector2(6.8677545, 95.317474)
 rotation = -0.133815
-texture = ExtResource("13_dlswt")
+texture = ExtResource("11_lxfsx")
 offset = Vector2(-84, -146)
 
-[node name="FrontFeetRight" type="Sprite2D" parent="visuals/UpperLegRight/LowerLegRight/BackFeetRight" unique_id=1233848129]
+[node name="FrontFeetRight" type="Sprite2D" parent="UpperLegRight/LowerLegRight/BackFeetRight" unique_id=1233848129]
 position = Vector2(-6, 20)
 rotation = 0.07782482
-texture = ExtResource("14_0o3uk")
+texture = ExtResource("12_j0fa1")
 offset = Vector2(-78, -166)
 
-[node name="Torso" type="Sprite2D" parent="visuals" unique_id=882143469]
+[node name="Torso" type="Sprite2D" parent="." unique_id=882143469]
 position = Vector2(-6, -182)
 rotation = -0.067248
-texture = ExtResource("15_yyysg")
+texture = ExtResource("13_lf0ee")
 offset = Vector2(-34, 10)
 
-[node name="Head" type="Sprite2D" parent="visuals/Torso" unique_id=265820711]
+[node name="Head" type="Sprite2D" parent="Torso" unique_id=265820711]
 unique_name_in_owner = true
 position = Vector2(-14, -98)
 rotation = -0.076096505
-texture = ExtResource("19_j5tu1")
+texture = ExtResource("14_i4s0u")
 offset = Vector2(-20, 108)
 
-[node name="Jaw" type="Sprite2D" parent="visuals/Torso/Head" unique_id=1113186174]
+[node name="Jaw" type="Sprite2D" parent="Torso/Head" unique_id=1113186174]
 show_behind_parent = true
 position = Vector2(-55.66969, -31.309706)
 rotation = -0.10275769
-texture = ExtResource("20_g3by5")
+texture = ExtResource("15_bugms")
 offset = Vector2(36, 144)
 
-[node name="EyeLeft" type="Sprite2D" parent="visuals/Torso/Head" unique_id=1627074394]
+[node name="EyeLeft" type="Sprite2D" parent="Torso/Head" unique_id=1627074394]
 position = Vector2(-86, -44)
-texture = ExtResource("21_1o1tc")
+texture = ExtResource("16_xr0uj")
 offset = Vector2(66, 152)
 
-[node name="EyeRight" type="Sprite2D" parent="visuals/Torso/Head" unique_id=1749165849]
+[node name="EyeRight" type="Sprite2D" parent="Torso/Head" unique_id=1749165849]
 position = Vector2(-16, -38)
-texture = ExtResource("22_rppks")
+texture = ExtResource("17_7w6an")
 offset = Vector2(-4, 146)
 
-[node name="UpperHandRight" type="Sprite2D" parent="visuals/Torso" unique_id=752297131]
+[node name="UpperHandRight" type="Sprite2D" parent="Torso" unique_id=752297131]
 position = Vector2(2, -96)
 rotation = 0.11997682
-texture = ExtResource("23_toiah")
+texture = ExtResource("18_qhjmq")
 offset = Vector2(-36, 106)
 
-[node name="LowerHandRight" type="Sprite2D" parent="visuals/Torso/UpperHandRight" unique_id=27951051]
+[node name="LowerHandRight" type="Sprite2D" parent="Torso/UpperHandRight" unique_id=27951051]
 unique_name_in_owner = true
 position = Vector2(12, 76)
 rotation = 0.12614553
-texture = ExtResource("24_t1ybm")
+texture = ExtResource("19_px5kd")
 offset = Vector2(-48, 30)
 
-[node name="HandRight" type="Sprite2D" parent="visuals/Torso/UpperHandRight/LowerHandRight" unique_id=42324766]
+[node name="HandRight" type="Sprite2D" parent="Torso/UpperHandRight/LowerHandRight" unique_id=42324766]
 position = Vector2(-2, 52)
 offset = Vector2(-6, 156)
 
-[node name="HandRight1" type="Sprite2D" parent="visuals/Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=1661793554]
+[node name="HandRight1" type="Sprite2D" parent="Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=1661793554]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-46, -22)
-texture = ExtResource("25_vpskx")
+texture = ExtResource("20_bjkhx")
 
-[node name="HandRight2" type="Sprite2D" parent="visuals/Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=1117258631]
+[node name="HandRight2" type="Sprite2D" parent="Torso/UpperHandRight/LowerHandRight/HandRight" unique_id=1117258631]
 position = Vector2(-46, -22)
-texture = ExtResource("26_2vkv5")
+texture = ExtResource("21_tt5e8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=2067162546]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2067162546]
 libraries/ = SubResource("AnimationLibrary_lswsf")
 autoplay = &"walk"
