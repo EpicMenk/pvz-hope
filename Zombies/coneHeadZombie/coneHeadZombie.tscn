@@ -27,14 +27,10 @@ script = ExtResource("5_cgmt6")
 rangeInTiles = 1
 metadata/_custom_type_script = "uid://c04h0hinpck7y"
 
-[node name="coneHeadZombie" unique_id=2108398841 instance=ExtResource("1_rtdrv")]
+[node name="coneHeadZombie" unique_id=2108398841 node_paths=PackedStringArray("head", "lowerHandRight") instance=ExtResource("1_rtdrv")]
 script = ExtResource("2_in7q6")
 stats = SubResource("Resource_fdmtf")
 _attackConfigs = SubResource("Resource_6ec8d")
 _rangeConfigs = SubResource("Resource_b1mwp")
-
-[node name="HandRight1" parent="CanvasGroup/visuals/Torso/UpperHandRight/LowerHandRight/HandRight" parent_id_path=PackedInt32Array(1221917341) index="0" unique_id=2066289880]
-modulate = Color(1, 1, 1, 1)
-
-[node name="HandRight2" parent="CanvasGroup/visuals/Torso/UpperHandRight/LowerHandRight/HandRight" parent_id_path=PackedInt32Array(1221917341) index="1" unique_id=969222920]
-modulate = Color(1, 1, 1, 0)
+head = NodePath("visuals/Torso/Head")
+lowerHandRight = NodePath("visuals/Torso/UpperHandRight/LowerHandRight")

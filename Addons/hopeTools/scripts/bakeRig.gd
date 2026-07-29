@@ -1,16 +1,27 @@
+@tool
 extends Node2D
 
 @export var output_dir : String = "res://BakedFrames/"
-@export var target_fps : float = 24.0
+@export var target_fps : float = 30
 @export var animations_to_bake : Array[String] = []
 @export var capture_size : Vector2i = Vector2i(128, 128)
 
 @onready var viewport : SubViewport = %SubViewport
 @onready var rig_container : Node2D = %Node2D
 
+@export_tool_button("Scan Folder") var scanFolder := scanFiles
+
 var _anim_player : AnimationPlayer
 
+func scanFiles():
+	if Engine.is_editor_hint():
+		var fileSystem := EditorInterface.get_resource_filesystem()
+		if not fileSystem.is_scanning():
+			fileSystem.scan()
+
 func _ready():
+	if Engine.is_editor_hint():
+		return
 	viewport.size = capture_size
 	viewport.transparent_bg = true
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -41,10 +52,13 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 	return null
 
 func _bake_animation(anim_name: String):
+	_anim_player.current_animation = anim_name
+	_anim_player.seek(0.0, true)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
 	var animation := _anim_player.get_animation(anim_name)
 	var frame_interval := 1.0 / target_fps
 	var frame_count := int(animation.length / frame_interval) + 1
-
 	# Roughly-square grid instead of one long strip — safer for mobile
 	# max-texture-size limits on animations with lots of frames.
 	var columns := int(ceil(sqrt(frame_count)))
@@ -60,7 +74,6 @@ func _bake_animation(anim_name: String):
 	for frame_i in range(frame_count):
 		var t := frame_i * frame_interval
 		_anim_player.seek(t, true)
-
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 

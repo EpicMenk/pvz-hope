@@ -13,6 +13,7 @@ config_version=5
 config/name="Project HOPE"
 run/main_scene="uid://chppiawucylpk"
 config/features=PackedStringArray("4.7", "Mobile")
+run/max_fps=60
 
 [autoload]
 
@@ -22,8 +23,7 @@ SignalBus="*uid://dcqqa3ldp8llk"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/project_time_tracker/plugin.cfg")
 
 [physics]
 
+common/physics_ticks_per_second=30
 3d/physics_engine="Jolt Physics"
 
 [rendering]

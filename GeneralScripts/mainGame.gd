@@ -4,9 +4,6 @@ class_name mainGame
 @onready var assigningIDs : int = 0
 @onready var button_2: Button =%debug2
 
-
-
-
 func _ready() -> void:
 	button_2.zombieCreated.connect(assignIDs)
 

@@ -4343,29 +4343,6 @@ tracks/109/keys = {
 "update": 0,
 "values": [false]
 }
-tracks/110/type = "method"
-tracks/110/imported = false
-tracks/110/enabled = true
-tracks/110/path = NodePath("%zombieMovementComponent")
-tracks/110/interp = 1
-tracks/110/loop_wrap = true
-tracks/110/keys = {
-"times": PackedFloat32Array(0.1, 1.5, 2.1, 3.5000002),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"start"
-}, {
-"args": [],
-"method": &"stop"
-}, {
-"args": [],
-"method": &"start"
-}, {
-"args": [],
-"method": &"stop"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lswsf"]
 _data = {
@@ -4376,6 +4353,7 @@ _data = {
 }
 
 [node name="visuals" type="Sprite2D" unique_id=842318153]
+position = Vector2(0, 69)
 scale = Vector2(0.55, 0.45)
 offset = Vector2(0, -138)
 
