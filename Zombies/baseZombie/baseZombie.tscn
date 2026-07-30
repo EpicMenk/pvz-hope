@@ -4382,7 +4382,7 @@ _data = {
 &"walk": SubResource("Animation_t4mxe")
 }
 
-[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "groundMarker", "head", "lowerHandRight")]
+[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "groundMarker")]
 y_sort_enabled = true
 script = ExtResource("1_g00xo")
 hpC = NodePath("hpComponent")
@@ -4391,8 +4391,6 @@ zombieMeleeC = NodePath("zombieMeleeAttackComponent")
 zombieMovementC = NodePath("zombieMovementComponent")
 zombieAnimationC = NodePath("zombieAnimationComponent")
 groundMarker = NodePath("GroundMarker")
-head = NodePath("")
-lowerHandRight = NodePath("")
 team = 1
 
 [node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("3_x688a")]
@@ -4416,10 +4414,11 @@ attackCooldown = 1.0
 [node name="zombieMovementComponent" parent="." unique_id=953325601 instance=ExtResource("5_4eq78")]
 unique_name_in_owner = true
 speed = 30.0
+acceleration = 50.0
 
 [node name="zombieAnimationComponent" parent="." unique_id=155459487 node_paths=PackedStringArray("animationPlayer") instance=ExtResource("26_hg078")]
 unique_name_in_owner = true
-animationPlayer = NodePath("")
+animationPlayer = NodePath("../visuals/AnimationPlayer")
 customBlendValue = 0.2
 
 [node name="GroundMarker" parent="." unique_id=1189790841 instance=ExtResource("7_arsdy")]
