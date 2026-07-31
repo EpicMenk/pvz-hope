@@ -32,7 +32,7 @@ var _currentSpeed : float = 0.0
 var _isStopping : bool = false
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not isActivated():
 		return
 	if not isMoving:
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	if _isStopping and _currentSpeed <= 0.0:
 		isMoving = false
 		_isStopping = false
-		set_physics_process(false)
+		set_process(false)
 
 
 func _updateSpeed(delta: float) -> void:
@@ -74,7 +74,7 @@ func stop():
 	if acceleration <= 0.0 or not isMoving:
 		isMoving = false
 		_isStopping = false
-		set_physics_process(false)
+		set_process(false)
 		return
 	_isStopping = true   # keep _physics_process running to decelerate
 
@@ -84,7 +84,7 @@ func start():
 	isMoving = true
 	if acceleration <= 0.0:
 		_currentSpeed = speed
-	set_physics_process(true)
+	set_process(true)
 
 
 func reverseDirection() -> void:

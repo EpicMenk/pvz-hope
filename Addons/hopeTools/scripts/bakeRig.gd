@@ -52,8 +52,12 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 	return null
 
 func _bake_animation(anim_name: String):
-	_anim_player.current_animation = anim_name
+	#_anim_player.current_animation = anim_name
+	#_anim_player.seek(0.0, true)
+	_anim_player.play(anim_name)
+	_anim_player.pause()
 	_anim_player.seek(0.0, true)
+	_anim_player.advance(0.0)
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	var animation := _anim_player.get_animation(anim_name)
@@ -74,6 +78,7 @@ func _bake_animation(anim_name: String):
 	for frame_i in range(frame_count):
 		var t := frame_i * frame_interval
 		_anim_player.seek(t, true)
+		_anim_player.advance(0.0)
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 

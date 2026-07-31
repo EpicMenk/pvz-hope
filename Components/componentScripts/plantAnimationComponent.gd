@@ -6,12 +6,12 @@ class_name plantAnimationComponent
 func _ready():
 	animPlayer.animation_finished.connect(_onAnimationFinished)
 
-func playShoot():
-	animPlayer.play("shoot")
+func playAttack():
+	animPlayer.play("attack")
 
 func playIdle():
 	animPlayer.play("idle")
 
 func _onAnimationFinished(anim: StringName):
-	if anim == "shoot":
+	if anim == "attack":
 		playIdle()

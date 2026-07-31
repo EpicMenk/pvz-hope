@@ -10,8 +10,6 @@ script = ExtResource("1_ylh16")
 hpC = NodePath("hpComponent")
 dragC = NodePath("dragComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605545839]
-
 [node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("2_q2sqp")]
 unique_name_in_owner = true
 hpC = NodePath("../hpComponent")

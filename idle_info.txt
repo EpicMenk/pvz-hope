@@ -1,0 +1,4 @@
+frame_count: 121
+columns: 11
+rows: 11
+frame_size: 200x250
