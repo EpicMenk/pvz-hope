@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://bu5x5yjvapyb4"]
 
 [ext_resource type="PackedScene" uid="uid://e16csbxxao7p" path="res://Plants/basePlant/basePlant.tscn" id="1_mhgda"]
-[ext_resource type="Texture2D" uid="uid://eprr33t76uqm" path="res://Plants/Peashooter/Assets/Stem.png" id="2_cl0hm"]
+[ext_resource type="Texture2D" uid="uid://eprr33t76uqm" path="res://Archived/oldPeashooterAssets/Stem.png" id="2_cl0hm"]
 [ext_resource type="Script" uid="uid://dg3dnn577ah5y" path="res://Plants/Peashooter/peashooter.gd" id="2_kfm6o"]
 [ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_01iyj"]
 [ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
-[ext_resource type="Texture2D" uid="uid://bke34mavvdh6y" path="res://Plants/Peashooter/Assets/Collar.png" id="3_r2obu"]
+[ext_resource type="Texture2D" uid="uid://bke34mavvdh6y" path="res://Archived/oldPeashooterAssets/Collar.png" id="3_r2obu"]
 [ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
 [ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="4_7veov"]
-[ext_resource type="Texture2D" uid="uid://c4gneyw72s6kp" path="res://Plants/Peashooter/Assets/Head.png" id="4_kfm6o"]
+[ext_resource type="Texture2D" uid="uid://c4gneyw72s6kp" path="res://Archived/oldPeashooterAssets/Head.png" id="4_kfm6o"]
 [ext_resource type="Script" uid="uid://donhesawxw8ce" path="res://StatsConfigs/projectileConfigs.gd" id="5_6bdoo"]
-[ext_resource type="Texture2D" uid="uid://cljarqqm3xyi7" path="res://Plants/Peashooter/Assets/LeafHead.png" id="5_i0lx4"]
-[ext_resource type="Texture2D" uid="uid://ly14aguj57kn" path="res://Plants/Peashooter/Assets/Cheek.png" id="6_31xav"]
-[ext_resource type="Texture2D" uid="uid://cfbnxn6ndvrb3" path="res://Plants/Peashooter/Assets/EyeRight.png" id="7_01iyj"]
-[ext_resource type="Texture2D" uid="uid://bdrhfqhso23ge" path="res://Plants/Peashooter/Assets/EyeCloseRight.png" id="8_7veov"]
-[ext_resource type="Texture2D" uid="uid://cicyurn1ileka" path="res://Plants/Peashooter/Assets/Snout.png" id="9_6bdoo"]
-[ext_resource type="Texture2D" uid="uid://7n60f17wm34w" path="res://Plants/Peashooter/Assets/SnoutOpen.png" id="10_pbx2j"]
-[ext_resource type="Texture2D" uid="uid://bjjxqxgsgh847" path="res://Plants/Peashooter/Assets/SnoutClose.png" id="11_s3v0w"]
-[ext_resource type="Texture2D" uid="uid://l5jsod4a3e2v" path="res://Plants/Peashooter/Assets/EyeLeft.png" id="12_nvpy0"]
-[ext_resource type="Texture2D" uid="uid://olgpe0rd4mv4" path="res://Plants/Peashooter/Assets/EyeCloseLeft.png" id="13_b8xym"]
-[ext_resource type="Texture2D" uid="uid://bveylvck36ofk" path="res://Plants/Peashooter/Assets/LeafLeft.png" id="14_kl1pt"]
-[ext_resource type="Texture2D" uid="uid://b7buows8w4nwe" path="res://Plants/Peashooter/Assets/LeftRight.png" id="15_i06hc"]
+[ext_resource type="Texture2D" uid="uid://cljarqqm3xyi7" path="res://Archived/oldPeashooterAssets/LeafHead.png" id="5_i0lx4"]
+[ext_resource type="Texture2D" uid="uid://ly14aguj57kn" path="res://Archived/oldPeashooterAssets/Cheek.png" id="6_31xav"]
+[ext_resource type="Texture2D" uid="uid://cfbnxn6ndvrb3" path="res://Archived/oldPeashooterAssets/EyeRight.png" id="7_01iyj"]
+[ext_resource type="Texture2D" uid="uid://bdrhfqhso23ge" path="res://Archived/oldPeashooterAssets/EyeCloseRight.png" id="8_7veov"]
+[ext_resource type="Texture2D" uid="uid://cicyurn1ileka" path="res://Archived/oldPeashooterAssets/Snout.png" id="9_6bdoo"]
+[ext_resource type="Texture2D" uid="uid://7n60f17wm34w" path="res://Archived/oldPeashooterAssets/SnoutOpen.png" id="10_pbx2j"]
+[ext_resource type="Texture2D" uid="uid://bjjxqxgsgh847" path="res://Archived/oldPeashooterAssets/SnoutClose.png" id="11_s3v0w"]
+[ext_resource type="Texture2D" uid="uid://l5jsod4a3e2v" path="res://Archived/oldPeashooterAssets/EyeLeft.png" id="12_nvpy0"]
+[ext_resource type="Texture2D" uid="uid://olgpe0rd4mv4" path="res://Archived/oldPeashooterAssets/EyeCloseLeft.png" id="13_b8xym"]
+[ext_resource type="Texture2D" uid="uid://bveylvck36ofk" path="res://Archived/oldPeashooterAssets/LeafLeft.png" id="14_kl1pt"]
+[ext_resource type="Texture2D" uid="uid://b7buows8w4nwe" path="res://Archived/oldPeashooterAssets/LeftRight.png" id="15_i06hc"]
 [ext_resource type="PackedScene" uid="uid://rq3me6wd5e8l" path="res://Components/plantAnimationComponent.tscn" id="18_kfm6o"]
 
 [sub_resource type="Resource" id="Resource_xijgq"]
@@ -608,91 +608,90 @@ _attackConfigs = SubResource("Resource_xijgq")
 _projectileConfigs = SubResource("Resource_t3fsq")
 straightShooterC = NodePath("straightShooterComponent")
 
-[node name="visuals" type="Sprite2D" parent="." index="0" unique_id=1605545839]
+[node name="visuals" type="Sprite2D" parent="." index="0" unique_id=1641945446]
 position = Vector2(-2, 57)
 scale = Vector2(0.5961137, 0.64081305)
 offset = Vector2(-8.987337, -100.79196)
 
-[node name="Stem" type="Sprite2D" parent="visuals" index="0" unique_id=2041512805]
+[node name="Stem" type="Sprite2D" parent="visuals" index="0" unique_id=499483097]
 position = Vector2(-3.5949357, 9.303877)
 scale = Vector2(0.72835004, 0.72835004)
 texture = ExtResource("2_cl0hm")
 offset = Vector2(-7.996151, -152.3292)
 
-[node name="Collar" type="Sprite2D" parent="visuals/Stem" index="0" unique_id=371723157]
+[node name="Collar" type="Sprite2D" parent="visuals/Stem" index="0" unique_id=647371942]
 position = Vector2(-27.146482, -121.35214)
 scale = Vector2(1, 1.0000004)
 texture = ExtResource("3_r2obu")
 offset = Vector2(9.8714485, -40.4507)
 
-[node name="Head" type="Sprite2D" parent="visuals/Stem" index="1" unique_id=123659100]
+[node name="Head" type="Sprite2D" parent="visuals/Stem" index="1" unique_id=470581091]
 position = Vector2(-27.146486, -121.35212)
 scale = Vector2(1, 1.0000001)
 texture = ExtResource("4_kfm6o")
 offset = Vector2(4.935726, -40.4507)
 
-[node name="LeafHead" type="Sprite2D" parent="visuals/Stem/Head" index="0" unique_id=693895095]
+[node name="LeafHead" type="Sprite2D" parent="visuals/Stem/Head" index="0" unique_id=1962848278]
 show_behind_parent = true
 position = Vector2(-27.146484, -89.417336)
 scale = Vector2(1, 1.0000002)
 texture = ExtResource("5_i0lx4")
 offset = Vector2(27.14649, 53.224594)
 
-[node name="Cheek" type="Sprite2D" parent="visuals/Stem/Head" index="1" unique_id=854546306]
+[node name="Cheek" type="Sprite2D" parent="visuals/Stem/Head" index="1" unique_id=1304267600]
 visible = false
 position = Vector2(12.339312, 2.1289825)
 scale = Vector2(1, 1.0000001)
 texture = ExtResource("6_31xav")
 offset = Vector2(-17.275034, -40.450703)
 
-[node name="EyeRight" type="AnimatedSprite2D" parent="visuals/Stem/Head" index="2" unique_id=1512262665]
+[node name="EyeRight" type="AnimatedSprite2D" parent="visuals/Stem/Head" index="2" unique_id=941529210]
 position = Vector2(82.75251, -79.965096)
 scale = Vector2(0.99999994, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_qtpw4")
 animation = &"blink"
 offset = Vector2(-77.816795, 39.51438)
 
-[node name="Snout" type="Sprite2D" parent="visuals/Stem/Head" index="3" unique_id=600314530]
+[node name="Snout" type="Sprite2D" parent="visuals/Stem/Head" index="3" unique_id=1742606242]
 position = Vector2(76.50373, -36.192738)
 scale = Vector2(1, 1.0000001)
 texture = ExtResource("9_6bdoo")
 offset = Vector2(-69.10014, -4.257967)
 
-[node name="Mouth" type="AnimatedSprite2D" parent="visuals/Stem/Head/Snout" index="0" unique_id=521003876]
+[node name="Mouth" type="AnimatedSprite2D" parent="visuals/Stem/Head/Snout" index="0" unique_id=1990410028]
 position = Vector2(24.67862, 10.644922)
 scale = Vector2(1, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_yd2km")
 animation = &"close"
 offset = Vector2(-93.77876, -14.902887)
 
-[node name="EyeLeft" type="AnimatedSprite2D" parent="visuals/Stem/Head" index="4" unique_id=966181257]
+[node name="EyeLeft" type="AnimatedSprite2D" parent="visuals/Stem/Head" index="4" unique_id=49766195]
 position = Vector2(24.678623, -36.192734)
 scale = Vector2(1, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_caukj")
 animation = &"blink"
 offset = Vector2(-19.742897, -4.257969)
 
-[node name="LeafLeft" type="Sprite2D" parent="visuals" index="1" unique_id=255012691]
+[node name="LeafLeft" type="Sprite2D" parent="visuals" index="1" unique_id=145775410]
 position = Vector2(-3.5949345, 9.30387)
 scale = Vector2(0.72835004, 0.72835004)
 texture = ExtResource("14_kl1pt")
 offset = Vector2(-4.647833, -154.4155)
 
-[node name="LeftRight" type="Sprite2D" parent="visuals" index="2" unique_id=1772157141]
+[node name="LeftRight" type="Sprite2D" parent="visuals" index="2" unique_id=1211132612]
 position = Vector2(-3.5949342, 9.303862)
 scale = Vector2(0.72835004, 0.72835004)
 texture = ExtResource("15_i06hc")
 offset = Vector2(-2.376813, -162.48824)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" index="3" unique_id=1754925540]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" index="3" unique_id=75901852]
 libraries/ = SubResource("AnimationLibrary_oaqsn")
 autoplay = &"idle"
 
-[node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206 node_paths=PackedStringArray("animPlayer")]
+[node name="straightShooterComponent" type="Node2D" parent="." index="3" unique_id=182938206]
 unique_name_in_owner = true
 position = Vector2(0, -1)
 script = ExtResource("3_1sky7")
-animPlayer = NodePath("../visuals/AnimationPlayer")
 timeBetweenShots = 1.0
 burstDelay = 0.5
 projectileScene = ExtResource("4_4rmwx")

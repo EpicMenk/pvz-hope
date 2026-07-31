@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx8wyc4lp63dx"
-path="res://.godot/imported/SnoutClose.png-7a0b7ef5a6782a8d54ca3eda500e32ca.ctex"
+uid="uid://bveylvck36ofk"
+path="res://.godot/imported/LeafLeft.png-5b29b205f72facb351b4cfd6729d2e4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Plants/Peashooter/Assets/SnoutClose.png"
-dest_files=["res://.godot/imported/SnoutClose.png-7a0b7ef5a6782a8d54ca3eda500e32ca.ctex"]
+source_file="res://Archived/oldPeashooterAssets/LeafLeft.png"
+dest_files=["res://.godot/imported/LeafLeft.png-5b29b205f72facb351b4cfd6729d2e4a.ctex"]
 
 [params]
 

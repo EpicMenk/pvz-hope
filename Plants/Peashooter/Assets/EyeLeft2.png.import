@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfbnxn6ndvrb3"
-path="res://.godot/imported/EyeRight.png-0eb758db9b8670151d71e72a3cc3f368.ctex"
+uid="uid://dw48lolvtjw1x"
+path="res://.godot/imported/EyeLeft2.png-89efc5dd92e9b3b852911ec677c1f8c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Plants/Peashooter/Assets/EyeRight.png"
-dest_files=["res://.godot/imported/EyeRight.png-0eb758db9b8670151d71e72a3cc3f368.ctex"]
+source_file="res://Plants/Peashooter/Assets/EyeLeft2.png"
+dest_files=["res://.godot/imported/EyeLeft2.png-89efc5dd92e9b3b852911ec677c1f8c1.ctex"]
 
 [params]
 
