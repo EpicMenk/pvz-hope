@@ -2316,8 +2316,7 @@ _data = {
 
 [node name="BakeRig" type="Node2D" unique_id=1151502894]
 script = ExtResource("1_oaj8d")
-output_dir = "res://"
-target_fps = 60.0
+output_dir = "res://BakedFrames"
 capture_size = Vector2i(200, 250)
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1614657845]

@@ -47,7 +47,9 @@ func tryShoot():
 	if parent is Plant:
 		if not parent._zombieManager.isZombieAhead(parent.lane , parent.global_position.x):
 			return
+	readyToShoot = false
 	animPlayer.play("attack")
+
 
 func shoot() -> void:
 	for i in burstCount:
@@ -57,6 +59,7 @@ func shoot() -> void:
 			readyToShoot = false
 			await get_tree().create_timer(burstDelay).timeout
 			readyToShoot = true
+	
 	readyToShoot = false
 	timeBetweenShotsTimer.start()
 

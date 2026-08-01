@@ -1,4 +1,4 @@
 frame_count: 31
 columns: 6
 rows: 6
-frame_size: 200x250
+frame_size: 139x142

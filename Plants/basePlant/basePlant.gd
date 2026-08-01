@@ -3,6 +3,7 @@ class_name Plant
 
 signal plantPlaced()
 
+@export var animationC : plantAnimationComponent
 @export var hpC : hpComponent
 @export var dragC : dragComponent
 @onready var hurtboxC : hurtboxComponent = %hurtboxComponent
