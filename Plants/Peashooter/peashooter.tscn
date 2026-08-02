@@ -5,23 +5,16 @@
 [ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_01iyj"]
 [ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
 [ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
-[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="4_7veov"]
-[ext_resource type="Script" uid="uid://donhesawxw8ce" path="res://StatsConfigs/projectileConfigs.gd" id="5_6bdoo"]
+[ext_resource type="Script" uid="uid://dktt3mvsegtuk" path="res://ProjectileScripts/projectileStats.gd" id="8_ioip6"]
 [ext_resource type="Texture2D" uid="uid://cl6blrloofcye" path="res://BakedFrames/attack.png" id="9_eolwv"]
 [ext_resource type="Texture2D" uid="uid://bgwho230df5g5" path="res://BakedFrames/idle.png" id="10_ioip6"]
 [ext_resource type="PackedScene" uid="uid://rq3me6wd5e8l" path="res://Components/plantAnimationComponent.tscn" id="18_kfm6o"]
 
-[sub_resource type="Resource" id="Resource_xijgq"]
-script = ExtResource("4_7veov")
+[sub_resource type="Resource" id="Resource_b0c54"]
+script = ExtResource("8_ioip6")
 damage = 100
-timeBetweenAttack = 1.0
-metadata/_custom_type_script = "uid://dglnge4u7ue6c"
-
-[sub_resource type="Resource" id="Resource_t3fsq"]
-script = ExtResource("5_6bdoo")
 projectileSpeed = 1000.0
-projectileScene = ExtResource("4_4rmwx")
-metadata/_custom_type_script = "uid://donhesawxw8ce"
+metadata/_custom_type_script = "uid://dktt3mvsegtuk"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eolwv"]
 atlas = ExtResource("9_eolwv")
@@ -739,8 +732,6 @@ _data = {
 [node name="Peashooter" unique_id=719743608 node_paths=PackedStringArray("straightShooterC", "animationC") instance=ExtResource("1_mhgda")]
 script = ExtResource("2_kfm6o")
 stats = ExtResource("3_01iyj")
-_attackConfigs = SubResource("Resource_xijgq")
-_projectileConfigs = SubResource("Resource_t3fsq")
 straightShooterC = NodePath("straightShooterComponent")
 animationC = NodePath("plantAnimationComponent")
 
@@ -752,7 +743,10 @@ maxHP = 100
 unique_name_in_owner = true
 position = Vector2(0, -1)
 script = ExtResource("3_1sky7")
+_projectileStats = SubResource("Resource_b0c54")
 animPlayer = NodePath("../AnimationPlayer")
+timeBetweenShots = 3.0
+projectileScene = ExtResource("4_4rmwx")
 
 [node name="spawnPoints" type="Node2D" parent="straightShooterComponent" index="0" unique_id=1843943047]
 unique_name_in_owner = true

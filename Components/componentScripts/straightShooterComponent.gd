@@ -1,8 +1,8 @@
 extends entityComponent2D
 class_name straightShooterComponent
 
-@export var _attackConfigs : attackConfigs = attackConfigs.new()
-@export var _projectileConfigs : projectileConfigs = projectileConfigs.new()
+#@export var _attackConfigs : attackConfigs = attackConfigs.new()
+#@export var _projectileConfigs : projectileConfigs = projectileConfigs.new()
 @export var _projectileStats : projectileStats = projectileStats.new()
 @export var animPlayer : AnimationPlayer 
 @export var timeBetweenShots : float 
@@ -23,11 +23,11 @@ func _ready() -> void:
 	timeBetweenShotsTimer.timeout.connect(updateShoot)
 
 func evaluateStats():
-	_projectileStats.damage = _attackConfigs.damage
-	_projectileStats.damageType = _attackConfigs.damageType
-	_projectileStats.projectileSpeed = _projectileConfigs.projectileSpeed
-	timeBetweenShots = _attackConfigs.timeBetweenAttack
-	projectileScene = _projectileConfigs.projectileScene
+	#_projectileStats.damage = _attackConfigs.damage
+	#_projectileStats.damageType = _attackConfigs.damageType
+	#_projectileStats.projectileSpeed = _projectileConfigs.projectileSpeed
+	#timeBetweenShots = _attackConfigs.timeBetweenAttack
+	#projectileScene = _projectileConfigs.projectileScene
 	timeBetweenShotsTimer.wait_time = timeBetweenShots
 	timeBetweenShotsTimer.start()
 

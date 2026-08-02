@@ -3,11 +3,10 @@ class_name sunflower
 
 @export var sunSpawnC : sunSpawnComponent
 @export var stats : plantStats
-@export var _sunConfigs : sunConfigs
+#@export var _sunConfigs : sunConfigs
 
 func evaluateStats():
-	sunSpawnC._sunConfigs = _sunConfigs
-	sunSpawnC._sunManager = _boardManager._sunManager
-	sunSpawnC.floorMarker = ground
+	#sunSpawnC._sunConfigs = _sunConfigs
+	#sunSpawnC._sunManager = _boardManager._sunManager
 	sunSpawnC.evaluateStats()
 	hpC.updateMaxHP(stats.maxHP)

@@ -6,7 +6,6 @@ class_name Zombie
 @export var zombieMeleeC: zombieMeleeAttackComponent 
 @export var zombieMovementC: zombieMovementComponent 
 @export var zombieAnimationC: zombieAnimationComponent 
-@export var groundMarker: Marker2D 
 @export var head: Sprite2D 
 @export var lowerHandRight: Sprite2D 
 
@@ -27,7 +26,7 @@ func evaluateEvent(event : StringName):
 
 func dropLimb(limb : Sprite2D):
 	if not limb : 	return
-	var _floor : float = groundMarker.global_position.y
+	var _floor : float = ground.global_position.y
 	limb.visible = false
 	var physicObject : physicsSprite2D = load("uid://cduer3twlusei").instantiate()
 	get_parent().add_child(physicObject)

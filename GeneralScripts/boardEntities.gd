@@ -4,22 +4,18 @@ class_name boardEntity
 var _plantManager : plantManager
 var _zombieManager : zombieManager
 var _boardManager : boardManager
+@export var ground: Marker2D 
 
 func initializeManagers(bm: boardManager):
 	_boardManager = bm
 	_plantManager = bm.getPlantManager()
 	_zombieManager = bm.getZombieManager()
 
+#registers components here if we were to inject new components at runtime
+var components : Array[Variant] = [] 
 
-# pair components with their configs resource that can be changed during runtime
-var runtimeComponents : Array[Dictionary] = [] 
-
-func registerRuntimeComponent(component : Node , configs : Dictionary):
-	runtimeComponents.append({"component": component, "configs": configs})
-
-func evaluateComponentStats():
-	for component in runtimeComponents:
-		component.component.evaluateStats()
+func registerRuntimeComponent(component : Node):
+	components.append(component)
 
 func activateComponent():
 	for child in get_children():

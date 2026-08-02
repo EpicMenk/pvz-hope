@@ -4382,7 +4382,7 @@ _data = {
 &"walk": SubResource("Animation_t4mxe")
 }
 
-[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "groundMarker")]
+[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "ground")]
 y_sort_enabled = true
 script = ExtResource("1_g00xo")
 hpC = NodePath("hpComponent")
@@ -4390,7 +4390,7 @@ hurtboxC = NodePath("hurtboxComponent")
 zombieMeleeC = NodePath("zombieMeleeAttackComponent")
 zombieMovementC = NodePath("zombieMovementComponent")
 zombieAnimationC = NodePath("zombieAnimationComponent")
-groundMarker = NodePath("GroundMarker")
+ground = NodePath("GroundMarker")
 team = 1
 
 [node name="hurtboxComponent" parent="." unique_id=1135247198 node_paths=PackedStringArray("hpC") instance=ExtResource("3_x688a")]

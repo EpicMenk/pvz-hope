@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_tlp3n"]
 [ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="2_slscc"]
 [ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_aqq7f"]
-[ext_resource type="Script" uid="uid://dglnge4u7ue6c" path="res://StatsConfigs/attackConfigs.gd" id="4_sj78i"]
-[ext_resource type="Script" uid="uid://c04h0hinpck7y" path="res://StatsConfigs/rangeConfigs.gd" id="5_jlv4t"]
 
 [sub_resource type="Resource" id="Resource_slscc"]
 script = ExtResource("3_aqq7f")
@@ -15,28 +13,18 @@ weight = 1.0
 point = 1.0
 metadata/_custom_type_script = "uid://e8w77s8p2s5y"
 
-[sub_resource type="Resource" id="Resource_jcs8v"]
-script = ExtResource("4_sj78i")
-damage = 100
-timeBetweenAttack = 0.5
-metadata/_custom_type_script = "uid://dglnge4u7ue6c"
-
-[sub_resource type="Resource" id="Resource_mu0ib"]
-script = ExtResource("5_jlv4t")
-rangeInTiles = 2
-metadata/_custom_type_script = "uid://c04h0hinpck7y"
-
 [node name="brownCoatZombie" unique_id=2108398841 instance=ExtResource("1_tlp3n")]
 script = ExtResource("2_slscc")
 stats = SubResource("Resource_slscc")
-_attackConfigs = SubResource("Resource_jcs8v")
-_rangeConfigs = SubResource("Resource_mu0ib")
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
 hpEvents = Dictionary[int, StringName]({
 199: &"dropRightArm"
 })
 maxHP = 1000
+
+[node name="zombieMeleeAttackComponent" parent="." index="2" unique_id=125088792]
+attackReachInTiles = 100
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]
 speed = 60.0

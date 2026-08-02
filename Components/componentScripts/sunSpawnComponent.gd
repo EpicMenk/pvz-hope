@@ -2,10 +2,11 @@ extends entityComponent2D
 class_name sunSpawnComponent
 
 @export var _sunStats : sunStats = sunStats.new()
-@export var _sunConfigs : sunConfigs = sunConfigs.new()
+#@export var _sunConfigs : sunConfigs = sunConfigs.new()
 @export var spawnTimer: Timer
-@export var spawnTimerWaitTime : float 
+@export var timeBetweenSun : float 
 @onready var spawnMarker : Marker2D = %SpawnMarker
+@onready var parent : boardEntity = get_parent()
 var floorMarker : Marker2D
 var _sunManager : sunManager
 
@@ -13,9 +14,11 @@ func _ready() -> void:
 	spawnTimer.timeout.connect(spawnSun)
 
 func evaluateStats():
-	spawnTimerWaitTime = _sunConfigs.timeBetweenSun
-	_sunStats = _sunConfigs._sunStats
-	spawnTimer.wait_time = spawnTimerWaitTime
+	#timeBetweenSun = _sunConfigs.timeBetweenSun
+	#_sunStats = _sunConfigs._sunStats
+	spawnTimer.wait_time = timeBetweenSun
+	_sunManager = parent._boardManager._sunManager
+	floorMarker = parent.ground
 
 func spawnSun():
 	if not isActivated():
