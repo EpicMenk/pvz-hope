@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfrslk2m8c5cu"
-path="res://.godot/imported/idle.png-345bd841398ecb5f0be76f8faade9523.ctex"
+uid="uid://cl6blrloofcye"
+path="res://.godot/imported/attack.png-830c1dcfcda12be2897051a4471d6acb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://idle.png"
-dest_files=["res://.godot/imported/idle.png-345bd841398ecb5f0be76f8faade9523.ctex"]
+source_file="res://Plants/Peashooter/Assets/Spritesheet/attack.png"
+dest_files=["res://.godot/imported/attack.png-830c1dcfcda12be2897051a4471d6acb.ctex"]
 
 [params]
 

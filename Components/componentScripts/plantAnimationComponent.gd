@@ -8,11 +8,9 @@ func _ready():
 
 func playAttack():
 	animPlayer.play("attack")
-	print("attack")
 
 func playIdle():
 	animPlayer.play("idle")
-	print("idle")
 
 func _onAnimationFinished(anim: StringName):
 	if anim == "attack":

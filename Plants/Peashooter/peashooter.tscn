@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
 [ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
 [ext_resource type="Script" uid="uid://dktt3mvsegtuk" path="res://ProjectileScripts/projectileStats.gd" id="8_ioip6"]
-[ext_resource type="Texture2D" uid="uid://cl6blrloofcye" path="res://BakedFrames/attack.png" id="9_eolwv"]
-[ext_resource type="Texture2D" uid="uid://bgwho230df5g5" path="res://BakedFrames/idle.png" id="10_ioip6"]
+[ext_resource type="Texture2D" uid="uid://cl6blrloofcye" path="res://Plants/Peashooter/Assets/Spritesheet/attack.png" id="9_eolwv"]
+[ext_resource type="Texture2D" uid="uid://bgwho230df5g5" path="res://Plants/Peashooter/Assets/Spritesheet/idle.png" id="10_ioip6"]
 [ext_resource type="PackedScene" uid="uid://rq3me6wd5e8l" path="res://Components/plantAnimationComponent.tscn" id="18_kfm6o"]
 
 [sub_resource type="Resource" id="Resource_b0c54"]
