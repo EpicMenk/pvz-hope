@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjspwlscq0ghi"]
+
+[ext_resource type="Script" uid="uid://bjlr5mr5dvkdt" path="res://Addons/hopeTools/scripts/zombieLimbRenamer.gd" id="1_drkqs"]
+
+[node name="ZombieLimbRenamer" type="Node2D" unique_id=1031963550]
+script = ExtResource("1_drkqs")
