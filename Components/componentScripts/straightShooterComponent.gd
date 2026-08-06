@@ -57,10 +57,9 @@ func shoot() -> void:
 	timeBetweenShotsTimer.start()
 
 func spawnProjectile(point : Marker2D):
-	var projectileInstance : projectile = projectileScene.instantiate()
+	var _boardManager : boardManager = parent._boardManager
+	var projectileInstance : projectile = SpawnHelper.spawnEntity(projectileScene , _boardManager , _boardManager._projectileManager , point.global_position)
 	projectileInstance.attacker = parent
-	projectileInstance.global_position = point.global_position
-	parent._boardManager._projectileManager.add_child(projectileInstance)
 	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():

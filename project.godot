@@ -18,6 +18,7 @@ run/max_fps=60
 [autoload]
 
 SignalBus="*uid://dcqqa3ldp8llk"
+SpawnHelper="*uid://x851bqah1u82"
 
 [display]
 

@@ -50,11 +50,9 @@ func animateSunCount(newValue: int):
 ## [param _position], falling toward [param floorY] with initial
 ## [param force] applied.
 func spawnSun(sunConfig: sunStats, _position: Vector2, floorY: float, force: Vector2):
-	var _sun : sun = sunScene.instantiate()
+	var _sun : sun = SpawnHelper.genericInstantiating(sunScene , _position ,_boardManager)
 	_sun.evaluateStats(sunConfig)
-	_sun.global_position = _position
 	_sun.floorY = floorY
-	_boardManager.add_child(_sun)
 	_sun.drop(force)
 	_sun.sunClicked.connect(onSunClicked)
 

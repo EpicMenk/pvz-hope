@@ -72,15 +72,20 @@ func spawnPlant()-> Plant:
 	var plantScene : PackedScene = seedData.plantScene
 	if not plantScene:
 		return
-	var plant : Plant = plantScene.instantiate()
-	plant.initializeManagers(_boardManager)
-	_boardManager._plantManager.add_child(plant)
+	
+	
+	var plant : Plant = SpawnHelper.spawnEntity(plantScene ,
+	_boardManager ,
+	_boardManager._plantManager , 
+	get_global_mouse_position())
+	
+	
 	plant.disableComponent()
-	plant.global_position = get_global_mouse_position()
 	if plant.dragC:
 		plant.dragC.isDragged = true
 	connectToPlant(plant)
 	return plant
+
 
 func connectToPlant(plant : Plant):
 	plant.plantPlaced.connect(startCooldown)

@@ -7,11 +7,13 @@ signal zombieCreated(zombie : Zombie)
 
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
-	var zombie : Zombie = preload("res://Zombies/brownCoatZombie/brownCoatZombie.tscn").instantiate()
-	zombie.initializeManagers(board_manager)
+	var zombieScene : PackedScene = preload("res://Zombies/brownCoatZombie/brownCoatZombie.tscn")
+	var zombie : Zombie = SpawnHelper.spawnEntity(zombieScene , 
+	board_manager , 
+	board_manager._zombieManager ,
+	_gridManager.get_Position(Vector2(9,spawnLane)))
+	
 	zombie.grid = Vector2(9 , spawnLane)
-	zombie.position = _gridManager.get_Position(Vector2(9,spawnLane))
-	board_manager._zombieManager.add_child(zombie)
 	board_manager._zombieManager.registerZombie(zombie)
 	zombieCreated.emit(zombie)
 
