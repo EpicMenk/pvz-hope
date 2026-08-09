@@ -7,7 +7,7 @@ class_name limbImporter
 @export_tool_button("Importing Limbs") var importButton := importLimbs
 @export_tool_button("Build Hiarchy") var buildButton := buildHiarchy
 @export_tool_button("scene tree") var tree := func(): _parent.print_tree_pretty()
-var isImported : bool = false
+var isImported : bool = true
 const PARENTS := {
 	"UpperHandLeft" : "Torso" ,
 	"LowerHandLeft" : "UpperHandLeft",
@@ -29,6 +29,7 @@ const PARENTS := {
 
 const SHOW_BEHIND_PARENT ={
 	"Jaw" : true,
+	"UpperHandLeft" : true ,
 	
 }
 

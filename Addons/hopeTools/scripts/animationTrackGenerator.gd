@@ -49,33 +49,33 @@ func collectSprites(node : Node):
 
 # Generates every transform/property track used by the animation system.
 func addTransformTracks(animation : Animation, sprite : Sprite2D):
-	addTrack(animation, sprite, "position", sprite.position)
-	addTrack(animation, sprite, "rotation", sprite.rotation)
-	addTrack(animation, sprite, "scale", sprite.scale)
-	#addTrack(animation, sprite, "visible", sprite.visible)
-	addTrack(animation, sprite, "modulate", sprite.modulate)
-	addTrack(animation, sprite, "show_behind_parent", sprite.show_behind_parent)
+	insertKey(animation, sprite, "position", sprite.position)
+	insertKey(animation, sprite, "rotation", sprite.rotation)
+	insertKey(animation, sprite, "scale", sprite.scale)
+	insertKey(animation, sprite, "visible", sprite.visible)
+	insertKey(animation, sprite, "modulate", sprite.modulate)
+	insertKey(animation, sprite, "show_behind_parent", sprite.show_behind_parent)
 
 
 # Creates a track if it doesn't already exist, then inserts
 # the initial keyframe.
-func addTrack(animation : Animation, node : Node, property : String, value : Variant):
+func insertKey(animation: Animation, node: Node, property: String, value: Variant):
 	var path := NodePath(
 		"%s:%s" % [
 			animationPlayer.get_parent().get_path_to(node),
 			property
 		]
 	)
-	
+
 	var track := findTrackIndex(animation, path)
-	if track != -1:
-		return
-	
-	track = animation.add_track(Animation.TYPE_VALUE)
-	animation.track_set_path(track, path)
-	
-	configureTrack(animation, track)
-	
+
+	# Track doesn't exist yet → create it.
+	if track == -1:
+		track = animation.add_track(Animation.TYPE_VALUE)
+		animation.track_set_path(track, path)
+		configureTrack(animation, track)
+
+	# Track already exists → just add another key.
 	animation.track_insert_key(track, insertKeyAt, value)
 
 
