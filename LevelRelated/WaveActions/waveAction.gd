@@ -1,5 +1,5 @@
 extends Resource
 class_name waveAction
 
-func executeAction():
+func executeAction(context : actionContext):
 	push_error("executeAction() needs to be overriden")

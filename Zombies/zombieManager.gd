@@ -5,6 +5,8 @@
 extends Node2D
 class_name zombieManager
 
+signal zombieCreated(zombie : Zombie)
+
 @onready var _gridManager : gridManager = preload("res://Resources/gridManager.tres")
 ## One [zombieLaneData] per lane, tracking which zombies currently occupy it.
 var zombieInLanes : Array[zombieLaneData]
@@ -14,6 +16,17 @@ var zombieInLanes : Array[zombieLaneData]
 
 func _ready() -> void:
 	initializeLanes()
+
+func spawnZombie(zombieScene : PackedScene , lane : int):
+	var spawnLane = lane
+	var zombie : Zombie = SpawnHelper.spawnEntity(zombieScene , 
+	get_parent() , 
+	self ,
+	_gridManager.get_Position(Vector2(9,spawnLane)))
+	
+	zombie.grid = Vector2(9 , spawnLane)
+	registerZombie(zombie)
+	zombieCreated.emit(zombie)
 
 
 ## Returns whether any zombie in [param lane] is ahead of [param xPosition]

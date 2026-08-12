@@ -1770,7 +1770,7 @@ tracks/125/keys = {
 "values": [false, false]
 }
 
-[sub_resource type="Animation" id="Animation_mbdy4"]
+[sub_resource type="Animation" id="Animation_hwnis"]
 resource_name = "walk"
 length = 4.0
 loop_mode = 1
@@ -2441,10 +2441,10 @@ tracks/55/path = NodePath("Torso/UpperHandLeft:rotation")
 tracks/55/interp = 2
 tracks/55/loop_wrap = true
 tracks/55/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3, 4.5),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 4.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0397669, 0.0, -0.38109043, -0.6731396, 0.0]
+"values": [0.0, 0.10821041362364824, 0.0, -0.10821041362364824, 0.0, 0.0]
 }
 tracks/56/type = "value"
 tracks/56/imported = false
@@ -2513,10 +2513,10 @@ tracks/61/path = NodePath("Torso/UpperHandLeft/LowerHandLeft:rotation")
 tracks/61/interp = 2
 tracks/61/loop_wrap = true
 tracks/61/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.2, 2, 3.2, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.21952651, 0.0, 0.0]
+"values": [0.0, 0.086166725, 0.0, -0.08552113334772175, 0.0, 0.0]
 }
 tracks/62/type = "value"
 tracks/62/imported = false
@@ -2585,10 +2585,10 @@ tracks/67/path = NodePath("Torso/UpperHandLeft/LowerHandLeft/HandLeft:rotation")
 tracks/67/interp = 2
 tracks/67/loop_wrap = true
 tracks/67/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.2860551, 0.0, 0.0]
+"values": [0.0, 0.0]
 }
 tracks/68/type = "value"
 tracks/68/imported = false
@@ -2945,10 +2945,10 @@ tracks/97/path = NodePath("Torso/UpperHandRight:rotation")
 tracks/97/interp = 2
 tracks/97/loop_wrap = true
 tracks/97/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.25, 3, 4.5),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 4.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.2684214, 0.0, 0.017453292519943295, 0.24434609527920614, 0.0]
+"values": [0.0, -0.10821041362364824, 0.0, 0.10821041362364824, 0.0, 0.0]
 }
 tracks/98/type = "value"
 tracks/98/imported = false
@@ -3017,10 +3017,10 @@ tracks/103/path = NodePath("Torso/UpperHandRight/LowerHandRight:rotation")
 tracks/103/interp = 2
 tracks/103/loop_wrap = true
 tracks/103/keys = {
-"times": PackedFloat32Array(-0.033333335, 1.1, 1.5, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(-0.033333335, 1.2, 2, 3.2, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.43685356, 0.0, 0.0]
+"values": [0.0, -0.15882496193148438, 0.0, 0.15838213, 0.0, 0.0]
 }
 tracks/104/type = "value"
 tracks/104/imported = false
@@ -3089,10 +3089,10 @@ tracks/109/path = NodePath("Torso/UpperHandRight/LowerHandRight/HandRight:rotati
 tracks/109/interp = 2
 tracks/109/loop_wrap = true
 tracks/109/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 3, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -0.1709689, 0.0, 0.20741859, 0.0]
+"values": [0.0, 0.0]
 }
 tracks/110/type = "value"
 tracks/110/imported = false
@@ -3291,7 +3291,7 @@ tracks/125/keys = {
 _data = {
 &"RESET": SubResource("Animation_pn0qe"),
 &"idle": SubResource("Animation_y4vw1"),
-&"walk": SubResource("Animation_mbdy4")
+&"walk": SubResource("Animation_hwnis")
 }
 
 [node name="BaseBasicZombieAnimation" type="Node2D" unique_id=1393816639]

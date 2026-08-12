@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c2so0hjvomfjh" path="res://Debug/debugController.gd" id="2_2k2ja"]
 [ext_resource type="Script" uid="uid://cjucm57xhoexx" path="res://LevelRelated/actionContext.gd" id="2_8cv8s"]
 [ext_resource type="Script" uid="uid://dqmxwnb4o4cae" path="res://Debug/spawntest.gd" id="2_dx5hc"]
+[ext_resource type="Script" uid="uid://bttai8o4ak651" path="res://LevelRelated/levelManager.gd" id="3_0nykj"]
 [ext_resource type="Script" uid="uid://gvwx4tcmvvpx" path="res://Zombies/zombieManager.gd" id="3_ahx5u"]
 [ext_resource type="Script" uid="uid://cop4u06rmk6l4" path="res://Debug/spawnzombtest.gd" id="3_ldq11"]
 [ext_resource type="Script" uid="uid://becu5tb6wvvay" path="res://Plants/plantManager.gd" id="3_w6yvb"]
@@ -61,6 +62,7 @@ script = ExtResource("1_yergv")
 script = ExtResource("2_8cv8s")
 
 [node name="LevelManager" type="Node" parent="." unique_id=28449932]
+script = ExtResource("3_0nykj")
 
 [node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
 

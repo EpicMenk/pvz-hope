@@ -3,6 +3,6 @@ class_name actionContainer
 
 @export var actions : Array[waveAction]
 
-func executeAction():
+func executeAction(context : actionContext):
 	for action in actions:
-		action.executeAction()
+		action.executeAction(context)
