@@ -5,3 +5,4 @@ class_name actionContext
 @onready var _zombieManager: zombieManager = %ZombieManager
 @onready var _plantManager: plantManager = %PlantManager
 @onready var _sunManager: sunManager = %SunManager
+@onready var _boardManager: boardManager = %BoardManager

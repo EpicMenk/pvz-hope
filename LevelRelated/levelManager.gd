@@ -3,28 +3,44 @@ class_name levelManager
 
 @onready var _actionContext: actionContext = %ActionContext
 @export var levelLoaded : levelResource
-var totalWaves : int
-var currentWave : int
+
+var totalWaves : int 
+var currentWaveIndex : int = -1
+var currentActionIndex : int = 0
 var isLevelRunning : bool = true
 
-#func _process(delta: float) -> void:
-	#if isLevelRunning == false:
-		#return
-	#for wave in levelLoaded.waves:
-		#for actions in wave.waveActions:
-			#actions.executeAction(_actionContext)
 
 func _ready() -> void:
+	totalWaves = levelLoaded.waves.size()
 	startLevel()
 
 func startLevel():
+	isLevelRunning = true
 	await get_tree().create_timer(levelLoaded.initialWaitTime).timeout
-	startFirstWave()
+	startNextWave()
 
-func startFirstWave():
-	currentWave = 0
-	getCurrentWave().getWaveActionAtIndex(0).executeAction(_actionContext)
-	
+func startNextWave():
+	currentWaveIndex += 1
+	if currentWaveIndex >= totalWaves:
+		isLevelRunning = false
+		print("Level complete!")
+		return
+	currentActionIndex = 0
+	startCurrentAction()
+
+func startCurrentAction():
+	getCurrentWave().getWaveActionAtIndex(currentActionIndex).executeAction(_actionContext)
 
 func getCurrentWave():
-	return levelLoaded.waves[currentWave]
+	return levelLoaded.waves[currentWaveIndex]
+
+func _process(_delta: float) -> void:
+	if not isLevelRunning:
+		return
+	var currentContainer : actionContainer = getCurrentWave().getWaveActionAtIndex(currentActionIndex)
+	if currentContainer.isFinished(_actionContext):
+		currentActionIndex += 1
+		if currentActionIndex >= getCurrentWave().getActionCount():
+			startNextWave()
+		else:
+			startCurrentAction()

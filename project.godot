@@ -20,6 +20,10 @@ run/max_fps=60
 SignalBus="*uid://dcqqa3ldp8llk"
 SpawnHelper="*uid://x851bqah1u82"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/size/viewport_width=1920
