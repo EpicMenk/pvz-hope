@@ -4,14 +4,12 @@ class_name levelManager
 @onready var _actionContext: actionContext = %ActionContext
 @export var levelLoaded : levelResource
 
-var totalWaves : int 
 var currentWaveIndex : int = -1
-var currentActionIndex : int = 0
 var isLevelRunning : bool = false
-
+var maxWaves : int
 
 func _ready() -> void:
-	totalWaves = levelLoaded.waves.size()
+	maxWaves = levelLoaded.waves.size()
 	startLevel()
 
 func startLevel():
@@ -20,28 +18,15 @@ func startLevel():
 
 func startNextWave():
 	currentWaveIndex += 1
-	if currentWaveIndex >= totalWaves:
+	if currentWaveIndex >= maxWaves:
 		isLevelRunning = false
 		print("Level complete!")
 		return
-	currentActionIndex = 0
 	isLevelRunning = true
-	startCurrentAction()
-
-func startCurrentAction():
-	getCurrentWave().getWaveActionAtIndex(currentActionIndex).executeAction(_actionContext)
-	print("executed")
-
-func getCurrentWave():
-	return levelLoaded.waves[currentWaveIndex]
+	levelLoaded.waves[currentWaveIndex].executeAction(_actionContext)
 
 func _process(_delta: float) -> void:
 	if not isLevelRunning:
 		return
-	var currentContainer : actionContainer = getCurrentWave().getWaveActionAtIndex(currentActionIndex)
-	if currentContainer.isFinished(_actionContext):
-		currentActionIndex += 1
-		if currentActionIndex >= getCurrentWave().getActionCount():
-			startNextWave()
-		else:
-			startCurrentAction()
+	if levelLoaded.waves[currentWaveIndex].isFinished(_actionContext):
+		startNextWave()

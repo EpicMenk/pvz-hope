@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://dgp2i7at3rs2k" path="res://LevelRelated/levelResource.gd" id="4_0pr4c"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
-[ext_resource type="Script" uid="uid://cjrpwcbf3i6j0" path="res://LevelRelated/waveResource.gd" id="5_uuop7"]
+[ext_resource type="Script" uid="uid://ce3rai4occgjh" path="res://LevelRelated/EndConditions/timerEnd.gd" id="6_6wkd0"]
 [ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
 [ext_resource type="Script" uid="uid://cgvft17sb7lg5" path="res://Debug/hpOverlay.gd" id="6_muhop"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://b21dvlcc5dhbp" path="res://LevelRelated/WaveActions/spawnZombieGroupAction.gd" id="7_6wkd0"]
 [ext_resource type="Script" uid="uid://d0rijjwuyjhp8" path="res://Seedpacket/seedPacketData.gd" id="7_i3m4h"]
 [ext_resource type="Script" uid="uid://cjqelhqq8r1c" path="res://LevelRelated/EndConditions/instantEnd.gd" id="7_mtfde"]
-[ext_resource type="Script" uid="uid://bnwbxsc8ax0sn" path="res://LevelRelated/WaveActions/actionContainer.gd" id="8_mtfde"]
+[ext_resource type="Script" uid="uid://bnwbxsc8ax0sn" path="res://LevelRelated/waveResource.gd" id="8_mtfde"]
 [ext_resource type="Resource" uid="uid://cobbmsfieapt3" path="res://Plants/Peashooter/peashooterSeedPacketData.tres" id="8_p034j"]
 [ext_resource type="PackedScene" uid="uid://cqnvqpt13n8ot" path="res://Zombies/coneHeadZombie/coneHeadZombie.tscn" id="8_uuop7"]
 [ext_resource type="Script" uid="uid://bj1r1pye73hgp" path="res://Debug/spawnproj.gd" id="9_r4fum"]
@@ -34,77 +34,73 @@
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
-[ext_resource type="PackedScene" uid="uid://bwdm0a6nquvm" path="res://testzombie.tscn" id="14_kugat"]
 [ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
 [sub_resource type="Resource" id="Resource_76gg5"]
-script = ExtResource("7_mtfde")
-metadata/_custom_type_script = "uid://cjqelhqq8r1c"
+script = ExtResource("6_6wkd0")
+duration = 2.0
+metadata/_custom_type_script = "uid://ce3rai4occgjh"
 
-[sub_resource type="Resource" id="Resource_kugat"]
+[sub_resource type="Resource" id="Resource_oea7c"]
+script = ExtResource("10_sqeg0")
+zombieScene = ExtResource("8_uuop7")
+lane = 4
+metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
+
+[sub_resource type="Resource" id="Resource_4f1s2"]
 script = ExtResource("10_sqeg0")
 zombieScene = ExtResource("9_sqeg0")
 lane = 1
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_oea7c"]
+[sub_resource type="Resource" id="Resource_1udc5"]
 script = ExtResource("10_sqeg0")
 zombieScene = ExtResource("8_uuop7")
-lane = 3
-metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
-
-[sub_resource type="Resource" id="Resource_4f1s2"]
-script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("8_uuop7")
-lane = 4
+lane = 2
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
 [sub_resource type="Resource" id="Resource_p1axg"]
+script = ExtResource("10_sqeg0")
+zombieScene = ExtResource("9_sqeg0")
+lane = 1
+metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
+
+[sub_resource type="Resource" id="Resource_kugat"]
 script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_kugat"), SubResource("Resource_oea7c"), SubResource("Resource_4f1s2")])
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_oea7c"), SubResource("Resource_4f1s2"), SubResource("Resource_1udc5"), SubResource("Resource_p1axg")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
 [sub_resource type="Resource" id="Resource_mtfde"]
 script = ExtResource("8_mtfde")
 _endCondition = SubResource("Resource_76gg5")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_p1axg")])
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_kugat")])
 metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
-[sub_resource type="Resource" id="Resource_qriix"]
+[sub_resource type="Resource" id="Resource_nh3tr"]
 script = ExtResource("7_mtfde")
 metadata/_custom_type_script = "uid://cjqelhqq8r1c"
 
-[sub_resource type="Resource" id="Resource_vgygr"]
-script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("14_kugat")
-metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
-
 [sub_resource type="Resource" id="Resource_fkncw"]
 script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("14_kugat")
+zombieScene = ExtResource("9_sqeg0")
 lane = 4
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_nh3tr"]
+[sub_resource type="Resource" id="Resource_rwrta"]
 script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_vgygr"), SubResource("Resource_fkncw")])
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_fkncw")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
-[sub_resource type="Resource" id="Resource_rwrta"]
+[sub_resource type="Resource" id="Resource_vgygr"]
 script = ExtResource("8_mtfde")
-_endCondition = SubResource("Resource_qriix")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_nh3tr")])
+_endCondition = SubResource("Resource_nh3tr")
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_rwrta")])
 metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
-[sub_resource type="Resource" id="Resource_6wkd0"]
-script = ExtResource("5_uuop7")
-waveActions = Array[ExtResource("8_mtfde")]([SubResource("Resource_mtfde"), SubResource("Resource_rwrta")])
-metadata/_custom_type_script = "uid://cjrpwcbf3i6j0"
-
-[sub_resource type="Resource" id="Resource_1udc5"]
+[sub_resource type="Resource" id="Resource_sqeg0"]
 script = ExtResource("4_0pr4c")
-initialWaitTime = 0.1
-waves = Array[ExtResource("5_uuop7")]([SubResource("Resource_6wkd0")])
+initialWaitTime = 3.0
+waves = Array[ExtResource("8_mtfde")]([SubResource("Resource_mtfde"), SubResource("Resource_vgygr")])
 metadata/_custom_type_script = "uid://dgp2i7at3rs2k"
 
 [sub_resource type="Resource" id="Resource_7nkqc"]
@@ -144,7 +140,7 @@ script = ExtResource("2_8cv8s")
 
 [node name="LevelManager" type="Node" parent="." unique_id=28449932]
 script = ExtResource("3_0nykj")
-levelLoaded = SubResource("Resource_1udc5")
+levelLoaded = SubResource("Resource_sqeg0")
 
 [node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
 
