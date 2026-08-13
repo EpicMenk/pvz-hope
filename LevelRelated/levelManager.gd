@@ -7,7 +7,7 @@ class_name levelManager
 var totalWaves : int 
 var currentWaveIndex : int = -1
 var currentActionIndex : int = 0
-var isLevelRunning : bool = true
+var isLevelRunning : bool = false
 
 
 func _ready() -> void:
@@ -15,7 +15,6 @@ func _ready() -> void:
 	startLevel()
 
 func startLevel():
-	isLevelRunning = true
 	await get_tree().create_timer(levelLoaded.initialWaitTime).timeout
 	startNextWave()
 
@@ -26,10 +25,12 @@ func startNextWave():
 		print("Level complete!")
 		return
 	currentActionIndex = 0
+	isLevelRunning = true
 	startCurrentAction()
 
 func startCurrentAction():
 	getCurrentWave().getWaveActionAtIndex(currentActionIndex).executeAction(_actionContext)
+	print("executed")
 
 func getCurrentWave():
 	return levelLoaded.waves[currentWaveIndex]

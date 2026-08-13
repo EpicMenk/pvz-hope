@@ -12,5 +12,4 @@ func executeAction(context : actionContext):
 
 func isFinished(context : actionContext):
 	if _endCondition.endConditionCheck(context) == true:
-		print("finished")
 		return true

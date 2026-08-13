@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
+[ext_resource type="PackedScene" uid="uid://bwdm0a6nquvm" path="res://testzombie.tscn" id="14_kugat"]
 [ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
 [sub_resource type="Resource" id="Resource_76gg5"]
@@ -75,12 +76,18 @@ metadata/_custom_type_script = "uid://cjqelhqq8r1c"
 
 [sub_resource type="Resource" id="Resource_vgygr"]
 script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("8_uuop7")
+zombieScene = ExtResource("14_kugat")
+metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
+
+[sub_resource type="Resource" id="Resource_fkncw"]
+script = ExtResource("10_sqeg0")
+zombieScene = ExtResource("14_kugat")
+lane = 4
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
 [sub_resource type="Resource" id="Resource_nh3tr"]
 script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_vgygr")])
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_vgygr"), SubResource("Resource_fkncw")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
 [sub_resource type="Resource" id="Resource_rwrta"]
