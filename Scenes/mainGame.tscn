@@ -37,77 +37,67 @@
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
 [ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
-[sub_resource type="Resource" id="Resource_qriix"]
+[sub_resource type="Resource" id="Resource_352rq"]
 script = ExtResource("6_mtfde")
-hpThreshold = 0.2
+hpThreshold = 0.99
 metadata/_custom_type_script = "uid://dhhtkj7vkkgxd"
 
-[sub_resource type="Resource" id="Resource_oea7c"]
-script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("8_uuop7")
-lane = 4
-metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
-
-[sub_resource type="Resource" id="Resource_4f1s2"]
-script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("9_sqeg0")
-lane = 1
-metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
-
-[sub_resource type="Resource" id="Resource_1udc5"]
+[sub_resource type="Resource" id="Resource_v7p5c"]
 script = ExtResource("10_sqeg0")
 zombieScene = ExtResource("8_uuop7")
 lane = 2
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_p1axg"]
+[sub_resource type="Resource" id="Resource_y1oex"]
 script = ExtResource("10_sqeg0")
 zombieScene = ExtResource("9_sqeg0")
-lane = 1
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_kugat"]
-script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_oea7c"), SubResource("Resource_4f1s2"), SubResource("Resource_1udc5"), SubResource("Resource_p1axg")])
-metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
-
-[sub_resource type="Resource" id="Resource_76gg5"]
-script = ExtResource("12_qriix")
-amount = 20
-randomJitter = 0.1
-metadata/_custom_type_script = "uid://dmr3wxqclxbp7"
-
-[sub_resource type="Resource" id="Resource_mtfde"]
-script = ExtResource("8_mtfde")
-_endCondition = SubResource("Resource_qriix")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_kugat"), SubResource("Resource_76gg5")])
-metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
-
-[sub_resource type="Resource" id="Resource_nh3tr"]
-script = ExtResource("7_mtfde")
-metadata/_custom_type_script = "uid://cjqelhqq8r1c"
-
-[sub_resource type="Resource" id="Resource_fkncw"]
+[sub_resource type="Resource" id="Resource_x435t"]
 script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("9_sqeg0")
+zombieScene = ExtResource("8_uuop7")
 lane = 4
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_rwrta"]
+[sub_resource type="Resource" id="Resource_jnkpk"]
 script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_fkncw")])
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_v7p5c"), SubResource("Resource_y1oex"), SubResource("Resource_x435t")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
-[sub_resource type="Resource" id="Resource_vgygr"]
+[sub_resource type="Resource" id="Resource_mtfde"]
+script = ExtResource("12_qriix")
+amount = 10
+metadata/_custom_type_script = "uid://dmr3wxqclxbp7"
+
+[sub_resource type="Resource" id="Resource_11gtu"]
 script = ExtResource("8_mtfde")
-_endCondition = SubResource("Resource_nh3tr")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_rwrta")])
+_endCondition = SubResource("Resource_352rq")
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_jnkpk"), SubResource("Resource_mtfde")])
 metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
-[sub_resource type="Resource" id="Resource_sqeg0"]
+[sub_resource type="Resource" id="Resource_ph57d"]
+script = ExtResource("7_mtfde")
+metadata/_custom_type_script = "uid://cjqelhqq8r1c"
+
+[sub_resource type="Resource" id="Resource_o5sn7"]
+script = ExtResource("10_sqeg0")
+zombieScene = ExtResource("8_uuop7")
+metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
+
+[sub_resource type="Resource" id="Resource_oetwl"]
+script = ExtResource("7_6wkd0")
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_o5sn7")])
+metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
+
+[sub_resource type="Resource" id="Resource_py64m"]
+script = ExtResource("8_mtfde")
+_endCondition = SubResource("Resource_ph57d")
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_oetwl")])
+metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
+
+[sub_resource type="Resource" id="Resource_lenh6"]
 script = ExtResource("4_0pr4c")
-initialWaitTime = 1.0
-waves = Array[ExtResource("8_mtfde")]([SubResource("Resource_mtfde"), SubResource("Resource_vgygr")])
+waves = Array[ExtResource("8_mtfde")]([SubResource("Resource_11gtu"), SubResource("Resource_py64m")])
 metadata/_custom_type_script = "uid://dgp2i7at3rs2k"
 
 [sub_resource type="Resource" id="Resource_7nkqc"]
@@ -147,7 +137,7 @@ script = ExtResource("2_8cv8s")
 
 [node name="LevelManager" type="Node" parent="." unique_id=28449932]
 script = ExtResource("3_0nykj")
-levelLoaded = SubResource("Resource_sqeg0")
+levelLoaded = SubResource("Resource_lenh6")
 
 [node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
 

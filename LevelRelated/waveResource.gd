@@ -9,12 +9,14 @@ var currentWaveHP : int = 0
 
 
 func executeAction(context : actionContext):
+	currentWaveHP = calculateWaveHP()
+	
 	_endCondition.reset()
 	_endCondition.wave = self
 	for action in actions:
 		action.wave = self
 		action.executeAction(context)
-		calculateWaveHP()
+
 
 
 func isFinished(context : actionContext):
@@ -25,18 +27,16 @@ func isFinished(context : actionContext):
 func calculateWaveHP():
 	totalWaveHP = 0
 	for action in actions:
-		if not action is spawnZombieGroupAction:
-			return
-		for zombieEntries in action.zombiesList:
-			var stats : zombieStats = getZombieStatsFromScene(zombieEntries.zombieScene)
-			totalWaveHP += stats.hp
-	currentWaveHP = totalWaveHP
-	print(currentWaveHP)
+		if action is spawnZombieGroupAction:
+			for zombieEntries in action.zombiesList:
+				var stats : zombieStats = getZombieStatsFromScene(zombieEntries.zombieScene)
+				totalWaveHP += stats.hp
+	return totalWaveHP
+
 
 
 func onZombieDamaged(amount : int):
 	currentWaveHP = max(currentWaveHP - amount, 0)
-	print(getWaveHPPercent())
 
 
 func getWaveHPPercent() -> float:
