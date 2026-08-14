@@ -17,7 +17,7 @@ var zombieInLanes : Array[zombieLaneData]
 func _ready() -> void:
 	initializeLanes()
 
-func spawnZombie(zombieScene : PackedScene , lane : int):
+func spawnZombie(zombieScene : PackedScene , lane : int) -> Zombie:
 	var spawnLane = lane
 	var zombie : Zombie = SpawnHelper.spawnEntity(zombieScene , 
 	get_parent() , 
@@ -27,6 +27,7 @@ func spawnZombie(zombieScene : PackedScene , lane : int):
 	zombie.grid = Vector2(9 , spawnLane)
 	registerZombie(zombie)
 	zombieCreated.emit(zombie)
+	return zombie
 
 
 ## Returns whether any zombie in [param lane] is ahead of [param xPosition]

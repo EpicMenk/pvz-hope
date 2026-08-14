@@ -12,9 +12,9 @@
 [ext_resource type="Script" uid="uid://dgp2i7at3rs2k" path="res://LevelRelated/levelResource.gd" id="4_0pr4c"]
 [ext_resource type="Script" uid="uid://cggjwleqrefqy" path="res://Seedbank/seedbankManager.gd" id="4_k3x6f"]
 [ext_resource type="Script" uid="uid://buqpi4gl4bvpv" path="res://Sun/sunManager.gd" id="5_juktf"]
-[ext_resource type="Script" uid="uid://ce3rai4occgjh" path="res://LevelRelated/EndConditions/timerEnd.gd" id="6_6wkd0"]
 [ext_resource type="Script" uid="uid://cwtmkm755le4w" path="res://Sun/sunStats.gd" id="6_7nkqc"]
 [ext_resource type="Script" uid="uid://cneoy6pnlbnr8" path="res://Seedbank/seedbank.gd" id="6_arx4i"]
+[ext_resource type="Script" uid="uid://dhhtkj7vkkgxd" path="res://LevelRelated/EndConditions/waveHPPercentageEnd.gd" id="6_mtfde"]
 [ext_resource type="Script" uid="uid://cgvft17sb7lg5" path="res://Debug/hpOverlay.gd" id="6_muhop"]
 [ext_resource type="Script" uid="uid://dlgt3831umhi6" path="res://LevelRelated/WaveActions/waveAction.gd" id="6_sqeg0"]
 [ext_resource type="Script" uid="uid://b21dvlcc5dhbp" path="res://LevelRelated/WaveActions/spawnZombieGroupAction.gd" id="7_6wkd0"]
@@ -33,13 +33,14 @@
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
+[ext_resource type="Script" uid="uid://dmr3wxqclxbp7" path="res://LevelRelated/WaveActions/sunSkySpawnAction.gd" id="12_qriix"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
 [ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
-[sub_resource type="Resource" id="Resource_76gg5"]
-script = ExtResource("6_6wkd0")
-duration = 2.0
-metadata/_custom_type_script = "uid://ce3rai4occgjh"
+[sub_resource type="Resource" id="Resource_qriix"]
+script = ExtResource("6_mtfde")
+hpThreshold = 0.2
+metadata/_custom_type_script = "uid://dhhtkj7vkkgxd"
 
 [sub_resource type="Resource" id="Resource_oea7c"]
 script = ExtResource("10_sqeg0")
@@ -70,10 +71,16 @@ script = ExtResource("7_6wkd0")
 zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_oea7c"), SubResource("Resource_4f1s2"), SubResource("Resource_1udc5"), SubResource("Resource_p1axg")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
+[sub_resource type="Resource" id="Resource_76gg5"]
+script = ExtResource("12_qriix")
+amount = 20
+randomJitter = 0.1
+metadata/_custom_type_script = "uid://dmr3wxqclxbp7"
+
 [sub_resource type="Resource" id="Resource_mtfde"]
 script = ExtResource("8_mtfde")
-_endCondition = SubResource("Resource_76gg5")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_kugat")])
+_endCondition = SubResource("Resource_qriix")
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_kugat"), SubResource("Resource_76gg5")])
 metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
 [sub_resource type="Resource" id="Resource_nh3tr"]
@@ -99,7 +106,7 @@ metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
 [sub_resource type="Resource" id="Resource_sqeg0"]
 script = ExtResource("4_0pr4c")
-initialWaitTime = 3.0
+initialWaitTime = 1.0
 waves = Array[ExtResource("8_mtfde")]([SubResource("Resource_mtfde"), SubResource("Resource_vgygr")])
 metadata/_custom_type_script = "uid://dgp2i7at3rs2k"
 

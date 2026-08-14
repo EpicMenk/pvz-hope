@@ -2,6 +2,8 @@
 extends Resource
 class_name endCondition
 
+var wave : waveResource 
+
 func endConditionCheck(context : actionContext) -> bool:
 	push_error("endConditionCheck() needs to be overriden")
 	return true

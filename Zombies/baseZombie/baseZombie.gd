@@ -1,6 +1,7 @@
 extends boardEntity
 class_name Zombie
 
+@export var stats : zombieStats
 @export var hpC : hpComponent
 @export var hurtboxC: hurtboxComponent
 @export var zombieMeleeC: zombieMeleeAttackComponent 
@@ -35,6 +36,8 @@ func dropLimb(limb : Sprite2D):
 	physicObject.drop(
 	Vector2(randf_range(-120,120), randf_range(-120,-350)) ,randf_range(-1,1))
 
+func getZombieStats():
+	return stats
 
 func getHurtboxComponent() -> hurtboxComponent:
 	return hurtboxC

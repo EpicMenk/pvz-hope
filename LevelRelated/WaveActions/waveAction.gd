@@ -2,6 +2,7 @@
 extends Resource
 class_name waveAction
 
+var wave : waveResource
 
 func executeAction(context : actionContext):
 	push_error("executeAction() needs to be overriden")

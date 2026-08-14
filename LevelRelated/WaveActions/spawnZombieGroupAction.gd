@@ -7,10 +7,12 @@ var spawnedAllZombiesInList : bool = false
 
 func executeAction(context : actionContext):
 	for zombieEntries in zombiesList:
-		context._zombieManager.spawnZombie(
+		var zombie : Zombie = context._zombieManager.spawnZombie(
 			zombieEntries.zombieScene,
 			zombieEntries.lane
 		)
+		if wave != null and zombie.hpC != null:
+			zombie.hpC.damaged.connect(wave.onZombieDamaged)
 	spawnedAllZombiesInList = true
 
 

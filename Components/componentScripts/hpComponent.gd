@@ -42,14 +42,16 @@ func checkHpEvents():
 			triggeredEvents.append(threshold)
 			eventTriggered.emit(hpEvents[threshold])
 
-# i wanna make a damage data object later 
+
 func takeDamage(damage: int):
 	if shield > 0:
-		var absorbed := int(min(shield, damage)) 
+		var absorbed : int = int(min(shield, damage))
 		shield -= absorbed
 		damage -= absorbed
-	currentHP -= damage
-	damaged.emit(damage)
+	var hpLost : int = min(currentHP, damage)
+	currentHP -= hpLost
+	damaged.emit(hpLost)
+
 
 func heal(amount : int):
 	currentHP += amount
