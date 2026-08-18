@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcwbqja2p72o0"
-path="res://.godot/imported/LowerLegRight.png-073e41f768b5090765574b5f77630d60.ctex"
+uid="uid://dlvrd7aogw1j1"
+path="res://.godot/imported/Untitled197_20260818133650.png-4b4aba51dca065b24c06b6b357c9a6f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerLegRight.png"
-dest_files=["res://.godot/imported/LowerLegRight.png-073e41f768b5090765574b5f77630d60.ctex"]
+source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Armor/Conehead/Untitled197_20260818133650.png"
+dest_files=["res://.godot/imported/Untitled197_20260818133650.png-4b4aba51dca065b24c06b6b357c9a6f7.ctex"]
 
 [params]
 

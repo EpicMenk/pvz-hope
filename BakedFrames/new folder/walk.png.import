@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y70b813nxc37"
-path="res://.godot/imported/LowerHandRight.png-3948fe9fc75d3e4111a0a480dc630183.ctex"
+uid="uid://w5nvsu1ytil2"
+path="res://.godot/imported/walk.png-54caf78a653142f70bb896f93a56d68e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerHandRight.png"
-dest_files=["res://.godot/imported/LowerHandRight.png-3948fe9fc75d3e4111a0a480dc630183.ctex"]
+source_file="res://BakedFrames/new folder/walk.png"
+dest_files=["res://.godot/imported/walk.png-54caf78a653142f70bb896f93a56d68e.ctex"]
 
 [params]
 

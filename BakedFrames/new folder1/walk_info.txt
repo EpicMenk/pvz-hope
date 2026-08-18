@@ -1,0 +1,5 @@
+frame_count: 121
+columns: 11
+rows: 11
+frame_size: 63x68
+layer_offset: -0.500000,-73.000000

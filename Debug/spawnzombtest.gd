@@ -7,7 +7,7 @@ signal zombieCreated(zombie : Zombie)
 
 func spawnZombie():
 	var spawnLane = randi_range(0,4)
-	var zombieScene : PackedScene = preload("res://Zombies/brownCoatZombie/brownCoatZombie.tscn")
+	var zombieScene : PackedScene = preload("res://testzombie.tscn")
 	var zombie : Zombie = SpawnHelper.spawnEntity(zombieScene , 
 	board_manager , 
 	board_manager._zombieManager ,

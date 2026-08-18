@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl547ltuxjig7"
-path="res://.godot/imported/BackFeetLeft.png-ad20f4b13eb5c82ea825727653e9b04e.ctex"
+uid="uid://wt7dy6ebi2rj"
+path="res://.godot/imported/UpperHandLeft.png-95a79c73ce7176e9137946445eb0ccae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/BackFeetLeft.png"
-dest_files=["res://.godot/imported/BackFeetLeft.png-ad20f4b13eb5c82ea825727653e9b04e.ctex"]
+source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperHandLeft.png"
+dest_files=["res://.godot/imported/UpperHandLeft.png-95a79c73ce7176e9137946445eb0ccae.ctex"]
 
 [params]
 

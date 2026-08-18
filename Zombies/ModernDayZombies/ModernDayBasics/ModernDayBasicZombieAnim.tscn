@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://bhakm7t4twiwi"]
 
-[ext_resource type="Texture2D" uid="uid://c45vmj8tepfrt" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/UpperLegLeft.png" id="1_hqbt7"]
-[ext_resource type="Texture2D" uid="uid://1cfn4llw04of" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerLegLeft.png" id="2_lle22"]
-[ext_resource type="Texture2D" uid="uid://dl547ltuxjig7" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/BackFeetLeft.png" id="3_k0du0"]
-[ext_resource type="Texture2D" uid="uid://bspwdrwb6nxey" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/FrontFeetLeft.png" id="4_ollce"]
-[ext_resource type="Texture2D" uid="uid://bg63jy2x1w23s" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/UpperLegRight.png" id="5_wy5lo"]
-[ext_resource type="Texture2D" uid="uid://bcwbqja2p72o0" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerLegRight.png" id="6_h0pxk"]
-[ext_resource type="Texture2D" uid="uid://ccufdsewo8l5k" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/BackFeetRight.png" id="7_xlheq"]
-[ext_resource type="Texture2D" uid="uid://b18gx6gf6scxe" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/FrontFeetRight.png" id="8_dc0af"]
-[ext_resource type="Texture2D" uid="uid://cthrppiyibvej" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Torso.png" id="9_x77uh"]
-[ext_resource type="Texture2D" uid="uid://wt7dy6ebi2rj" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/UpperHandLeft.png" id="10_uq35u"]
-[ext_resource type="Texture2D" uid="uid://dtgbwc84qkx7w" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerHandLeft.png" id="11_jn4un"]
+[ext_resource type="Texture2D" uid="uid://c45vmj8tepfrt" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperLegLeft.png" id="1_hqbt7"]
+[ext_resource type="Texture2D" uid="uid://1cfn4llw04of" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/LowerLegLeft.png" id="2_lle22"]
+[ext_resource type="Texture2D" uid="uid://dl547ltuxjig7" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/BackFeetLeft.png" id="3_k0du0"]
+[ext_resource type="Texture2D" uid="uid://bspwdrwb6nxey" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/FrontFeetLeft.png" id="4_ollce"]
+[ext_resource type="Texture2D" uid="uid://bg63jy2x1w23s" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperLegRight.png" id="5_wy5lo"]
+[ext_resource type="Texture2D" uid="uid://bcwbqja2p72o0" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/LowerLegRight.png" id="6_h0pxk"]
+[ext_resource type="Texture2D" uid="uid://ccufdsewo8l5k" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/BackFeetRight.png" id="7_xlheq"]
+[ext_resource type="Texture2D" uid="uid://b18gx6gf6scxe" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/FrontFeetRight.png" id="8_dc0af"]
+[ext_resource type="Texture2D" uid="uid://cthrppiyibvej" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/Torso.png" id="9_x77uh"]
+[ext_resource type="Texture2D" uid="uid://wt7dy6ebi2rj" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperHandLeft.png" id="10_uq35u"]
+[ext_resource type="Texture2D" uid="uid://dtgbwc84qkx7w" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/LowerHandLeft.png" id="11_jn4un"]
 [ext_resource type="Texture2D" uid="uid://dwuju0jf8njq5" path="res://Zombies/baseZombie/BaseBasicZombie/HandLeft.png" id="12_tav0b"]
 [ext_resource type="Texture2D" uid="uid://c3ikokjhog8rw" path="res://Zombies/baseZombie/BaseBasicZombie/Head.png" id="13_bxeu6"]
 [ext_resource type="Texture2D" uid="uid://b2tvigsjwc6ya" path="res://Zombies/baseZombie/BaseBasicZombie/Jaw.png" id="14_onee1"]
 [ext_resource type="Texture2D" uid="uid://bn3qhj2ginjn1" path="res://Zombies/baseZombie/BaseBasicZombie/EyeLeft.png" id="15_abf28"]
 [ext_resource type="Texture2D" uid="uid://dstr5nyv41oej" path="res://Zombies/baseZombie/BaseBasicZombie/EyeRight.png" id="16_g4l6t"]
-[ext_resource type="Texture2D" uid="uid://cg3essytons4e" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/UpperHandRight.png" id="17_h8v8y"]
-[ext_resource type="Texture2D" uid="uid://y70b813nxc37" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/LowerHandRight.png" id="18_i71g3"]
+[ext_resource type="Texture2D" uid="uid://cg3essytons4e" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperHandRight.png" id="17_h8v8y"]
+[ext_resource type="Texture2D" uid="uid://y70b813nxc37" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/LowerHandRight.png" id="18_i71g3"]
 [ext_resource type="Texture2D" uid="uid://benpnh8836d2c" path="res://Zombies/baseZombie/BaseBasicZombie/HandRight1.png" id="19_p5u3k"]
 [ext_resource type="Texture2D" uid="uid://crghpmkvbomjg" path="res://Zombies/baseZombie/BaseBasicZombie/HandRight2.png" id="20_fv4rt"]
 [ext_resource type="PackedScene" uid="uid://587m5spxhal8" path="res://Addons/hopeTools/zombieLimbsImporter.tscn" id="21_3d3uy"]
@@ -3413,6 +3413,8 @@ scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("16_g4l6t")
 offset = Vector2(0, 115)
 
+[node name="Armor" type="Marker2D" parent="offset/root/Torso/Head" unique_id=2074484898]
+
 [node name="UpperHandRight" type="Sprite2D" parent="offset/root/Torso" unique_id=1359603227]
 position = Vector2(-5, -225)
 rotation = 0.3804879
@@ -3466,6 +3468,10 @@ gizmo_extents = 543.7
 position = Vector2(-210, 759.9999)
 scale = Vector2(0.99999994, 0.99999994)
 gizmo_extents = 543.7
+
+[node name="OriginMarker" type="Marker2D" parent="offset/root" unique_id=1098598389]
+position = Vector2(109.99999, 714.99994)
+gizmo_extents = 1000.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=451556029]
 visible = false

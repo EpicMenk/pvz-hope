@@ -8,9 +8,15 @@ signal bakingCompleted
 @export var target_fps : float = 30
 @export var animations_to_bake : Array[String] = []
 @export var capture_size : Vector2i = Vector2i(128, 128)
+@export var animationOrigin : Marker2D
+@export var _markerCopier : markerCopier 
 
 @onready var viewport : SubViewport = %SubViewport
 @onready var rig_container : Node2D = %Node2D
+
+
+
+
 
 # ------------------------------------------------------------
 # Bake selection
@@ -275,10 +281,12 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 		FileAccess.WRITE
 	)
 
+	var origin_px : Vector2 = rig_container.to_local(animationOrigin.global_position)
+
 	var layer_offset : Vector2 = (
 		Vector2(crop_rect.position)
 		+ Vector2(crop_rect.size) / 2.0
-	) - (Vector2(capture_size) / 2.0)
+	) - origin_px
 
 	meta_file.store_string(
 		"frame_count: %d\ncolumns: %d\nrows: %d\nframe_size: %dx%d\nlayer_offset: %f,%f\n"

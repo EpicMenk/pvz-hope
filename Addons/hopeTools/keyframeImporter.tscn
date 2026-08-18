@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dhpc0xuhxcr38"]
+
+[ext_resource type="Script" uid="uid://0filr8gqhvl1" path="res://Addons/hopeTools/scripts/keyframeImporter.gd" id="1_d4qyb"]
+
+[node name="KeyframeImporter" type="Node" unique_id=202999901]
+script = ExtResource("1_d4qyb")
+anim_name = &"walk"
