@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dq3n7eucxtqek"]
+
+[ext_resource type="Script" uid="uid://d75wf4mw8t08" path="res://Addons/hopeTools/scripts/animatedSpriteFrameImporter.gd" id="1_qfmqc"]
+
+[node name="AnimatedSpriteFrameImporter" type="Node" unique_id=1660122345 node_paths=PackedStringArray("targetAnimationPlayer", "sprite")]
+script = ExtResource("1_qfmqc")
+targetAnimationPlayer = NodePath("")
+sprite = NodePath("")

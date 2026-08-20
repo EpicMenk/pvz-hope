@@ -15,7 +15,7 @@ func importTrack():
 		push_error("markerImporter: assign targetAnimationPlayer, markerNode, and sourceTrackResource first.")
 		return
 
-	var targetAnim := _getOrCreateAnimation(anim_name, sourceTrackResource.length)
+	var targetAnim := _getOrCreateAnimation(anim_name, sourceTrackResource)
 	var relativePath := targetAnimationPlayer.get_parent().get_path_to(markerNode)
 
 	var mergedCount := 0
@@ -59,14 +59,33 @@ func _findOrCreateTrack(anim: Animation, path: NodePath) -> int:
 	return idx
 
 
-func _getOrCreateAnimation(_name: StringName, length: float) -> Animation:
-	var library := targetAnimationPlayer.get_animation_library("")
+func _getOrCreateAnimation(
+	_name : StringName,
+	sourceAnimation : Animation
+) -> Animation:
+
+	var library : AnimationLibrary = (
+		targetAnimationPlayer.get_animation_library("")
+	)
+
 	if library == null:
 		library = AnimationLibrary.new()
-		targetAnimationPlayer.add_animation_library("", library)
-	var anim := library.get_animation(_name)
+		targetAnimationPlayer.add_animation_library(
+			"",
+			library
+		)
+
+	var anim : Animation = library.get_animation(_name)
+
 	if anim == null:
 		anim = Animation.new()
-		anim.length = length
-		library.add_animation(_name, anim)
+		anim.length = sourceAnimation.length
+		anim.loop_mode = sourceAnimation.loop_mode
+		anim.step = sourceAnimation.step
+
+		library.add_animation(
+			_name,
+			anim
+		)
+
 	return anim

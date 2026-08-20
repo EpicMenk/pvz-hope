@@ -4,20 +4,26 @@ class_name bakeRig
 
 signal bakingCompleted
 
+@export_group("Animation Configurations")
 @export var output_dir : String = "res://BakedFrames/"
 @export var target_fps : float = 30
 @export var animations_to_bake : Array[String] = []
 @export var capture_size : Vector2i = Vector2i(128, 128)
 @export var animationOrigin : Marker2D
-@export var _markerCopier : markerCopier 
+
 
 @onready var viewport : SubViewport = %SubViewport
 @onready var rig_container : Node2D = %Node2D
 
+@export_group("Marker Copier")
+@export var copyMarkerEnabled : bool = false:
+	set(value):
+		copyMarkerEnabled = value
+		notify_property_list_changed()
 
+@export var _markerCopier : markerCopier 
 
-
-
+@export_group("Rig Configurations")
 # ------------------------------------------------------------
 # Bake selection
 # ------------------------------------------------------------
@@ -175,6 +181,9 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 	var frame_interval : float = 1.0 / target_fps
 	var frame_count : int = int(animation.length / frame_interval) + 1
 
+	if copyMarkerEnabled and _markerCopier != null:
+		_markerCopier.beginBake(anim_name, animation.length)
+
 	var columns : int = int(ceil(sqrt(frame_count)))
 	var rows : int = int(ceil(float(frame_count) / columns))
 
@@ -201,6 +210,9 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 		_anim_player.seek(t, true)
 		_anim_player.advance(0.0)
 
+		if copyMarkerEnabled and _markerCopier != null:
+			_markerCopier.recordSample(t)
+
 		# --------------------------------------------------------
 		# 3. Apply bake-only isolation.
 		#
@@ -224,6 +236,8 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 		_restoreBakeTarget()
 		_restoreOriginalVisibility()
 
+	if copyMarkerEnabled and _markerCopier != null:
+		_markerCopier.finalizeBake()
 
 	var sheet : Image = Image.create(
 		columns * crop_rect.size.x,
@@ -667,4 +681,8 @@ func _validate_property(property : Dictionary):
 
 	elif property.name == "bakeExcludedNodes":
 		if not bakeOnlyTarget:
+			property.usage = PROPERTY_USAGE_NO_EDITOR
+
+	elif property.name == "_markerCopier":
+		if not copyMarkerEnabled:
 			property.usage = PROPERTY_USAGE_NO_EDITOR

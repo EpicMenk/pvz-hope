@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b2tvigsjwc6ya" path="res://Zombies/baseZombie/BaseBasicZombie/Jaw.png" id="16_yg0lb"]
 [ext_resource type="Texture2D" uid="uid://bn3qhj2ginjn1" path="res://Zombies/baseZombie/BaseBasicZombie/EyeLeft.png" id="17_ksoi0"]
 [ext_resource type="Texture2D" uid="uid://dstr5nyv41oej" path="res://Zombies/baseZombie/BaseBasicZombie/EyeRight.png" id="18_slh1s"]
+[ext_resource type="Texture2D" uid="uid://daeem6mokf18x" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Armor/Conehead/Untitled197_20260818133642.png" id="19_nbhdw"]
 [ext_resource type="Texture2D" uid="uid://cg3essytons4e" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/UpperHandRight.png" id="19_tvina"]
 [ext_resource type="Texture2D" uid="uid://y70b813nxc37" path="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Clothes/LowerHandRight.png" id="20_w6464"]
 [ext_resource type="Texture2D" uid="uid://benpnh8836d2c" path="res://Zombies/baseZombie/BaseBasicZombie/HandRight1.png" id="21_wdbmr"]
@@ -255,6 +256,18 @@ tracks/18/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-145.60782, -65.289536)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Torso/Head/Armor:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_y4vw1"]
@@ -3289,6 +3302,18 @@ tracks/125/keys = {
 "update": 0,
 "values": [false, false]
 }
+tracks/126/type = "value"
+tracks/126/imported = false
+tracks/126/enabled = true
+tracks/126/path = NodePath("Torso/Head/Armor:position")
+tracks/126/interp = 1
+tracks/126/loop_wrap = true
+tracks/126/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hwnis"]
 _data = {
@@ -3297,17 +3322,14 @@ _data = {
 &"walk": SubResource("Animation_hwnis")
 }
 
-[node name="BakeRig" type="Node2D" unique_id=1151502894 node_paths=PackedStringArray("animationOrigin", "_markerCopier", "bakeTarget", "bakeRoot", "bakeExcludedNodes")]
+[node name="BakeRig" type="Node2D" unique_id=1151502894 node_paths=PackedStringArray("animationOrigin", "_markerCopier")]
 script = ExtResource("1_oaj8d")
-output_dir = "res://BakedFrames/new folder2"
+output_dir = "res://"
 animations_to_bake = Array[String](["walk"])
 capture_size = Vector2i(300, 300)
 animationOrigin = NodePath("SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/OriginMarker")
+copyMarkerEnabled = true
 _markerCopier = NodePath("MarkerCopier")
-bakeOnlyTarget = true
-bakeTarget = NodePath("SubViewport/Node2D/BaseBasicZombieAnimation/offset/root")
-bakeRoot = NodePath("SubViewport/Node2D/BaseBasicZombieAnimation/offset/root")
-bakeExcludedNodes = [NodePath("SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso/UpperHandRight/LowerHandRight"), NodePath("SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso/Head")]
 
 [node name="Label" type="Label" parent="." unique_id=1278310603 node_paths=PackedStringArray("baker")]
 offset_left = 397.0
@@ -3447,6 +3469,11 @@ offset = Vector2(0, 115)
 
 [node name="Armor" type="Marker2D" parent="SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso/Head" unique_id=2074484898]
 
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso/Head/Armor" unique_id=169591462]
+position = Vector2(-45, 35)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("19_nbhdw")
+
 [node name="UpperHandRight" type="Sprite2D" parent="SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso" unique_id=1359603227]
 position = Vector2(-5, -225)
 rotation = 0.3804879
@@ -3503,6 +3530,7 @@ gizmo_extents = 543.7
 
 [node name="OriginMarker" type="Marker2D" parent="SubViewport/Node2D/BaseBasicZombieAnimation/offset/root" unique_id=1098598389]
 position = Vector2(109.99999, 714.99994)
+gizmo_extents = 1000.0
 
 [node name="Marker2D" type="Marker2D" parent="SubViewport/Node2D/BaseBasicZombieAnimation" unique_id=451556029]
 visible = false
@@ -3513,10 +3541,7 @@ gizmo_extents = 80.0
 position = Vector2(128, 288)
 gizmo_extents = 80.0
 
-[node name="MarkerCopier" type="Node2D" parent="." unique_id=1841548502 node_paths=PackedStringArray("originMarker", "markerToCopy", "animPlayer")]
+[node name="MarkerCopier" type="Node2D" parent="." unique_id=1841548502 node_paths=PackedStringArray("originMarker", "markerToCopy")]
 script = ExtResource("3_dyjhj")
 originMarker = NodePath("../SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/OriginMarker")
 markerToCopy = NodePath("../SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/Torso/Head/Armor")
-animPlayer = NodePath("../SubViewport/Node2D/BaseBasicZombieAnimation/offset/root/AnimationPlayer")
-fps = 30.0
-animationName = "walk"
