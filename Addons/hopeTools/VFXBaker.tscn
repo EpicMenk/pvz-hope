@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://7vmxsdwh5s0b"]
+
+[ext_resource type="Script" uid="uid://b288u23oqmsyd" path="res://Addons/hopeTools/scripts/VFXBaker.gd" id="1_435s2"]
+[ext_resource type="PackedScene" uid="uid://cjvousmxvsyjw" path="res://Sun/brah.tscn" id="2_57l7u"]
+
+[node name="VFXBaker" type="Node2D" unique_id=1448137890 node_paths=PackedStringArray("viewport")]
+script = ExtResource("1_435s2")
+viewport = NodePath("SubViewport")
+output_dir = "res://BakedFrames/"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1635010824]
+size = Vector2i(550, 550)
+
+[node name="Node2D" type="Node2D" parent="SubViewport" unique_id=138160113]
+position = Vector2(275, 275)
+
+[node name="Sprite2D2" parent="SubViewport/Node2D" unique_id=1166464269 instance=ExtResource("2_57l7u")]

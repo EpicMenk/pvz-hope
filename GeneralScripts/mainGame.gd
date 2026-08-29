@@ -8,6 +8,7 @@ class_name mainGame
 func _ready() -> void:
 	button_2.zombieCreated.connect(assignIDs)
 
+
 func assignIDs(zombie : Zombie):
 	zombie.ID = assigningIDs
 	assigningIDs += 1

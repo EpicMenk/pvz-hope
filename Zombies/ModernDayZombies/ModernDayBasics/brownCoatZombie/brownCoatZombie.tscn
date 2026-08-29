@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://e8w77s8p2s5y"
 [node name="brownCoatZombie" unique_id=2108398841 instance=ExtResource("1_tlp3n")]
 script = ExtResource("2_slscc")
 stats = SubResource("Resource_slscc")
+team = 0
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
 hpEvents = Dictionary[int, StringName]({

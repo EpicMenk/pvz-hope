@@ -27,6 +27,7 @@ func spawnZombie(zombieScene : PackedScene , lane : int) -> Zombie:
 	zombie.grid = Vector2(9 , spawnLane)
 	registerZombie(zombie)
 	zombieCreated.emit(zombie)
+	zombie.existedInLawn.emit()
 	return zombie
 
 

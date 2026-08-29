@@ -1,10 +1,17 @@
 extends Node2D
 class_name boardEntity
 
+signal existedInLawn
+
+var existInLawn : bool = false
 var _plantManager : plantManager
 var _zombieManager : zombieManager
 var _boardManager : boardManager
 @export var ground: Marker2D 
+@export var team: teamEnums
+
+func _ready() -> void:
+	self.existedInLawn.connect(uponExistingInLawn)
 
 func initializeManagers(bm: boardManager):
 	_boardManager = bm
@@ -32,8 +39,11 @@ enum teamEnums {
 	ZOMBIE
 }
 
-@export var team: teamEnums
-@warning_ignore("unused_private_class_variable")
+func uponExistingInLawn():
+	spawnShadow()
+
+func spawnShadow():
+	pass
 
 var grid: Vector2i = Vector2i(-1, -1)
 var lane:

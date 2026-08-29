@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjvousmxvsyjw"]
+
+[ext_resource type="Shader" uid="uid://bbhoxpb86keok" path="res://test.gdshader" id="1_3outc"]
+[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/sun.png" id="2_8m6tl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_caukj"]
+shader = ExtResource("1_3outc")
+shader_parameter/shine_num = 6.0
+shader_parameter/rotation_speed = 2.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 0.9810000465975
+shader_parameter/filter_minv = 0.590000028025
+shader_parameter/cut_inner_radius = 0.0
+shader_parameter/color = Color(0.9921667, 1, 0.53, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
+
+[node name="Sprite2D2" type="Sprite2D" unique_id=1166464269]
+material = SubResource("ShaderMaterial_caukj")
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("2_8m6tl")
