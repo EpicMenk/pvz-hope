@@ -7,6 +7,8 @@ class_name vfxBaker
 @export var duration : float = 4.0
 @export var loopEnabled : bool = true
 @export var crossfadeFrames : int = 8
+@export var recordAnim : AnimationPlayer
+@export var animName : StringName
 
 var _frames : Array[Image] = []
 var _elapsed : float = 0.0
@@ -51,6 +53,8 @@ func startBake() -> void:
 
 	viewport.transparent_bg = true
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	await get_tree().process_frame
+	await get_tree().process_frame
 
 	var interval : float = 1.0 / target_fps
 
@@ -80,6 +84,8 @@ func startBake() -> void:
 	_nextCaptureTime = 0.0
 	_capturedCount = 0
 	_baking = true
+	if recordAnim and animName:
+		recordAnim.play(animName)
 
 	while _capturedCount < _targetFrameCount:
 		await get_tree().process_frame
@@ -92,7 +98,7 @@ func startBake() -> void:
 		):
 			await RenderingServer.frame_post_draw
 			_frames.append(
-				viewport.get_texture().get_image()
+				_unpremultiply(viewport.get_texture().get_image())
 			)
 
 			_capturedCount += 1
@@ -152,32 +158,63 @@ func _crossfadeLoop() -> void:
 			weight
 		)
 
+func _blendImages(a : Image, b : Image, weight : float) -> Image:
+	var result : Image = Image.create(a.get_width(), a.get_height(), false, Image.FORMAT_RGBA8)
 
-func _blendImages(
-	a : Image,
-	b : Image,
-	weight : float
-) -> Image:
-
-	var result : Image = Image.create(
-		a.get_width(),
-		a.get_height(),
-		false,
-		Image.FORMAT_RGBA8
-	)
+	var wa : float = 1.0 - weight
+	var wb : float = weight
 
 	for y in a.get_height():
 		for x in a.get_width():
 			var colorA : Color = a.get_pixel(x, y)
 			var colorB : Color = b.get_pixel(x, y)
 
-			result.set_pixel(
-				x,
-				y,
-				colorA.lerp(colorB, weight)
-			)
+			# Premultiply each contribution by its own alpha and blend weight,
+			# then add — light sources combine additively, not by averaging.
+			var rgbA : Vector3 = Vector3(colorA.r, colorA.g, colorA.b) * colorA.a * wa
+			var rgbB : Vector3 = Vector3(colorB.r, colorB.g, colorB.b) * colorB.a * wb
+
+			var outAlpha : float = clamp(colorA.a * wa + colorB.a * wb, 0.0, 1.0)
+			var outRgbPremul : Vector3 = rgbA + rgbB
+
+			var outColor : Color
+
+			if outAlpha > 0.001:
+				var rgb : Vector3 = outRgbPremul / outAlpha
+				outColor = Color(rgb.x, rgb.y, rgb.z, outAlpha)
+			else:
+				outColor = Color(0.0, 0.0, 0.0, 0.0)
+
+			result.set_pixel(x, y, outColor)
 
 	return result
+
+
+#func _blendImages(
+	#a : Image,
+	#b : Image,
+	#weight : float
+#) -> Image:
+#
+	#var result : Image = Image.create(
+		#a.get_width(),
+		#a.get_height(),
+		#false,
+		#Image.FORMAT_RGBA8
+	#)
+#
+	#for y in a.get_height():
+		#for x in a.get_width():
+			#var colorA : Color = a.get_pixel(x, y)
+			#var colorB : Color = b.get_pixel(x, y)
+#
+			#result.set_pixel(
+				#x,
+				#y,
+				#colorA.lerp(colorB, weight)
+			#)
+#
+	#return result
 
 
 func packAndSave(
@@ -224,9 +261,8 @@ func packAndSave(
 		ProjectSettings.globalize_path(_output_dir)
 	)
 
-	sheet.save_webp(
-		output_dir.path_join(anim_name + ".webp"),
-		false
+	sheet.save_png(
+		output_dir.path_join(anim_name + ".png"),
 	)
 
 	print(
@@ -239,3 +275,12 @@ func packAndSave(
 		"rows": rows,
 		"frame_count": frames.size()
 	}
+
+
+func _unpremultiply(img : Image) -> Image:
+	for y in img.get_height():
+		for x in img.get_width():
+			var c := img.get_pixel(x, y)
+			if c.a > 0.001:
+				img.set_pixel(x, y, Color(c.r / c.a, c.g / c.a, c.b / c.a, c.a))
+	return img
