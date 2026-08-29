@@ -3,15 +3,29 @@
 [ext_resource type="Script" uid="uid://b288u23oqmsyd" path="res://Addons/hopeTools/scripts/VFXBaker.gd" id="1_435s2"]
 [ext_resource type="PackedScene" uid="uid://cjvousmxvsyjw" path="res://Sun/brah.tscn" id="2_57l7u"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_sun4s"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 30.0
+}]
+
 [node name="VFXBaker" type="Node2D" unique_id=1448137890 node_paths=PackedStringArray("viewport")]
 script = ExtResource("1_435s2")
 viewport = NodePath("SubViewport")
-output_dir = "res://BakedFrames/"
+duration = 1.0
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1635010824]
+transparent_bg = true
 size = Vector2i(550, 550)
 
 [node name="Node2D" type="Node2D" parent="SubViewport" unique_id=138160113]
 position = Vector2(275, 275)
 
 [node name="Sprite2D2" parent="SubViewport/Node2D" unique_id=1166464269 instance=ExtResource("2_57l7u")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521193456]
+sprite_frames = SubResource("SpriteFrames_sun4s")
+animation = &"new_animation"
+frame_progress = 1.0

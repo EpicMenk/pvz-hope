@@ -30,7 +30,6 @@ void fragment() {
 	COLOR.rgba = color*vec4(abs(sin(ang*shine_num*0.5 + TIME*rotation_speed)))*(1.0-NOISE_magnitude) + NOISE_magnitude*mixa;
 
 	COLOR.a = ((1.0 - filter_distence*0.5) - distance(UV, vec2(0.5,0.5))*filter_magnitude)*light_magnitude;
-	COLOR.a = 1.0;
 
 	if ((distance(UV, vec2(0.5,0.5)) > 1.0/2.0) || (distance(UV, vec2(0.5,0.5)) < cut_inner_radius) || (COLOR.r < filter_minv) && (COLOR.g < filter_minv) && (COLOR.b < filter_minv)) {
 
