@@ -19,3 +19,4 @@ script = ExtResource("2_in7q6")
 stats = SubResource("Resource_fdmtf")
 head = NodePath("visuals/Torso/Head")
 lowerHandRight = NodePath("visuals/Torso/UpperHandRight/LowerHandRight")
+shadowSize = 1

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5pkycrbfusgd"]
+
+[ext_resource type="Script" uid="uid://bsobprs1mj34i" path="res://Shadows/shadowComponent.gd" id="1_aeyk4"]
+[ext_resource type="Texture2D" uid="uid://duaaw8t5w0j1x" path="res://Shadows/shadowMedium.png" id="2_cnf3i"]
+
+[node name="ShadowComponent" type="Sprite2D" unique_id=1599677241]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_aeyk4")
+shadowSize = 1
+mediumShadow = ExtResource("2_cnf3i")

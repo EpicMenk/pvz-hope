@@ -16,12 +16,13 @@ func die():
 	queue_free()
 
 func onPlanted():
-	pass
+	existedInLawn.emit()
 
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
 
 func _ready() -> void:
+	super()
 	evaluateStats()
 	self.plantPlaced.connect(onPlanted)
 

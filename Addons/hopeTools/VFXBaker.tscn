@@ -1,10 +1,23 @@
 [gd_scene format=3 uid="uid://7vmxsdwh5s0b"]
 
 [ext_resource type="Script" uid="uid://b288u23oqmsyd" path="res://Addons/hopeTools/scripts/VFXBaker.gd" id="1_435s2"]
-[ext_resource type="PackedScene" uid="uid://cjvousmxvsyjw" path="res://Sun/brah.tscn" id="2_57l7u"]
-[ext_resource type="Shader" uid="uid://cxk1q11a63uw3" path="res://Sun/sunAnimation.gdshader" id="3_no4ou"]
-[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/sun.png" id="4_51fht"]
-[ext_resource type="Shader" uid="uid://bsdker3187fbx" path="res://sdwas.gdshader" id="5_kstce"]
+[ext_resource type="Shader" uid="uid://bbhoxpb86keok" path="res://Sun/Assets/sunShine.gdshader" id="2_no4ou"]
+[ext_resource type="Shader" uid="uid://cxk1q11a63uw3" path="res://Sun/Assets/sunAnimation.gdshader" id="3_no4ou"]
+[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/Assets/sun.png" id="4_51fht"]
+[ext_resource type="Shader" uid="uid://bsdker3187fbx" path="res://Sun/Assets/flashLine.gdshader" id="5_kstce"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_caukj"]
+shader = ExtResource("2_no4ou")
+shader_parameter/shine_num = 6.0
+shader_parameter/rotation_speed = 2.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 0.9810000465975
+shader_parameter/filter_minv = 0.590000028025
+shader_parameter/cut_inner_radius = 0.0
+shader_parameter/color = Color(0.9921667, 1, 0.53, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20t7h"]
 shader = ExtResource("3_no4ou")
@@ -133,10 +146,12 @@ transparent_bg = true
 size = Vector2i(120, 120)
 
 [node name="Node2D" type="Node2D" parent="SubViewport" unique_id=138160113]
-visible = false
 position = Vector2(275, 275)
 
-[node name="Sprite2D2" parent="SubViewport/Node2D" unique_id=1166464269 instance=ExtResource("2_57l7u")]
+[node name="Sprite2D2" type="Sprite2D" parent="SubViewport/Node2D" unique_id=1166464269]
+material = SubResource("ShaderMaterial_caukj")
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("4_51fht")
 
 [node name="SunAnimation" type="Node2D" parent="SubViewport" unique_id=996689911]
 position = Vector2(-50, -50)
@@ -156,7 +171,10 @@ offset_right = 250.0
 offset_bottom = 250.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Sprite2D2" parent="SubViewport/SunAnimation/offset/root" unique_id=1242757748 instance=ExtResource("2_57l7u")]
+[node name="Sprite2D2" type="Sprite2D" parent="SubViewport/SunAnimation/offset/root" unique_id=1242757748]
+material = SubResource("ShaderMaterial_caukj")
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("4_51fht")
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/SunAnimation/offset/root" unique_id=71115727]
 modulate = Color(0.9891667, 1, 0.35000002, 1)

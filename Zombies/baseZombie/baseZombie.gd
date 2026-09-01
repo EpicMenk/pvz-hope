@@ -14,6 +14,7 @@ func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
 
 func _ready() -> void:
+	super()
 	evaluateStats()
 	updateHurtboxCollisionLayer()
 	hpC.eventTriggered.connect(evaluateEvent)

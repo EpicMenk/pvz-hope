@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d1ssk3ooneb86"]
 
-[ext_resource type="Shader" uid="uid://cxk1q11a63uw3" path="res://Sun/sunAnimation.gdshader" id="1_34psn"]
-[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/sun.png" id="2_34psn"]
-[ext_resource type="PackedScene" uid="uid://cjvousmxvsyjw" path="res://Sun/brah.tscn" id="2_m20hq"]
-[ext_resource type="Shader" uid="uid://bsdker3187fbx" path="res://sdwas.gdshader" id="3_m20hq"]
+[ext_resource type="Shader" uid="uid://cxk1q11a63uw3" path="res://Sun/Assets/sunAnimation.gdshader" id="1_cpyvk"]
+[ext_resource type="Shader" uid="uid://bbhoxpb86keok" path="res://Sun/Assets/sunShine.gdshader" id="2_cpyvk"]
+[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/Assets/sun.png" id="3_cpyvk"]
+[ext_resource type="Shader" uid="uid://bsdker3187fbx" path="res://Sun/Assets/flashLine.gdshader" id="4_kdckl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20t7h"]
-shader = ExtResource("1_34psn")
+shader = ExtResource("1_cpyvk")
 shader_parameter/portal_tint = Color(0.9795, 1, 0.59000003, 1)
 shader_parameter/vortex_effect_radius = 0.5
 shader_parameter/twist_strength = 8.0
@@ -16,6 +16,19 @@ shader_parameter/overall_rotation_speed = 0.25
 shader_parameter/texture_scroll_speed_x = 0.08
 shader_parameter/texture_scroll_speed_y = 0.03
 shader_parameter/edge_softness = 0.4249999905004001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_caukj"]
+shader = ExtResource("2_cpyvk")
+shader_parameter/shine_num = 6.0
+shader_parameter/rotation_speed = 2.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 0.9810000465975
+shader_parameter/filter_minv = 0.590000028025
+shader_parameter/cut_inner_radius = 0.0
+shader_parameter/color = Color(0.9921667, 1, 0.53, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yd2km"]
 
@@ -106,7 +119,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0g3o2"]
-shader = ExtResource("3_m20hq")
+shader = ExtResource("4_kdckl")
 shader_parameter/Line_Smoothness = 0.045
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 5.0
@@ -117,7 +130,7 @@ shader_parameter/Position = 0.0
 shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
-shader_parameter/surface = ExtResource("2_34psn")
+shader_parameter/surface = ExtResource("3_cpyvk")
 
 [node name="SunAnimation" type="Node2D" unique_id=996689911]
 
@@ -136,13 +149,16 @@ offset_right = 250.0
 offset_bottom = 250.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Sprite2D2" parent="offset/root" unique_id=1166464269 instance=ExtResource("2_m20hq")]
+[node name="Sprite2D2" type="Sprite2D" parent="offset/root" unique_id=1166464269]
+material = SubResource("ShaderMaterial_caukj")
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("3_cpyvk")
 
 [node name="Sprite2D" type="Sprite2D" parent="offset/root" unique_id=71115727]
 modulate = Color(0.9891667, 1, 0.35000002, 1)
 material = SubResource("ShaderMaterial_yd2km")
 rotation = 0.7853982
-texture = ExtResource("2_34psn")
+texture = ExtResource("3_cpyvk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="offset/root" unique_id=1661352289]
 libraries/ = SubResource("AnimationLibrary_pcqka")

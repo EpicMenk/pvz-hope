@@ -729,11 +729,13 @@ _data = {
 &"idle": SubResource("Animation_pbx2j")
 }
 
-[node name="Peashooter" unique_id=719743608 node_paths=PackedStringArray("straightShooterC", "animationC") instance=ExtResource("1_mhgda")]
+[node name="Peashooter" unique_id=719743608 node_paths=PackedStringArray("straightShooterC", "animationC", "ground") instance=ExtResource("1_mhgda")]
 script = ExtResource("2_kfm6o")
 stats = ExtResource("3_01iyj")
 straightShooterC = NodePath("straightShooterComponent")
 animationC = NodePath("plantAnimationComponent")
+ground = NodePath("Ground")
+shadowSize = 1
 
 [node name="hpComponent" parent="." index="1" unique_id=1638797325]
 unique_name_in_owner = true

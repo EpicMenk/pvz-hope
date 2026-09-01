@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b302p7w3b3opt"
-path="res://.godot/imported/adrian.png-fe6bafac1124eed23eee5d8ab85fc541.ctex"
+uid="uid://bc4s8g6msht2i"
+path="res://.godot/imported/sun.png-da29859f88f2a84b965b8d0c908082a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BakedFrames/adrian.png"
-dest_files=["res://.godot/imported/adrian.png-fe6bafac1124eed23eee5d8ab85fc541.ctex"]
+source_file="res://Sun/Assets/sun.png"
+dest_files=["res://.godot/imported/sun.png-da29859f88f2a84b965b8d0c908082a9.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjvousmxvsyjw"]
 
-[ext_resource type="Shader" uid="uid://bbhoxpb86keok" path="res://test.gdshader" id="1_3outc"]
-[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/sun.png" id="2_8m6tl"]
+[ext_resource type="Shader" uid="uid://bbhoxpb86keok" path="res://Sun/Assets/sunShine.gdshader" id="1_3outc"]
+[ext_resource type="Texture2D" uid="uid://bc4s8g6msht2i" path="res://Sun/Assets/sun.png" id="2_8m6tl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_caukj"]
 shader = ExtResource("1_3outc")
