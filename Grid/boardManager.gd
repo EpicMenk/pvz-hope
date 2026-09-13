@@ -16,13 +16,13 @@ class_name boardManager
 @onready var _debugController: debugController = %DebugController
 @onready var _projectileManager: Node2D = %ProjectileManager
 
-
-
 ## Maps a grid coordinate to whatever occupies it — a [Plant] or a grid item.
 ## Does not include zombies, which are tracked separately per-lane by
 ## [zombieManager].
 var gridOccupants : Dictionary[Vector2i, Variant] = {}
 
+func _ready() -> void:
+	print(_gridManager)
 
 ## Returns the [plantManager] responsible for plant-side board logic.
 func getPlantManager() -> plantManager:

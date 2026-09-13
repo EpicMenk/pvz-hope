@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_slscc"]
 script = ExtResource("3_aqq7f")
 displayName = "Brown Coat Zombie"
-hp = 200
+hp = 300
 speed = 70.0
 weight = 1.0
 point = 1.0
@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://e8w77s8p2s5y"
 [node name="brownCoatZombie" unique_id=2108398841 instance=ExtResource("1_tlp3n")]
 script = ExtResource("2_slscc")
 stats = SubResource("Resource_slscc")
-team = 0
+shadowSize = 1
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
 hpEvents = Dictionary[int, StringName]({

@@ -9,7 +9,6 @@ class_name plantManager
 
 
 
-
 func _ready() -> void:
 	SignalBus.connect("placePlant", tryPlacePlant)
 

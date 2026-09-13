@@ -48,20 +48,20 @@ zombieScene = ExtResource("8_uuop7")
 lane = 2
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
-[sub_resource type="Resource" id="Resource_y1oex"]
-script = ExtResource("10_sqeg0")
-zombieScene = ExtResource("9_sqeg0")
-metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
-
 [sub_resource type="Resource" id="Resource_x435t"]
 script = ExtResource("10_sqeg0")
 zombieScene = ExtResource("8_uuop7")
 lane = 4
 metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
 
+[sub_resource type="Resource" id="Resource_qriix"]
+script = ExtResource("10_sqeg0")
+zombieScene = ExtResource("9_sqeg0")
+metadata/_custom_type_script = "uid://cb5iqe7odjm1f"
+
 [sub_resource type="Resource" id="Resource_jnkpk"]
 script = ExtResource("7_6wkd0")
-zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_v7p5c"), SubResource("Resource_y1oex"), SubResource("Resource_x435t")])
+zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_v7p5c"), SubResource("Resource_x435t"), SubResource("Resource_qriix")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
 [sub_resource type="Resource" id="Resource_mtfde"]
@@ -139,12 +139,6 @@ script = ExtResource("2_8cv8s")
 script = ExtResource("3_0nykj")
 levelLoaded = SubResource("Resource_lenh6")
 
-[node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
-
-[node name="SunMarker" type="Marker2D" parent="EditorMarkers" unique_id=1824166909]
-unique_name_in_owner = true
-position = Vector2(72, 81)
-
 [node name="BoardManager" type="Node2D" parent="." unique_id=369926797]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -173,6 +167,12 @@ script = ExtResource("6_muhop")
 [node name="ProjectileManager" type="Node2D" parent="BoardManager" unique_id=1817123745]
 unique_name_in_owner = true
 y_sort_enabled = true
+
+[node name="EditorMarkers" type="Node2D" parent="." unique_id=290815795]
+
+[node name="SunMarker" type="Marker2D" parent="EditorMarkers" unique_id=1824166909]
+unique_name_in_owner = true
+position = Vector2(72, 81)
 
 [node name="SeedbankManager" type="Node" parent="." unique_id=424637520]
 script = ExtResource("4_k3x6f")

@@ -1,6 +1,7 @@
 extends Node
 class_name levelManager
 
+@onready var _boardManager: boardManager = %BoardManager
 @onready var _actionContext: actionContext = %ActionContext
 @export var levelLoaded : levelResource
 
@@ -11,6 +12,7 @@ var maxWaves : int
 func _ready() -> void:
 	maxWaves = levelLoaded.waves.size()
 	startLevel()
+	
 
 func startLevel():
 	await get_tree().create_timer(levelLoaded.initialWaitTime).timeout

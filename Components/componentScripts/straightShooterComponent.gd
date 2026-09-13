@@ -58,10 +58,8 @@ func shoot() -> void:
 
 func spawnProjectile(point : Marker2D):
 	var _boardManager : boardManager = parent._boardManager
-	var projectileInstance : projectile = SpawnHelper.spawnEntity(projectileScene , _boardManager , _boardManager._projectileManager , point.global_position)
+	var projectileInstance : projectile = SpawnHelper.spawnEntity(projectileScene , _boardManager , _boardManager._projectileManager , point.global_position , parent.grid)
 	projectileInstance.attacker = parent
-	projectileInstance.grid = parent.grid
-	projectileInstance.existedInLawn.emit()
 	projectileInstance.evaluateStats(_projectileStats)
 
 func disable():

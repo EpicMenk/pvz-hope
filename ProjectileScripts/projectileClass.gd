@@ -14,6 +14,7 @@ func _ready() -> void:
 	super()
 	updateHitboxCollisionMask()
 	_hitboxComponent.ownerEntity = self
+	existedInLawn.emit()
 
 
 func processHit(hurtboxes : Array[hurtboxComponent]) -> void:
