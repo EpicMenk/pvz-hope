@@ -49,16 +49,16 @@ func disableComponent():
 			child.disable()
 
 func uponExistingInLawn():
-	print("yep")
+	existInLawn = true
 	spawnShadow()
 
 func spawnShadow():
 	var shadowScene : PackedScene = preload("uid://c5pkycrbfusgd") #shadow component uid
 	var shadow : shadowComponent = shadowScene.instantiate()
-	shadow.lane = lane
 	shadow.parent = self
 	shadow._boardManager = _boardManager
 	shadow.shadowSize = shadowSize
+	shadow.setLane(lane)
 	add_child(shadow)
 
 

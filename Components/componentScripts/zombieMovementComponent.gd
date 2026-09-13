@@ -7,7 +7,7 @@ func move(delta):
 	if zombie.zombieMeleeC.getCurrentTarget() :
 		return
 	zombie.position += getVelocity() * delta
-	updateZombieGrid()
+	updateGridPosition()
 
 
 func updateZombieGrid():

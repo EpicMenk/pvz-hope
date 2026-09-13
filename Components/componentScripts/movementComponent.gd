@@ -25,7 +25,7 @@ const DIRECTION_VECTORS := [
 ## start(), and coasts to a stop on stop() instead of halting instantly.
 @export var acceleration : float = 0.0
 
-@onready var parent = get_parent() as Node2D
+@onready var parent : boardEntity = get_parent() 
 
 var isMoving : bool = true
 var _currentSpeed : float = 0.0
@@ -60,6 +60,7 @@ func _updateSpeed(delta: float) -> void:
 
 func move(delta):
 	parent.position += getVelocity() * delta
+	updateGridPosition()
 
 
 func getVelocity() -> Vector2:
@@ -86,6 +87,11 @@ func start():
 		_currentSpeed = speed
 	set_process(true)
 
+func updateGridPosition():
+	var newGrid : Vector2i = parent._boardManager.worldToGrid(parent.global_position)
+	if newGrid == parent.grid:
+		return
+	parent.grid = newGrid
 
 func reverseDirection() -> void:
 	match direction:

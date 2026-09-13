@@ -11,6 +11,7 @@ var _damageInfo : damageInfo
 
 
 func _ready() -> void:
+	super()
 	updateHitboxCollisionMask()
 	_hitboxComponent.ownerEntity = self
 
