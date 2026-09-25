@@ -3187,7 +3187,7 @@ tracks/105/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [false]
 }
 tracks/106/type = "value"
 tracks/106/imported = false
@@ -6598,7 +6598,6 @@ texture = ExtResource("12_a76mm")
 offset = Vector2(20, -364.99994)
 
 [node name="Head" type="Sprite2D" parent="offset/root/Torso" unique_id=454040293]
-visible = false
 position = Vector2(-55, -275)
 rotation = 0.17157482
 scale = Vector2(0.99999994, 0.99999994)
@@ -6624,6 +6623,9 @@ position = Vector2(-45, -80)
 scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("16_h52do")
 offset = Vector2(0, 115)
+
+[node name="ArmorMarker" type="Marker2D" parent="offset/root/Torso/Head" unique_id=383358844]
+position = Vector2(-110.00001, -110.00001)
 
 [node name="UpperHandRight" type="Sprite2D" parent="offset/root/Torso" unique_id=1359603227]
 position = Vector2(-5, -225)
@@ -6686,6 +6688,9 @@ visible = false
 position = Vector2(-210, 759.9999)
 scale = Vector2(0.99999994, 0.99999994)
 gizmo_extents = 543.7
+
+[node name="Origin" type="Marker2D" parent="offset/root" unique_id=1813644130]
+position = Vector2(114.99999, 434.99994)
 
 [node name="Marker2D" type="Marker2D" parent="offset" unique_id=451556029]
 position = Vector2(289.99994, 734.99994)

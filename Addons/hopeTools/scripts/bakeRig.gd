@@ -6,6 +6,7 @@ signal bakingCompleted
 
 @export_group("Animation Configurations")
 @export var output_dir : String = "res://BakedFrames/"
+@export var bake_name : String = "MyBake"
 @export var target_fps : float = 30
 @export var animations_to_bake : Array[String] = []
 @export var capture_size : Vector2i = Vector2i(128, 128)
@@ -39,6 +40,20 @@ signal bakingCompleted
 	set(value):
 		bakeOnlyTarget = value
 		notify_property_list_changed()
+
+# The name of the folder used when baking only a target.
+#
+# Example:
+# bake_name = "ZombieBasic"
+# targetName = "Head"
+#
+# Output:
+# BakedFrames/ZombieBasic/Head/Attack/
+# BakedFrames/ZombieBasic/Head/Walk/
+# BakedFrames/ZombieBasic/Head/Idle/
+#
+# This is only shown in the Inspector when bakeOnlyTarget is enabled.
+@export var targetName : String = "Target"
 
 # The top node of the visual group to bake.
 #
@@ -117,13 +132,34 @@ func _ready():
 			)
 			return
 
+		if targetName.strip_edges().is_empty():
+			push_error(
+				"Bake Only Target is enabled, but Target Name is empty."
+			)
+			return
+
 	var anim_list : Array[String] = animations_to_bake
 
 	if anim_list.is_empty():
 		anim_list.assign(_anim_player.get_animation_list())
 
+	# ------------------------------------------------------------
+	# Build the output root.
+	#
+	# Normal bake:
+	# BakedFrames/ZombieBasic/
+	#
+	# Target-only bake:
+	# BakedFrames/ZombieBasic/Head/
+	# ------------------------------------------------------------
+
+	var bake_output_root : String = output_dir.path_join(bake_name)
+
+	if bakeOnlyTarget:
+		bake_output_root = bake_output_root.path_join(targetName)
+
 	DirAccess.make_dir_recursive_absolute(
-		ProjectSettings.globalize_path(output_dir)
+		ProjectSettings.globalize_path(bake_output_root)
 	)
 
 	# Save the editor state before any baking changes are made.
@@ -134,13 +170,17 @@ func _ready():
 	var crop_rect : Rect2i = await _compute_global_crop_rect(anim_list)
 
 	for anim_name in anim_list:
-		await _bake_animation(anim_name, crop_rect)
+		await _bake_animation(
+			anim_name,
+			crop_rect,
+			bake_output_root
+		)
 
 	# Make sure everything has been restored.
 	_restoreBakeTarget()
 	_restoreOriginalVisibility()
 
-	print("Baking complete! Check: ", output_dir)
+	print("Baking complete! Check: ", bake_output_root)
 
 	bakingCompleted.emit()
 
@@ -162,7 +202,11 @@ func _find_animation_player(node : Node) -> AnimationPlayer:
 # ANIMATION BAKING
 # ============================================================
 
-func _bake_animation(anim_name : String, crop_rect : Rect2i):
+func _bake_animation(
+	anim_name : String,
+	crop_rect : Rect2i,
+	bake_output_root : String
+):
 
 	# Make sure the animation starts from the original rig state.
 	_restoreBakeTarget()
@@ -280,13 +324,26 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 			dst
 		)
 
-	var sheet_path : String = output_dir.path_join(
+	# ------------------------------------------------------------
+	# Create an individual folder for this animation.
+	#
+	# Example:
+	# BakedFrames/ZombieBasic/Head/Attack/
+	# ------------------------------------------------------------
+
+	var animation_output_dir : String = bake_output_root.path_join(anim_name)
+
+	DirAccess.make_dir_recursive_absolute(
+		ProjectSettings.globalize_path(animation_output_dir)
+	)
+
+	var sheet_path : String = animation_output_dir.path_join(
 		anim_name + ".png"
 	)
 
 	sheet.save_png(sheet_path)
 
-	var meta_path : String = output_dir.path_join(
+	var meta_path : String = animation_output_dir.path_join(
 		anim_name + "_info.txt"
 	)
 
@@ -295,7 +352,9 @@ func _bake_animation(anim_name : String, crop_rect : Rect2i):
 		FileAccess.WRITE
 	)
 
-	var origin_px : Vector2 = rig_container.to_local(animationOrigin.global_position)
+	var origin_px : Vector2 = rig_container.to_local(
+		animationOrigin.global_position
+	)
 
 	var layer_offset : Vector2 = (
 		Vector2(crop_rect.position)
@@ -670,6 +729,7 @@ func _compute_global_crop_rect(
 
 	return crop_rect
 
+
 func _validate_property(property : Dictionary):
 	if property.name == "bakeTarget":
 		if not bakeOnlyTarget:
@@ -680,6 +740,10 @@ func _validate_property(property : Dictionary):
 			property.usage = PROPERTY_USAGE_NO_EDITOR
 
 	elif property.name == "bakeExcludedNodes":
+		if not bakeOnlyTarget:
+			property.usage = PROPERTY_USAGE_NO_EDITOR
+
+	elif property.name == "targetName":
 		if not bakeOnlyTarget:
 			property.usage = PROPERTY_USAGE_NO_EDITOR
 
