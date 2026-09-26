@@ -9,7 +9,6 @@ signal bakingCompleted
 @export var bake_name : String = "MyBake"
 @export var target_fps : float = 30
 @export var animations_to_bake : Array[String] = []
-@export var capture_size : Vector2i = Vector2i(128, 128)
 @export var animationOrigin : Marker2D
 
 
@@ -109,7 +108,6 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 
-	viewport.size = capture_size
 	viewport.transparent_bg = true
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 
@@ -342,15 +340,16 @@ func _bake_animation(
 	)
 
 	sheet.save_png(sheet_path)
+	
 
-	var meta_path : String = animation_output_dir.path_join(
-		anim_name + "_info.txt"
-	)
-
-	var meta_file : FileAccess = FileAccess.open(
-		meta_path,
-		FileAccess.WRITE
-	)
+	#var meta_path : String = animation_output_dir.path_join(
+		#anim_name + "_info.txt"
+	#)
+#
+	#var meta_file : FileAccess = FileAccess.open(
+		#meta_path,
+		#FileAccess.WRITE
+	#)
 
 	var origin_px : Vector2 = rig_container.to_local(
 		animationOrigin.global_position
@@ -360,21 +359,30 @@ func _bake_animation(
 		Vector2(crop_rect.position)
 		+ Vector2(crop_rect.size) / 2.0
 	) - origin_px
+	
+	var meta : animMetaData = animMetaData.new()
+	meta.framesCount = frame_count
+	meta.columns = columns
+	meta.rows = rows
+	meta.frameSize = crop_rect.size
+	meta.layerOffset = layer_offset
+	meta.fps = target_fps
+	
+	ResourceSaver.save(meta , animation_output_dir.path_join(anim_name + "_meta.tres"))
+	#meta_file.store_string(
+		#"frame_count: %d\ncolumns: %d\nrows: %d\nframe_size: %dx%d\nlayer_offset: %f,%f\n"
+		#% [
+			#frame_count,
+			#columns,
+			#rows,
+			#crop_rect.size.x,
+			#crop_rect.size.y,
+			#layer_offset.x,
+			#layer_offset.y
+		#]
+	#)
 
-	meta_file.store_string(
-		"frame_count: %d\ncolumns: %d\nrows: %d\nframe_size: %dx%d\nlayer_offset: %f,%f\n"
-		% [
-			frame_count,
-			columns,
-			rows,
-			crop_rect.size.x,
-			crop_rect.size.y,
-			layer_offset.x,
-			layer_offset.y
-		]
-	)
-
-	meta_file.close()
+	#meta_file.close()
 
 	print(
 		"Baked '",
@@ -610,8 +618,8 @@ func _compute_global_crop_rect(
 	anim_list : Array[String]
 ) -> Rect2i:
 
-	var global_min_x : int = capture_size.x
-	var global_min_y : int = capture_size.y
+	var global_min_x : int = viewport.size.x
+	var global_min_y : int = viewport.size.y
 
 	var global_max_x : int = 0
 	var global_max_y : int = 0
@@ -707,12 +715,12 @@ func _compute_global_crop_rect(
 
 	global_max_x = min(
 		global_max_x + PADDING,
-		capture_size.x
+		viewport.size.x
 	)
 
 	global_max_y = min(
 		global_max_y + PADDING,
-		capture_size.y
+		viewport.size.y
 	)
 
 	var crop_rect : Rect2i = Rect2i(

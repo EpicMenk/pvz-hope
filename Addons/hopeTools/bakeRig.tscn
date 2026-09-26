@@ -6515,7 +6515,6 @@ _data = {
 script = ExtResource("1_oaj8d")
 bake_name = "modernDayBasicZombieAnimation"
 animations_to_bake = Array[String](["walk", "attack", "death", "idle"])
-capture_size = Vector2i(300, 300)
 animationOrigin = NodePath("SubViewport/Node2D/ModernDayBasicZombieAnim/offset/root/Origin")
 _markerCopier = NodePath("MarkerCopier")
 bakeOnlyTarget = true
@@ -6542,7 +6541,7 @@ size = Vector2i(300, 300)
 unique_name_in_owner = true
 
 [node name="ModernDayBasicZombieAnim" type="Node2D" parent="SubViewport/Node2D" unique_id=1731695366]
-position = Vector2(-160, -130)
+position = Vector2(-160, -100)
 
 [node name="offset" type="Node2D" parent="SubViewport/Node2D/ModernDayBasicZombieAnim" unique_id=1122619381]
 position = Vector2(306, 211)
@@ -6723,8 +6722,8 @@ position = Vector2(-210, 759.9999)
 scale = Vector2(0.99999994, 0.99999994)
 gizmo_extents = 543.7
 
-[node name="Origin" type="Marker2D" parent="SubViewport/Node2D/ModernDayBasicZombieAnim/offset/root" unique_id=388936609]
-position = Vector2(89.99999, 194.99998)
+[node name="Origin" type="Marker2D" parent="SubViewport/Node2D/ModernDayBasicZombieAnim/offset/root" unique_id=1699060506]
+position = Vector2(114.99999, 434.99994)
 
 [node name="Marker2D" type="Marker2D" parent="SubViewport/Node2D/ModernDayBasicZombieAnim/offset" unique_id=451556029]
 position = Vector2(289.99994, 734.99994)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="animMetaData" format=3]
+
+[ext_resource type="Script" path="res://GeneralScripts/AnimMetaData.gd" id="1_i87qf"]
+
+[resource]
+script = ExtResource("1_i87qf")
+framesCount = 121
+columns = 11
+rows = 11
+frameSize = Vector2i(178, 227)
+layerOffset = Vector2i(-36, -48)
+fps = 30.0

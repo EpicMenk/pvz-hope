@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcbu07hd7fyef"]
+
+[ext_resource type="Script" uid="uid://b6l4323divwae" path="res://Addons/hopeTools/scripts/bakeAnimImporter.gd" id="1_8acrc"]
+
+[node name="bakeAnimImporter" type="Node" unique_id=1473283204]
+script = ExtResource("1_8acrc")
