@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://b2osd3j4fguwe" path="res://Plants/Peashooter/peashooterStats.tres" id="3_01iyj"]
 [ext_resource type="Script" uid="uid://dakihs2riqbaw" path="res://Components/componentScripts/straightShooterComponent.gd" id="3_1sky7"]
 [ext_resource type="PackedScene" uid="uid://crqhoj621js1c" path="res://Plants/Peashooter/pea.tscn" id="4_4rmwx"]
+[ext_resource type="Script" uid="uid://bsucu4ungqr16" path="res://GeneralScripts/burstSequencer.gd" id="6_eolwv"]
 [ext_resource type="Script" uid="uid://dktt3mvsegtuk" path="res://ProjectileScripts/projectileStats.gd" id="8_ioip6"]
 [ext_resource type="Texture2D" uid="uid://cl6blrloofcye" path="res://Plants/Peashooter/Assets/Spritesheet/attack.png" id="9_eolwv"]
 [ext_resource type="Texture2D" uid="uid://bgwho230df5g5" path="res://Plants/Peashooter/Assets/Spritesheet/idle.png" id="10_ioip6"]
@@ -15,6 +16,12 @@ script = ExtResource("8_ioip6")
 damage = 100
 projectileSpeed = 1000.0
 metadata/_custom_type_script = "uid://dktt3mvsegtuk"
+
+[sub_resource type="Resource" id="Resource_s37f1"]
+script = ExtResource("6_eolwv")
+repeatCount = 5
+repeatDelay = 0.2
+metadata/_custom_type_script = "uid://bsucu4ungqr16"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eolwv"]
 atlas = ExtResource("9_eolwv")
@@ -690,20 +697,6 @@ tracks/0/keys = {
 "method": &"play"
 }]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("straightShooterComponent")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.41),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"shoot"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_pbx2j"]
 resource_name = "idle"
@@ -746,6 +739,7 @@ unique_name_in_owner = true
 position = Vector2(0, -1)
 script = ExtResource("3_1sky7")
 _projectileStats = SubResource("Resource_b0c54")
+burst = SubResource("Resource_s37f1")
 animPlayer = NodePath("../AnimationPlayer")
 timeBetweenShots = 3.0
 projectileScene = ExtResource("4_4rmwx")

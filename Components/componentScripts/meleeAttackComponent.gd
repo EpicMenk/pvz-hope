@@ -3,7 +3,9 @@ class_name meleeAttackComponent
 
 signal startedAttacking
 signal stoppedAttacking
+signal didAttack
 
+@export var burst : burstSequencer
 @export var damage : int 
 @export var attackReachInTiles : int
 @export var attackCooldown : float 
@@ -33,7 +35,14 @@ func attack():
 		setAttacking(false)
 		return
 	setAttacking(true)
-	_dealDamage(target)
+	await burst.fire(hitOnce)
+
+
+func hitOnce():
+	var target := getCurrentTarget()
+	if target == null:
+		return
+	dealDamage(target)
 
 func getTarget() -> boardEntity:
 	return null #subclass overrides this
@@ -52,11 +61,12 @@ func setAttacking(attacking: bool):
 		stoppedAttacking.emit()
 
 
-func _dealDamage(target : boardEntity):
+func dealDamage(target : boardEntity):
 	var hurtbox : hurtboxComponent = target.getHurtboxComponent()
 	if hurtbox == null:
 		return
 	hurtbox.takeDamage(_damageInfo)
+	didAttack.emit()
 	attackCooldownTimer.start()
 
 func buildDamageInfo():

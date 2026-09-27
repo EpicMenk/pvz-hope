@@ -13,7 +13,6 @@ var isPlaced : bool = false
 
 func die():
 	_boardManager.unregisterGridOccupant(grid)
-	queue_free()
 
 func onPlanted():
 	existedInLawn.emit()

@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://myyeecl6so74"]
 
 [ext_resource type="Script" uid="uid://birk06gsdxqle" path="res://Components/componentScripts/zombieMovementComponent.gd" id="1_owo2t"]
+[ext_resource type="Script" uid="uid://bsucu4ungqr16" path="res://GeneralScripts/burstSequencer.gd" id="2_7jwjk"]
+
+[sub_resource type="Resource" id="Resource_6eo20"]
+script = ExtResource("2_7jwjk")
+repeatCount = 2
+repeatDelay = 0.5
+metadata/_custom_type_script = "uid://bsucu4ungqr16"
 
 [node name="zombieMovementComponent" type="Node" unique_id=953325601]
 script = ExtResource("1_owo2t")
+burst = SubResource("Resource_6eo20")
+timeBetweenCycles = 1.0
+stepTime = 0.5
+restBetweenSteps = 0.5

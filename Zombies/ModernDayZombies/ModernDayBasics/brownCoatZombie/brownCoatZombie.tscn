@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_tlp3n"]
 [ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="2_slscc"]
 [ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_aqq7f"]
+[ext_resource type="Script" uid="uid://bsucu4ungqr16" path="res://GeneralScripts/burstSequencer.gd" id="4_ddlrf"]
 [ext_resource type="PackedScene" uid="uid://dcbu07hd7fyef" path="res://Addons/hopeTools/bakeAnimImporter.tscn" id="4_nrxp2"]
 [ext_resource type="Script" uid="uid://ces88jm88c0v1" path="res://GeneralScripts/AnimMetaData.gd" id="5_d2c28"]
 [ext_resource type="Texture2D" uid="uid://c162gem0xbcm5" path="res://Zombies/ModernDayZombies/ModernDayBasics/modernDayBasicZombieAnimation/Body/attack/attack.png" id="6_qv4py"]
@@ -30,6 +31,12 @@ speed = 70.0
 weight = 1.0
 point = 1.0
 metadata/_custom_type_script = "uid://e8w77s8p2s5y"
+
+[sub_resource type="Resource" id="Resource_um6f8"]
+script = ExtResource("4_ddlrf")
+repeatCount = 2
+repeatDelay = 0.5
+metadata/_custom_type_script = "uid://bsucu4ungqr16"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qr5x5"]
 atlas = ExtResource("6_qv4py")
@@ -6711,6 +6718,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_ehbug"]
 length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -6808,7 +6816,10 @@ maxHP = 1000
 attackReachInTiles = 100
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]
-speed = 60.0
+burst = SubResource("Resource_um6f8")
+stepTime = 1.5
+speed = 10.0
+acceleration = 110.0
 
 [node name="bakeAnimImporter" parent="." index="6" unique_id=1473283204 node_paths=PackedStringArray("sprite") instance=ExtResource("4_nrxp2")]
 sprite = NodePath("../RightArm")
@@ -6824,18 +6835,21 @@ show_behind_parent = true
 z_as_relative = false
 position = Vector2(-7, -20)
 sprite_frames = SubResource("SpriteFrames_d2c28")
-animation = &"idle"
+animation = &"walk"
+frame = 120
 
 [node name="RightArm" type="AnimatedSprite2D" parent="." index="8" unique_id=1584605963]
 position = Vector2(-8, -7)
 sprite_frames = SubResource("SpriteFrames_ap0l1")
-animation = &"idle"
+animation = &"walk"
+frame = 120
 
 [node name="Head" type="AnimatedSprite2D" parent="." index="9" unique_id=71767998]
 position = Vector2(-36, -48)
 sprite_frames = SubResource("SpriteFrames_i3un4")
-animation = &"idle"
+animation = &"walk"
+frame = 120
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=619144301]
 libraries/ = SubResource("AnimationLibrary_mcqki")
-autoplay = &"idle"
+autoplay = &"walk"

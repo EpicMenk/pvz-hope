@@ -71,19 +71,22 @@ func getDirectionVector() -> Vector2:
 	return DIRECTION_VECTORS[direction]
 
 
-func stop():
-	if acceleration <= 0.0 or not isMoving:
+func stop(hard: bool = false) -> void:
+	if hard or acceleration <= 0.0 or not isMoving:
 		isMoving = false
 		_isStopping = false
+		_currentSpeed = 0.0
 		set_process(false)
 		return
-	_isStopping = true   # keep _physics_process running to decelerate
+	_isStopping = true   # keep _process running to decelerate
 
 
-func start():
+func start(resetSpeed: bool = false) -> void:
 	_isStopping = false
 	isMoving = true
-	if acceleration <= 0.0:
+	if resetSpeed:
+		_currentSpeed = 0.0
+	elif acceleration <= 0.0:
 		_currentSpeed = speed
 	set_process(true)
 

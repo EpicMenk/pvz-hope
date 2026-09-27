@@ -12,10 +12,12 @@ func _ready() -> void:
 
 
 func playWalk():
+	if not animationPlayer : return
 	animationPlayer.play("walk" , customBlendValue)
 
 
 func playEat():
+	if not animationPlayer : return
 	animationPlayer.play("attack" , customBlendValue)
 
 
