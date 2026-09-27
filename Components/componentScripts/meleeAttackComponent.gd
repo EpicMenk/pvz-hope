@@ -61,6 +61,8 @@ func setAttacking(attacking: bool):
 		stoppedAttacking.emit()
 
 
+
+
 func dealDamage(target : boardEntity):
 	var hurtbox : hurtboxComponent = target.getHurtboxComponent()
 	if hurtbox == null:

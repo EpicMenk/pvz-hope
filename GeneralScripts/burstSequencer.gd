@@ -6,10 +6,10 @@ class_name burstSequencer
 
 func fire(onShot: Callable) -> void:
 	for i in repeatCount:
-		await onShot.call()
-		
 		if not is_instance_valid(onShot.get_object()):
 			return
+		await onShot.call()
+		
 		
 		if i != repeatCount - 1:
 			await (Engine.get_main_loop() as SceneTree).create_timer(repeatDelay).timeout

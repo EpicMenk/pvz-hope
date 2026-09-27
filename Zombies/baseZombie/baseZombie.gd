@@ -7,8 +7,8 @@ class_name Zombie
 @export var zombieMeleeC: zombieMeleeAttackComponent 
 @export var zombieMovementC: zombieMovementComponent 
 @export var zombieAnimationC: zombieAnimationComponent 
-@export var head: Sprite2D 
-@export var lowerHandRight: Sprite2D 
+@export var head: Node2D 
+@export var lowerHandRight: Node2D 
 
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
@@ -26,16 +26,16 @@ func evaluateEvent(event : StringName):
 		&"dropRightArm":
 			dropLimb(lowerHandRight)
 
-func dropLimb(limb : Sprite2D):
-	if not limb : 	return
+func dropLimb(limb : Node2D):
+	if not limb: return
 	var _floor : float = ground.global_position.y
 	limb.visible = false
 	var physicObject : physicsSprite2D = load("uid://cduer3twlusei").instantiate()
 	get_parent().add_child(physicObject)
-	physicObject.copyHierarchy(limb , _floor)
+	physicObject.copyHierarchy(limb, _floor)
 	physicObject.z_index = z_index + 1
 	physicObject.drop(
-	Vector2(randf_range(-120,120), randf_range(-120,-350)) ,randf_range(-1,1))
+		Vector2(randf_range(-120,120), randf_range(-120,-350)), randf_range(-1,1))
 
 func getZombieStats():
 	return stats
@@ -44,7 +44,15 @@ func getHurtboxComponent() -> hurtboxComponent:
 	return hurtboxC
 
 func die():
+	disableComponent()
 	dropLimb(head)
+	zombieAnimationC.changeAnim("death")
+	await zombieAnimationC.animationPlayer.animation_finished
+	var disappearTween := get_tree().create_tween()
+	disappearTween.tween_property(self, "modulate:a", 0.0, 0.5)
+	disappearTween.set_ease(Tween.EASE_IN_OUT)
+	disappearTween.set_trans(Tween.TRANS_SINE)
+	await disappearTween.finished
 	_zombieManager.unregisterZombie(self)
 	queue_free()
 

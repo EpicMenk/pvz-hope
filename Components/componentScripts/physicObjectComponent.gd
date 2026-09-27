@@ -86,11 +86,8 @@ func playDisappearingTween():
 	disappearTween.finished.connect(queue_free)
 
 
-func copyHierarchy(from: Sprite2D , yfloor : float):
-	texture = from.texture
-	flip_h = from.flip_h
-	flip_v = from.flip_v
-	offset = from.offset
+func copyHierarchy(from: Node2D, yfloor: float):
+	_copySnapshot(from)
 	global_position = from.global_position
 	global_rotation = from.global_rotation
 	global_scale = from.global_scale
@@ -98,17 +95,13 @@ func copyHierarchy(from: Sprite2D , yfloor : float):
 	show_behind_parent = from.show_behind_parent
 	floorY = yfloor
 	for child in from.get_children():
-		if child is Sprite2D:
-			var newChild : physicsSprite2D= preload("uid://cduer3twlusei").instantiate()
+		if child is Sprite2D or child is AnimatedSprite2D:
+			var newChild : physicsSprite2D = PHYSICS_OBJECT.instantiate()
 			add_child(newChild)
-			newChild.copyChildHierarchy(child , yfloor)
+			newChild.copyChildHierarchy(child, yfloor)
 
-
-func copyChildHierarchy(from: Sprite2D, yFloor: float):
-	texture = from.texture
-	flip_h = from.flip_h
-	flip_v = from.flip_v
-	offset = from.offset
+func copyChildHierarchy(from: Node2D, yFloor: float):
+	_copySnapshot(from)
 	position = from.position
 	rotation = from.rotation
 	scale = from.scale
@@ -116,10 +109,24 @@ func copyChildHierarchy(from: Sprite2D, yFloor: float):
 	show_behind_parent = from.show_behind_parent
 	floorY = yFloor
 	for child in from.get_children():
-		if child is Sprite2D:
+		if child is Sprite2D or child is AnimatedSprite2D:
 			var newChild: physicsSprite2D = PHYSICS_OBJECT.instantiate()
 			add_child(newChild)
 			newChild.copyChildHierarchy(child, yFloor)
+
+func _copySnapshot(from: Node2D) -> void:
+	if from is Sprite2D:
+		texture = from.texture
+		flip_h = from.flip_h
+		flip_v = from.flip_v
+		offset = from.offset
+	elif from is AnimatedSprite2D:
+		texture = from.sprite_frames.get_frame_texture(from.animation, from.frame)
+		flip_h = from.flip_h
+		flip_v = from.flip_v
+		offset = from.offset
+	else:
+		push_warning("physicsSprite2D.copyHierarchy: unsupported source type %s" % from.get_class())
 
 
 # Starts the simulation with an initial velocity.

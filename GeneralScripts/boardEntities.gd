@@ -23,6 +23,8 @@ var _boardManager : boardManager
 @export var ground: Marker2D 
 @export var team: teamEnums
 @export var shadowSize : shadowComponent.shadowSizesEnums
+#registers components here if we were to inject new components at runtime
+@export var gameplayComponents : Array[Node] = [] 
 
 func _ready() -> void:
 	self.existedInLawn.connect(uponExistingInLawn)
@@ -32,11 +34,10 @@ func initializeManagers(bm: boardManager):
 	_plantManager = bm.getPlantManager()
 	_zombieManager = bm.getZombieManager()
 
-#registers components here if we were to inject new components at runtime
-var components : Array[Variant] = [] 
 
-func registerRuntimeComponent(component : Node):
-	components.append(component)
+
+#func registerRuntimeComponent(component : Node):
+	#gameplayComponents.append(component)
 
 func activateComponent():
 	for child in get_children():

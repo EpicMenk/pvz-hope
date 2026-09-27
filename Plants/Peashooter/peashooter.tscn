@@ -13,13 +13,12 @@
 
 [sub_resource type="Resource" id="Resource_b0c54"]
 script = ExtResource("8_ioip6")
-damage = 100
+damage = 300
 projectileSpeed = 1000.0
 metadata/_custom_type_script = "uid://dktt3mvsegtuk"
 
 [sub_resource type="Resource" id="Resource_s37f1"]
 script = ExtResource("6_eolwv")
-repeatCount = 5
 repeatDelay = 0.2
 metadata/_custom_type_script = "uid://bsucu4ungqr16"
 
