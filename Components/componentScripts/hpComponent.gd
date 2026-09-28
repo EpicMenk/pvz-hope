@@ -7,8 +7,9 @@ signal died
 signal eventTriggered(event : StringName)
 
 @export var hpEvents : Dictionary [int , StringName]
+@export var shieldEvents : Dictionary [int , StringName]
 @export var maxHP : int = 1
-@export var shield : int
+@export var maxShield : int = 0
 @onready var parent : boardEntity = get_parent() as boardEntity
 var hasDied : bool = false
 var triggeredEvents : Array
@@ -20,15 +21,32 @@ var currentHP : int :
 			hasDied = true
 			die()
 
-func _ready() -> void:
-	updateMaxHP(maxHP)
+var shield : int : 
+	set(amount):
+		shield = clamp(amount , 0 , maxShield)
+		checkShieldEvents()
+
 
 func updateMaxHP(HP : int):
 	maxHP = HP
 	currentHP = maxHP
 
-func updateShield(amount : int):
-	shield = amount
+func updateMaxShield(amount : int):
+	maxShield = amount
+	shield = maxShield
+
+func checkShieldEvents():
+	var thresholds := shieldEvents.keys()
+	thresholds.sort()
+	
+	for threshold in thresholds:
+		if threshold in triggeredEvents:
+			continue
+		
+		if shield <= threshold:
+			triggeredEvents.append(threshold)
+			eventTriggered.emit(shieldEvents[threshold])
+
 
 func checkHpEvents():
 	var thresholds := hpEvents.keys()

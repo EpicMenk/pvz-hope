@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bkx2shtr6ey1"]
+
+[ext_resource type="Script" uid="uid://g5rbqw3esu7l" path="res://Components/componentScripts/degradeComponent.gd" id="1_b7gjc"]
+
+[node name="DegradeComponent" type="Node2D" unique_id=1209870737]
+script = ExtResource("1_b7gjc")

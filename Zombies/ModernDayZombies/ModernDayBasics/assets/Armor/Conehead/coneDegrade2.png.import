@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlvrd7aogw1j1"
-path="res://.godot/imported/Untitled197_20260818133650.png-4b4aba51dca065b24c06b6b357c9a6f7.ctex"
+path="res://.godot/imported/coneDegrade2.png-b822abe2f3a1168dfedadce2ab20e397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Armor/Conehead/Untitled197_20260818133650.png"
-dest_files=["res://.godot/imported/Untitled197_20260818133650.png-4b4aba51dca065b24c06b6b357c9a6f7.ctex"]
+source_file="res://Zombies/ModernDayZombies/ModernDayBasics/assets/Armor/Conehead/coneDegrade2.png"
+dest_files=["res://.godot/imported/coneDegrade2.png-b822abe2f3a1168dfedadce2ab20e397.ctex"]
 
 [params]
 

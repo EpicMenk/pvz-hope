@@ -9,6 +9,7 @@ class_name Zombie
 @export var zombieAnimationC: zombieAnimationComponent 
 @export var head: Node2D 
 @export var lowerHandRight: Node2D 
+@export var armor : Node2D
 
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
@@ -25,6 +26,9 @@ func evaluateEvent(event : StringName):
 	match event:
 		&"dropRightArm":
 			dropLimb(lowerHandRight)
+		&"dropArmor":
+			if armor:
+				dropLimb(armor)
 
 func dropLimb(limb : Node2D):
 	if not limb: return
