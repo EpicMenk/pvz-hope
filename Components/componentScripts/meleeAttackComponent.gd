@@ -34,6 +34,8 @@ func attack():
 	if target == null:
 		setAttacking(false)
 		return
+	if get_parent().animationC:
+		get_parent().animationC.playAction(&"attack", attackCooldown)
 	setAttacking(true)
 	await burst.fire(hitOnce)
 
@@ -59,6 +61,8 @@ func setAttacking(attacking: bool):
 		startedAttacking.emit()
 	else:
 		stoppedAttacking.emit()
+		if parent.animationC:
+			parent.animationC.releaseClaim()
 
 
 

@@ -25,6 +25,7 @@ var _boardManager : boardManager
 @export var shadowSize : shadowComponent.shadowSizesEnums
 #registers components here if we were to inject new components at runtime
 @export var gameplayComponents : Array[Node] = [] 
+@export var animationC : animationComponent
 
 func _ready() -> void:
 	self.existedInLawn.connect(uponExistingInLawn)

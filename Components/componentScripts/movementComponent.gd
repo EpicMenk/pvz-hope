@@ -25,7 +25,6 @@ const DIRECTION_VECTORS := [
 ## start(), and coasts to a stop on stop() instead of halting instantly.
 @export var acceleration : float = 0.0
 
-@onready var parent : boardEntity = get_parent() 
 
 var isMoving : bool = true
 var _currentSpeed : float = 0.0

@@ -6,7 +6,6 @@ class_name Zombie
 @export var hurtboxC: hurtboxComponent
 @export var zombieMeleeC: zombieMeleeAttackComponent 
 @export var zombieMovementC: zombieMovementComponent 
-@export var zombieAnimationC: zombieAnimationComponent 
 @export var head: Node2D 
 @export var lowerHandRight: Node2D 
 @export var armor : Node2D
@@ -50,8 +49,8 @@ func getHurtboxComponent() -> hurtboxComponent:
 func die():
 	disableComponent()
 	dropLimb(head)
-	zombieAnimationC.changeAnim("death")
-	await zombieAnimationC.animationPlayer.animation_finished
+	animationC.changeAnim("death")
+	await animationC.animationPlayer.animation_finished
 	var disappearTween := get_tree().create_tween()
 	disappearTween.tween_property(self, "modulate:a", 0.0, 0.5)
 	disappearTween.set_ease(Tween.EASE_IN_OUT)

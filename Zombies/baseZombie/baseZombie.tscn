@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://myyeecl6so74" path="res://Components/ZombieComponents/zombieMovementComponent.tscn" id="5_4eq78"]
 [ext_resource type="Script" uid="uid://bsucu4ungqr16" path="res://GeneralScripts/burstSequencer.gd" id="5_6eo20"]
 [ext_resource type="PackedScene" uid="uid://drepq3xs3qrvx" path="res://Zombies/zombieGroundMarker.tscn" id="7_arsdy"]
-[ext_resource type="PackedScene" uid="uid://c52f0yra4qd04" path="res://Components/ZombieComponents/zombieAnimationComponent.tscn" id="26_hg078"]
+[ext_resource type="Script" uid="uid://cd6hscttndbbh" path="res://Components/componentScripts/animationComponent.gd" id="8_6eo20"]
 
 [sub_resource type="Resource" id="Resource_8tuei"]
 script = ExtResource("5_6eo20")
@@ -15,14 +15,13 @@ repeatCount = 7
 repeatDelay = 0.1
 metadata/_custom_type_script = "uid://bsucu4ungqr16"
 
-[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "zombieAnimationC", "ground")]
+[node name="baseZombie" type="Node2D" unique_id=2108398841 node_paths=PackedStringArray("hpC", "hurtboxC", "zombieMeleeC", "zombieMovementC", "ground")]
 y_sort_enabled = true
 script = ExtResource("1_g00xo")
 hpC = NodePath("hpComponent")
 hurtboxC = NodePath("hurtboxComponent")
 zombieMeleeC = NodePath("zombieMeleeAttackComponent")
 zombieMovementC = NodePath("zombieMovementComponent")
-zombieAnimationC = NodePath("zombieAnimationComponent")
 ground = NodePath("GroundMarker")
 team = 1
 
@@ -50,10 +49,11 @@ unique_name_in_owner = true
 speed = 30.0
 acceleration = 50.0
 
-[node name="zombieAnimationComponent" parent="." unique_id=155459487 instance=ExtResource("26_hg078")]
-unique_name_in_owner = true
-customBlendValue = 0.2
-
 [node name="GroundMarker" parent="." unique_id=1189790841 instance=ExtResource("7_arsdy")]
 unique_name_in_owner = true
 position = Vector2(-42, 64.99999)
+
+[node name="animationComponent" type="Node" parent="." unique_id=40668440]
+script = ExtResource("8_6eo20")
+fallbackAnimName = &"idle"
+metadata/_custom_type_script = "uid://cd6hscttndbbh"

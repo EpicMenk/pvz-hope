@@ -31,4 +31,5 @@ func move(delta):
 	updateGridPosition()
 
 func scheduleWalkVisual(interval: float) -> void:
-	pass  # Phase 2/3 hook — animationComponent.playAction("walk", interval); actionPointRatio("walk") = 1.0
+	if zombie.animationC:
+		zombie.animationC.playAction(&"walk", interval)

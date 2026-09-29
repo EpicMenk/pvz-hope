@@ -6719,7 +6719,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_ehbug"]
 length = 4.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -6801,7 +6800,7 @@ _data = {
 &"walk": SubResource("Animation_ehbug")
 }
 
-[node name="brownCoatZombie" unique_id=2108398841 node_paths=PackedStringArray("head", "lowerHandRight", "gameplayComponents") instance=ExtResource("1_tlp3n")]
+[node name="brownCoatZombie" unique_id=2108398841 node_paths=PackedStringArray("head", "lowerHandRight", "gameplayComponents", "animationC") instance=ExtResource("1_tlp3n")]
 y_sort_enabled = false
 script = ExtResource("2_slscc")
 stats = SubResource("Resource_slscc")
@@ -6809,6 +6808,7 @@ head = NodePath("Head")
 lowerHandRight = NodePath("RightArm")
 shadowSize = 1
 gameplayComponents = [NodePath("zombieMeleeAttackComponent"), NodePath("zombieMovementComponent")]
+animationC = NodePath("animationComponent")
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
 hpEvents = Dictionary[int, StringName]({
@@ -6825,8 +6825,13 @@ stepTime = 1.5
 speed = 10.0
 acceleration = 110.0
 
-[node name="zombieAnimationComponent" parent="." index="4" unique_id=155459487 node_paths=PackedStringArray("animationPlayer")]
+[node name="animationComponent" parent="." index="5" unique_id=40668440 node_paths=PackedStringArray("animationPlayer")]
 animationPlayer = NodePath("../AnimationPlayer")
+fallbackAnimName = &"walk"
+actionPriorities = Dictionary[StringName, int]({
+&"attack": 1,
+&"walk": 0
+})
 
 [node name="bakeAnimImporter" parent="." index="6" unique_id=1473283204 node_paths=PackedStringArray("sprite") instance=ExtResource("4_nrxp2")]
 sprite = NodePath("../RightArm")
@@ -6842,18 +6847,17 @@ show_behind_parent = true
 z_as_relative = false
 position = Vector2(-7, -20)
 sprite_frames = SubResource("SpriteFrames_d2c28")
-animation = &"attack"
+animation = &"walk"
 
 [node name="RightArm" type="AnimatedSprite2D" parent="." index="8" unique_id=1584605963]
 position = Vector2(-8, -7)
 sprite_frames = SubResource("SpriteFrames_ap0l1")
-animation = &"attack"
+animation = &"walk"
 
 [node name="Head" type="AnimatedSprite2D" parent="." index="9" unique_id=71767998]
 position = Vector2(-36, -48)
 sprite_frames = SubResource("SpriteFrames_i3un4")
-animation = &"attack"
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=619144301]
 libraries/ = SubResource("AnimationLibrary_mcqki")
-autoplay = &"walk"
