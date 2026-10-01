@@ -6827,11 +6827,6 @@ acceleration = 110.0
 
 [node name="animationComponent" parent="." index="5" unique_id=40668440 node_paths=PackedStringArray("animationPlayer")]
 animationPlayer = NodePath("../AnimationPlayer")
-fallbackAnimName = &"walk"
-actionPriorities = Dictionary[StringName, int]({
-&"attack": 1,
-&"walk": 0
-})
 
 [node name="bakeAnimImporter" parent="." index="6" unique_id=1473283204 node_paths=PackedStringArray("sprite") instance=ExtResource("4_nrxp2")]
 sprite = NodePath("../RightArm")
@@ -6847,17 +6842,17 @@ show_behind_parent = true
 z_as_relative = false
 position = Vector2(-7, -20)
 sprite_frames = SubResource("SpriteFrames_d2c28")
-animation = &"walk"
+animation = &"attack"
 
 [node name="RightArm" type="AnimatedSprite2D" parent="." index="8" unique_id=1584605963]
 position = Vector2(-8, -7)
 sprite_frames = SubResource("SpriteFrames_ap0l1")
-animation = &"walk"
+animation = &"attack"
 
 [node name="Head" type="AnimatedSprite2D" parent="." index="9" unique_id=71767998]
 position = Vector2(-36, -48)
 sprite_frames = SubResource("SpriteFrames_i3un4")
-animation = &"walk"
+animation = &"attack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=619144301]
 libraries/ = SubResource("AnimationLibrary_mcqki")

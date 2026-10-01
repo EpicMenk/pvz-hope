@@ -2,6 +2,7 @@ extends Node2D
 class_name boardEntity
 
 signal existedInLawn
+signal finishedInitializing
 
 enum teamEnums {
 	PLANT,

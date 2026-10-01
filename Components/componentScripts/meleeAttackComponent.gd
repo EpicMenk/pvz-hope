@@ -61,8 +61,7 @@ func setAttacking(attacking: bool):
 		startedAttacking.emit()
 	else:
 		stoppedAttacking.emit()
-		if parent.animationC:
-			parent.animationC.releaseClaim()
+
 
 
 

@@ -13,13 +13,15 @@ class_name Zombie
 func evaluateStats():
 	push_error("evaluateStats() needs to be overriden")
 
+func onFinishedInitialization():
+	push_error("onFinishedInitialization() needs to be overriden")
+
 func _ready() -> void:
 	super()
 	evaluateStats()
 	updateHurtboxCollisionLayer()
 	hpC.eventTriggered.connect(evaluateEvent)
-	zombieMeleeC.startedAttacking.connect(zombieMovementC.stop)
-	zombieMeleeC.stoppedAttacking.connect(zombieMovementC.start)
+	finishedInitializing.emit()
 
 func evaluateEvent(event : StringName):
 	match event:
