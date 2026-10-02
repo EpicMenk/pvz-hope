@@ -4,6 +4,7 @@ class_name meleeAttackComponent
 signal startedAttacking
 signal stoppedAttacking
 signal didAttack
+signal cycleFired(nextInterval: float)
 
 @export var burst : burstSequencer
 @export var damage : int 
@@ -34,10 +35,10 @@ func attack():
 	if target == null:
 		setAttacking(false)
 		return
-	if get_parent().animationC:
-		get_parent().animationC.playAction(&"attack", attackCooldown)
 	setAttacking(true)
 	await burst.fire(hitOnce)
+	cycleFired.emit(attackCooldown)
+	attackCooldownTimer.start()
 
 
 func hitOnce():
@@ -72,7 +73,7 @@ func dealDamage(target : boardEntity):
 		return
 	hurtbox.takeDamage(_damageInfo)
 	didAttack.emit()
-	attackCooldownTimer.start()
+
 
 func buildDamageInfo():
 	_damageInfo = damageInfo.new()

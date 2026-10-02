@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://nd2hikxhc76m" path="res://Zombies/baseZombie/baseZombie.tscn" id="1_tlp3n"]
 [ext_resource type="Script" uid="uid://c5kdpop10k8ne" path="res://Zombies/basicZombie.gd" id="2_slscc"]
-[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_aqq7f"]
+[ext_resource type="Script" uid="uid://e8w77s8p2s5y" path="res://Zombies/zombieStats.gd" id="3_4bcir"]
 [ext_resource type="Script" uid="uid://bsucu4ungqr16" path="res://GeneralScripts/burstSequencer.gd" id="4_ddlrf"]
 [ext_resource type="PackedScene" uid="uid://dcbu07hd7fyef" path="res://Addons/hopeTools/bakeAnimImporter.tscn" id="4_nrxp2"]
+[ext_resource type="Script" uid="uid://jlb75sjxocwm" path="res://GeneralScripts/animationActionConfig.gd" id="5_4bcir"]
 [ext_resource type="Script" uid="uid://ces88jm88c0v1" path="res://GeneralScripts/AnimMetaData.gd" id="5_d2c28"]
 [ext_resource type="Texture2D" uid="uid://c162gem0xbcm5" path="res://Zombies/ModernDayZombies/ModernDayBasics/modernDayBasicZombieAnimation/Body/attack/attack.png" id="6_qv4py"]
 [ext_resource type="Texture2D" uid="uid://bi1w56jtdcb3l" path="res://Zombies/ModernDayZombies/ModernDayBasics/modernDayBasicZombieAnimation/RightArm/attack/attack.png" id="6_um6f8"]
@@ -23,11 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://csyaayjo6quqy" path="res://Zombies/ModernDayZombies/ModernDayBasics/modernDayBasicZombieAnimation/Body/idle/idle.png" id="20_bh7k3"]
 [ext_resource type="Texture2D" uid="uid://xg1frju2g4wj" path="res://Zombies/ModernDayZombies/ModernDayBasics/modernDayBasicZombieAnimation/Body/walk/walk.png" id="21_sd14s"]
 
-[sub_resource type="Resource" id="Resource_slscc"]
-script = ExtResource("3_aqq7f")
-displayName = "Brown Coat Zombie"
-hp = 300
-speed = 70.0
+[sub_resource type="Resource" id="Resource_te3yy"]
+script = ExtResource("3_4bcir")
+hp = 100
+speed = 100.0
 weight = 1.0
 point = 1.0
 metadata/_custom_type_script = "uid://e8w77s8p2s5y"
@@ -35,8 +35,17 @@ metadata/_custom_type_script = "uid://e8w77s8p2s5y"
 [sub_resource type="Resource" id="Resource_um6f8"]
 script = ExtResource("4_ddlrf")
 repeatCount = 2
-repeatDelay = 0.5
+repeatDelay = 0.1
 metadata/_custom_type_script = "uid://bsucu4ungqr16"
+
+[sub_resource type="Resource" id="Resource_mcqki"]
+script = ExtResource("5_4bcir")
+actionPointRatio = 0.6
+metadata/_custom_type_script = "uid://jlb75sjxocwm"
+
+[sub_resource type="Resource" id="Resource_sun4s"]
+script = ExtResource("5_4bcir")
+metadata/_custom_type_script = "uid://jlb75sjxocwm"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qr5x5"]
 atlas = ExtResource("6_qv4py")
@@ -6493,7 +6502,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_6evn6"]
 length = 2.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -6800,14 +6808,13 @@ _data = {
 &"walk": SubResource("Animation_ehbug")
 }
 
-[node name="brownCoatZombie" unique_id=2108398841 node_paths=PackedStringArray("head", "lowerHandRight", "gameplayComponents", "animationC") instance=ExtResource("1_tlp3n")]
+[node name="brownCoatZombie" unique_id=2108398841 node_paths=PackedStringArray("head", "lowerHandRight", "animationC") instance=ExtResource("1_tlp3n")]
 y_sort_enabled = false
 script = ExtResource("2_slscc")
-stats = SubResource("Resource_slscc")
+stats = SubResource("Resource_te3yy")
 head = NodePath("Head")
 lowerHandRight = NodePath("RightArm")
 shadowSize = 1
-gameplayComponents = [NodePath("zombieMeleeAttackComponent"), NodePath("zombieMovementComponent")]
 animationC = NodePath("animationComponent")
 
 [node name="hpComponent" parent="." index="1" unique_id=1730016595]
@@ -6817,16 +6824,20 @@ hpEvents = Dictionary[int, StringName]({
 maxHP = 1000
 
 [node name="zombieMeleeAttackComponent" parent="." index="2" unique_id=125088792]
+damage = 50
 attackReachInTiles = 2
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]
 burst = SubResource("Resource_um6f8")
 stepTime = 1.5
-speed = 10.0
-acceleration = 110.0
+acceleration = 0.0
 
 [node name="animationComponent" parent="." index="5" unique_id=40668440 node_paths=PackedStringArray("animationPlayer")]
 animationPlayer = NodePath("../AnimationPlayer")
+actionConfigs = Dictionary[StringName, ExtResource("5_4bcir")]({
+&"attack": SubResource("Resource_mcqki"),
+&"walk": SubResource("Resource_sun4s")
+})
 
 [node name="bakeAnimImporter" parent="." index="6" unique_id=1473283204 node_paths=PackedStringArray("sprite") instance=ExtResource("4_nrxp2")]
 sprite = NodePath("../RightArm")

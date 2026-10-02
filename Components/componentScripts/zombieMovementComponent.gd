@@ -12,9 +12,6 @@ var _loopActive : bool = false
 @onready var zombie := parent as Zombie
 
 
-func evaluateStats() -> void:
-	resumeWalking()
-
 func resumeWalking() -> void:
 	_walking = true
 	if _loopActive:

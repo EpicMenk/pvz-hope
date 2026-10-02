@@ -30,13 +30,15 @@ var _boardManager : boardManager
 
 func _ready() -> void:
 	self.existedInLawn.connect(uponExistingInLawn)
+	self.finishedInitializing.connect(uponFinishedInitializing)
 
 func initializeManagers(bm: boardManager):
 	_boardManager = bm
 	_plantManager = bm.getPlantManager()
 	_zombieManager = bm.getZombieManager()
 
-
+func uponFinishedInitializing():
+	pass
 
 #func registerRuntimeComponent(component : Node):
 	#gameplayComponents.append(component)
