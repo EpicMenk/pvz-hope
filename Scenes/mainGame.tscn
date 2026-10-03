@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://dl8rwuobmihyt" path="res://Seedbank/Assets/Straps.png" id="11_juktf"]
 [ext_resource type="Resource" uid="uid://bwonl2ndheb02" path="res://Plants/Sunflower/sunflowerSeedPacket.tres" id="12_54fq6"]
 [ext_resource type="Texture2D" uid="uid://becann3mm0ai8" path="res://Seedbank/Assets/SunMedal.png" id="12_h6y7g"]
-[ext_resource type="Script" uid="uid://dmr3wxqclxbp7" path="res://LevelRelated/WaveActions/sunSkySpawnAction.gd" id="12_qriix"]
 [ext_resource type="FontFile" uid="uid://ci7k8y4otfbio" path="res://Seedpacket/Cafeteria-Black.otf" id="13_h6y7g"]
 [ext_resource type="Script" uid="uid://ypv0ynmul2ay" path="res://Debug/fpscounter.gd" id="18_m5gd2"]
 
@@ -64,15 +63,10 @@ script = ExtResource("7_6wkd0")
 zombiesList = Array[ExtResource("10_sqeg0")]([SubResource("Resource_v7p5c"), SubResource("Resource_x435t"), SubResource("Resource_qriix")])
 metadata/_custom_type_script = "uid://b21dvlcc5dhbp"
 
-[sub_resource type="Resource" id="Resource_mtfde"]
-script = ExtResource("12_qriix")
-amount = 10
-metadata/_custom_type_script = "uid://dmr3wxqclxbp7"
-
 [sub_resource type="Resource" id="Resource_11gtu"]
 script = ExtResource("8_mtfde")
 _endCondition = SubResource("Resource_352rq")
-actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_jnkpk"), SubResource("Resource_mtfde")])
+actions = Array[ExtResource("6_sqeg0")]([SubResource("Resource_jnkpk")])
 metadata/_custom_type_script = "uid://bnwbxsc8ax0sn"
 
 [sub_resource type="Resource" id="Resource_ph57d"]

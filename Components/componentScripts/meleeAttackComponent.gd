@@ -15,7 +15,8 @@ signal didAttack
 @export var damageType : damageInfo.damageTypeEnums
 @onready var attacker : boardEntity = get_parent() as boardEntity
 var canAttack : bool = true
-var isAttacking : bool = false
+var isAttacking : bool = false        # true while engaged with a target — may span many bite cycles
+var cycleInProgress : bool = false   # true only during one windup+burst — pure re-entrancy guard, resets every cycle
 var currentTarget : boardEntity = null   # locked for the whole cycle — never re-queried mid-attack
 var _damageInfo : damageInfo
 
@@ -37,23 +38,26 @@ func attack():
 		return
 	if not canAttack:
 		return
-	if isAttacking:
+	if cycleInProgress:
 		return
 	var target := getCurrentTarget()
-	print(target)
 	if target == null:
 		return
 	currentTarget = target
-	setAttacking(true)
+	cycleInProgress = true
+	setAttacking(true)   # no-ops after the first cycle — startedAttacking only fires once per engagement
 	if windupTime > 0.0:
 		windupStarted.emit(windupTime)
 		await get_tree().create_timer(windupTime).timeout
 		if not is_instance_valid(self) or not canAttack:
+			cycleInProgress = false
 			return
 		if not is_instance_valid(currentTarget):
+			cycleInProgress = false
 			setAttacking(false)
 			return
 	await burst.fire(hitOnce)
+	cycleInProgress = false
 
 func hitOnce():
 	if not is_instance_valid(currentTarget):

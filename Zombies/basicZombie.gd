@@ -11,10 +11,18 @@ func uponFinishedInitializing():
 	evaluateStats()
 
 func evaluateStats():
+	syncAttackWindup()
 	zombieMovementC.speed = stats.speed
 	zombieMeleeC.evaluateStats()
 	hpC.updateMaxShield(stats.shield)
 	hpC.updateMaxHP(stats.hp)
+
+func syncAttackWindup() -> void:
+	if not animationC:
+		return
+	var config : animationActionConfig = animationC.actionConfigs.get(&"attack")
+	var ratio : float = config.actionPointRatio if config else 1.0
+	zombieMeleeC.windupTime = zombieMeleeC.attackCooldown * ratio
 
 func _onAttackWindupStarted(windupTime: float) -> void:
 	if animationC:
