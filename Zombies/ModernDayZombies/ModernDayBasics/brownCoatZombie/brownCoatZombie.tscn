@@ -27,7 +27,7 @@
 [sub_resource type="Resource" id="Resource_te3yy"]
 script = ExtResource("3_4bcir")
 hp = 100
-speed = 100.0
+speed = 300.0
 weight = 1.0
 point = 1.0
 metadata/_custom_type_script = "uid://e8w77s8p2s5y"
@@ -6826,10 +6826,12 @@ maxHP = 1000
 [node name="zombieMeleeAttackComponent" parent="." index="2" unique_id=125088792]
 damage = 50
 attackReachInTiles = 2
+windupTime = 0.6
+damageType = null
 
 [node name="zombieMovementComponent" parent="." index="3" unique_id=953325601]
 burst = SubResource("Resource_um6f8")
-stepTime = 1.5
+stepTime = 0.2
 acceleration = 0.0
 
 [node name="animationComponent" parent="." index="5" unique_id=40668440 node_paths=PackedStringArray("animationPlayer")]

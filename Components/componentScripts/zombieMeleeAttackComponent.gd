@@ -3,16 +3,16 @@ class_name zombieMeleeAttackComponent
 
 @onready var zombie : Zombie = get_parent() as Zombie
 
-
 func getTarget() -> boardEntity:
-	return zombie._plantManager.getClosestPlantAhead(zombie , attackReachInTiles)
+	return zombie._plantManager.getClosestPlantAhead(zombie, attackReachInTiles)
 
 func _process(_delta):
 	if not isActivated():
 		return
-	var target = getCurrentTarget()
-	if target != null and !isAttacking :
-		attack()
+	if isAttacking:
+		if not is_instance_valid(currentTarget):
+			setAttacking(false)
 		return
-	if isAttacking and getCurrentTarget() == null: # if no more target stop attacking immediately
-		setAttacking(false)
+	var target := getCurrentTarget()
+	if target != null:
+		attack()
