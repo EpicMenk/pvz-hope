@@ -1,6 +1,8 @@
 extends entityComponent
 class_name animationComponent
 
+signal actionFinished(animName: StringName)
+
 @export var animationPlayer : AnimationPlayer
 @export var fallbackAnimName : StringName = &""
 @export var actionConfigs : Dictionary[StringName, animationActionConfig] = {}
@@ -46,6 +48,13 @@ func revertToFallback() -> void:
 	else:
 		animationPlayer.play(fallbackAnimName)
 
+func changeAnim(_name : StringName):
+	if animationPlayer.current_animation == _name:
+		return
+	animationPlayer.speed_scale = 1
+	animationPlayer.play(_name)
+
 func _onAnimFinished(animName: StringName) -> void:
 	if animName in uninterruptibleAnimNames:
 		_protectedActive = false
+	actionFinished.emit(animName)

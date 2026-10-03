@@ -21,8 +21,8 @@ func evaluateStats():
 
 func _ready() -> void:
 	super()
-	evaluateStats()
 	self.plantPlaced.connect(onPlanted)
+	finishedInitializing.emit()
 
 
 func getHurtboxComponent() -> hurtboxComponent:

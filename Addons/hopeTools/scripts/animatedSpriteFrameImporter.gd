@@ -7,8 +7,7 @@ class_name animatedSpriteFrameImporter
 
 # Key = AnimatedSprite2D animation name
 # Value = AnimationPlayer animation name
-@export var animationNameMap : Dictionary[StringName, StringName] = {
-}
+@export var animationNameMap : Dictionary[StringName, StringName] = {}
 
 @export var fps : float = 30.0
 
